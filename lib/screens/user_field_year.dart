@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:uni_calculator_test/screens/home.dart';
 
 import '../constants.dart';
 
@@ -42,7 +41,7 @@ class Userfieldyear extends StatelessWidget {
                                         .normal), // Replace with your WhiteBlue color
                               ),
                               TextSpan(
-                                text: enteredText + ', ',
+                                text: '$enteredText, ',
                                 style: textStyle.copyWith(
                                     color: primaryBlue,
                                     fontWeight: FontWeight

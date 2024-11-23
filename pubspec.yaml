@@ -1,0 +1,51 @@
+name: uni_calculator_test
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  cupertino_icons: ^1.0.8
+  flutter_svg: ^2.0.15
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^4.0.0
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+     - assets/images/
+     - assets/vectors/
+
+
+  fonts:
+     - family: Helvetica
+       fonts:
+         - asset: assets/fonts/HelveticaNowDisplay-Medium.otf
+         - asset: assets/fonts/HelveticaNowDisplay-Regular.otf
+
+     - family: Ping
+       fonts:
+         - asset: assets/fonts/arabic/PingAR+LT-Thin.otf
+         - asset: assets/fonts/arabic/PingAR+LT-Light.otf
+         - asset: assets/fonts/arabic/PingAR+LT-Regular.otf
+         - asset: assets/fonts/arabic/PingAR+LT-Medium.otf
+         - asset: assets/fonts/arabic/PingAR+LT-Bold.otf

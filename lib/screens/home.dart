@@ -237,7 +237,7 @@ class _HomeState extends State<HomePage> {
                                   height: 5.0,
                                 ),
                                 Text(
-                                  'Semester Average',
+                                  'Semester 1 Average',
                                   style: textStyle.copyWith(
                                       fontWeight: FontWeight.w500,
                                       fontSize: 25.0,
@@ -285,7 +285,7 @@ class _HomeState extends State<HomePage> {
                                   height: 5.0,
                                 ),
                                 Text(
-                                  'Annual Average',
+                                  'Semester 2 Average',
                                   style: textStyle.copyWith(
                                       fontWeight: FontWeight.w500,
                                       fontSize: 25.0,
@@ -302,27 +302,86 @@ class _HomeState extends State<HomePage> {
                   const SizedBox(
                     height: 15.0,
                   ),
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(25.0),
-                    decoration: BoxDecoration(
-                      color: primaryBlue,
-                      borderRadius: BorderRadius.circular(30),
+                  InkWell(
+                    borderRadius: BorderRadius.circular(30.0),
+                    splashColor: darkBlue,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AnnualAveragePage()),
+                      );
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(25.0),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: primaryBlue, width: 1.4),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      height: 150.0,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Icon(
+                            size: 40.0,
+                            Icons.calculate_rounded,
+                            color: primaryBlue,
+                          ),
+                          const SizedBox(
+                            height: 5.0,
+                          ),
+                          Flexible(
+                            child: RichText(
+                              text: TextSpan(
+                                  text: 'Annual Average Calculator',
+                                  style: textStyle.copyWith(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 28,
+                                      height: 1,
+                                      color: whiteBlue)),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                    height: 150.0,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Start Studying Now!',
-                          style: textStyle.copyWith(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 25.0,
-                              height: 1,
-                              color: darkBlue),
-                        ),
-                      ],
+                  ),
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+                  InkWell(
+                    borderRadius: BorderRadius.circular(30.0),
+                    splashColor: darkBlue,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AnnualAveragePage()),
+                      );
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(25.0),
+                      decoration: BoxDecoration(
+                        color: primaryBlue,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      height: 150.0,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Start Studying Now!',
+                            style: textStyle.copyWith(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 25.0,
+                                height: 1,
+                                color: darkBlue),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_calculator_test/screens/home.dart';
+import 'package:uni_calculator_test/screens/user_field_year.dart';
 import '../constants.dart';
 
 class Welcome extends StatefulWidget {
@@ -108,7 +109,7 @@ class _WelcomeState extends State<Welcome> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      HomePage(enteredText: enteredText),
+                                      Userfieldyear(enteredText: enteredText),
                                 ),
                               );
                             },

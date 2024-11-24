@@ -45,7 +45,7 @@ class Userfieldyear extends StatelessWidget {
                                 style: textStyle.copyWith(
                                     color: primaryBlue,
                                     fontWeight: FontWeight
-                                        .w700), // Replace with your PrimaryBlue color
+                                        .normal), // Replace with your PrimaryBlue color
                               ),
                               TextSpan(
                                 text: 'Whats your field of study? What year?',
@@ -75,19 +75,6 @@ class Userfieldyear extends StatelessWidget {
                               border:
                                   Border.all(color: primaryBlue, width: 1.4),
                               borderRadius: BorderRadius.circular(15.0)),
-                          child: TextField(
-                            controller: _controller,
-                            style: textStyle.copyWith(
-                                color: whiteBlue, fontSize: 18.0),
-                            cursorColor: primaryBlue,
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                              hintText: 'Enter you name',
-                              hintStyle: textStyle.copyWith(
-                                  color: darkBlue, fontSize: 18.0),
-                              border: InputBorder.none,
-                            ),
-                          ),
                         ),
                       ),
                       const SizedBox(
@@ -123,3 +110,17 @@ class Userfieldyear extends StatelessWidget {
     );
   }
 }
+
+// TextField(
+// controller: _controller,
+// style: textStyle.copyWith(
+// color: whiteBlue, fontSize: 18.0),
+// cursorColor: primaryBlue,
+// keyboardType: TextInputType.number,
+// decoration: InputDecoration(
+// hintText: 'Enter you name',
+// hintStyle: textStyle.copyWith(
+// color: darkBlue, fontSize: 18.0),
+// border: InputBorder.none,
+// ),
+// ),

@@ -17,7 +17,7 @@ dependencies:
 
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.0.15
-  sqflite: ^2.4.1
+  carousel_slider: ^5.0.0
 
 
 dev_dependencies:

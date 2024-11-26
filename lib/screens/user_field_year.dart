@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:uni_calculator_test/screens/home.dart';
 
 import '../constants.dart';
 
@@ -81,6 +82,15 @@ class Userfieldyear extends StatelessWidget {
                         width: 10,
                       ),
                       InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  HomePage(enteredText: enteredText),
+                            ),
+                          );
+                        },
                         borderRadius: BorderRadius.circular(15.0),
                         splashColor: primaryBlue,
                         child: Container(

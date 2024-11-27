@@ -243,7 +243,7 @@ class _HomeState extends State<HomePage> {
                                     'Semester 1 Average',
                                     style: textStyle.copyWith(
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 25.0,
+                                        fontSize: 23.0,
                                         height: 1,
                                         color: whiteBlue),
                                   ),
@@ -262,7 +262,7 @@ class _HomeState extends State<HomePage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const AnnualAveragePage()),
+                                        const SemesterCalculatorPage()),
                               );
                             },
                             borderRadius: BorderRadius.circular(30.0),
@@ -291,7 +291,7 @@ class _HomeState extends State<HomePage> {
                                     'Semester 2 Average',
                                     style: textStyle.copyWith(
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 25.0,
+                                        fontSize: 23.0,
                                         height: 1,
                                         color: whiteBlue),
                                   ),
@@ -387,9 +387,7 @@ class _HomeState extends State<HomePage> {
                     //     ),
                     //   ),
                     // ),
-                    const SizedBox(
-                      height: 15.0,
-                    ),
+
                     CarouselSlider(
                       options: CarouselOptions(
                         height: 150.0,

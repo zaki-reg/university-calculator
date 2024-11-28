@@ -118,331 +118,337 @@ class _HomeState extends State<HomePage> {
         child: Padding(
           padding: const EdgeInsets.all(25.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          width: 100.0,
-                          height: 50.0,
-                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: primaryBlue, width: 1.4),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(
-                                width: 16.0,
-                                'assets/vectors/home.svg',
-                                colorFilter: const ColorFilter.mode(
-                                    primaryBlue, BlendMode.srcATop),
-                              ),
-                              const SizedBox(
-                                width: 5.0,
-                              ),
-                              Text(
-                                'Home',
-                                style: textStyle.copyWith(
-                                    fontSize: 14.0, color: primaryBlue),
-                              )
-                            ],
-                          ),
-                        ),
-                        InkWell(
-                          borderRadius: BorderRadius.circular(30),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const SettingsPage()),
-                            );
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.all(12.0),
-                            width: 50.0,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            width: 100.0,
                             height: 50.0,
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 12.0),
                             decoration: BoxDecoration(
                               border:
                                   Border.all(color: primaryBlue, width: 1.4),
                               borderRadius: BorderRadius.circular(30),
                             ),
-                            child: SvgPicture.asset(
-                              'assets/vectors/settings.svg',
-                              colorFilter: const ColorFilter.mode(
-                                  primaryBlue, BlendMode.srcATop),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  width: 16.0,
+                                  'assets/vectors/home.svg',
+                                  colorFilter: const ColorFilter.mode(
+                                      primaryBlue, BlendMode.srcATop),
+                                ),
+                                const SizedBox(
+                                  width: 5.0,
+                                ),
+                                Text(
+                                  'Home',
+                                  style: textStyle.copyWith(
+                                      fontSize: 14.0, color: primaryBlue),
+                                )
+                              ],
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 10.0,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'Hello, ',
-                          style: textStyle.copyWith(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 40.0,
-                              color: whiteBlue),
-                        ),
-                        Text(
-                          widget.enteredText,
-                          style: textStyle.copyWith(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 40.0,
-                              color: primaryBlue),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 5.0,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(30.0),
-                            splashColor: darkBlue,
+                          InkWell(
+                            borderRadius: BorderRadius.circular(30),
                             onTap: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Semester1CalculatorPage()),
+                                    builder: (context) => const SettingsPage()),
                               );
                             },
                             child: Container(
-                              padding: const EdgeInsets.all(25.0),
+                              padding: const EdgeInsets.all(12.0),
+                              width: 50.0,
+                              height: 50.0,
                               decoration: BoxDecoration(
                                 border:
                                     Border.all(color: primaryBlue, width: 1.4),
                                 borderRadius: BorderRadius.circular(30),
                               ),
-                              height: 150.0,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Icon(
-                                    size: 40.0,
-                                    Icons.calculate_rounded,
-                                    color: primaryBlue,
-                                  ),
-                                  const SizedBox(
-                                    height: 5.0,
-                                  ),
-                                  Text(
-                                    'Semester 1 Average',
-                                    style: textStyle.copyWith(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 23.0,
-                                        height: 1,
-                                        color: whiteBlue),
-                                  ),
-                                ],
+                              child: SvgPicture.asset(
+                                'assets/vectors/settings.svg',
+                                colorFilter: const ColorFilter.mode(
+                                    primaryBlue, BlendMode.srcATop),
                               ),
                             ),
                           ),
-                        ),
-                        const SizedBox(
-                          width: 15,
-                        ),
-                        Expanded(
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const Semester2CalculatorPage()),
-                              );
-                            },
-                            borderRadius: BorderRadius.circular(30.0),
-                            splashColor: darkBlue,
-                            child: Container(
-                              padding: const EdgeInsets.all(25.0),
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: primaryBlue, width: 1.4),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              height: 150.0,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Icon(
-                                    size: 40.0,
-                                    Icons.calculate_rounded,
-                                    color: primaryBlue,
-                                  ),
-                                  const SizedBox(
-                                    height: 5.0,
-                                  ),
-                                  Text(
-                                    'Semester 2 Average',
-                                    style: textStyle.copyWith(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 23.0,
-                                        height: 1,
-                                        color: whiteBlue),
-                                  ),
-                                ],
-                              ),
-                            ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'Hello, ',
+                            style: textStyle.copyWith(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 40.0,
+                                color: whiteBlue),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 15.0,
-                    ),
-                    InkWell(
-                      borderRadius: BorderRadius.circular(30.0),
-                      splashColor: darkBlue,
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const AnnualAveragePage()),
-                        );
-                      },
-                      child: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(25.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: primaryBlue, width: 1.4),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        height: 150.0,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Icon(
-                              size: 40.0,
-                              Icons.calculate_rounded,
-                              color: primaryBlue,
-                            ),
-                            const SizedBox(
-                              height: 5.0,
-                            ),
-                            Flexible(
-                              child: RichText(
-                                text: TextSpan(
-                                    text: 'Annual Average Calculator',
-                                    style: textStyle.copyWith(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 28,
-                                        height: 1,
-                                        color: whiteBlue)),
-                              ),
-                            ),
-                          ],
-                        ),
+                          Text(
+                            widget.enteredText,
+                            style: textStyle.copyWith(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 40.0,
+                                color: primaryBlue),
+                          ),
+                        ],
                       ),
-                    ),
-                    const SizedBox(
-                      height: 15.0,
-                    ),
-                    // InkWell(
-                    //   borderRadius: BorderRadius.circular(30.0),
-                    //   splashColor: darkBlue,
-                    //   onTap: () {
-                    //     Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //           builder: (context) => const AnnualAveragePage()),
-                    //     );
-                    //   },
-                    //   child: Container(
-                    //     width: double.infinity,
-                    //     padding: const EdgeInsets.all(25.0),
-                    //     decoration: BoxDecoration(
-                    //       color: primaryBlue,
-                    //       borderRadius: BorderRadius.circular(30),
-                    //     ),
-                    //     height: 150.0,
-                    //     child: Column(
-                    //       mainAxisAlignment: MainAxisAlignment.end,
-                    //       crossAxisAlignment: CrossAxisAlignment.start,
-                    //       children: [
-                    //         Text(
-                    //           'Start Studying Now!',
-                    //           style: textStyle.copyWith(
-                    //               fontWeight: FontWeight.w500,
-                    //               fontSize: 25.0,
-                    //               height: 1,
-                    //               color: darkBlue),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
-
-                    CarouselSlider(
-                      options: CarouselOptions(
-                        height: 150.0,
-                        aspectRatio: 16 / 9,
-                        viewportFraction: 1,
-                        autoPlay: true,
-                        enlargeCenterPage: true,
-                        enlargeFactor: 0.1,
+                      const SizedBox(
+                        height: 5.0,
                       ),
-                      items: [1, 2, 3, 4, 5].map((i) {
-                        return Builder(
-                          builder: (BuildContext context) {
-                            return Container(
-                                width: MediaQuery.of(context).size.width,
-                                margin: const EdgeInsets.symmetric(
-                                    horizontal: 10.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(30.0),
+                              splashColor: darkBlue,
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const Semester1CalculatorPage()),
+                                );
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.all(25.0),
                                 decoration: BoxDecoration(
-                                  color: primaryBlue,
+                                  border: Border.all(
+                                      color: primaryBlue, width: 1.4),
                                   borderRadius: BorderRadius.circular(30),
                                 ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(25.0),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const Icon(
-                                        size: 40.0,
-                                        Icons.my_library_books_rounded,
-                                        color: darkBlue,
+                                height: 150.0,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Icon(
+                                      size: 40.0,
+                                      Icons.calculate_rounded,
+                                      color: primaryBlue,
+                                    ),
+                                    const SizedBox(
+                                      height: 5.0,
+                                    ),
+                                    Text(
+                                      'Semester 1 Average',
+                                      style: textStyle.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 23.0,
+                                          height: 1,
+                                          color: whiteBlue),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          Expanded(
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const Semester2CalculatorPage()),
+                                );
+                              },
+                              borderRadius: BorderRadius.circular(30.0),
+                              splashColor: darkBlue,
+                              child: Container(
+                                padding: const EdgeInsets.all(25.0),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: primaryBlue, width: 1.4),
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                height: 150.0,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Icon(
+                                      size: 40.0,
+                                      Icons.calculate_rounded,
+                                      color: primaryBlue,
+                                    ),
+                                    const SizedBox(
+                                      height: 5.0,
+                                    ),
+                                    Text(
+                                      'Semester 2 Average',
+                                      style: textStyle.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 23.0,
+                                          height: 1,
+                                          color: whiteBlue),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 15.0,
+                      ),
+                      InkWell(
+                        borderRadius: BorderRadius.circular(30.0),
+                        splashColor: darkBlue,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const AnnualAveragePage()),
+                          );
+                        },
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(25.0),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: primaryBlue, width: 1.4),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          height: 150.0,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Icon(
+                                size: 40.0,
+                                Icons.calculate_rounded,
+                                color: primaryBlue,
+                              ),
+                              const SizedBox(
+                                height: 5.0,
+                              ),
+                              Flexible(
+                                child: RichText(
+                                  text: TextSpan(
+                                      text: 'Annual Average Calculator',
+                                      style: textStyle.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 28,
+                                          height: 1,
+                                          color: whiteBlue)),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 15.0,
+                      ),
+                      // InkWell(
+                      //   borderRadius: BorderRadius.circular(30.0),
+                      //   splashColor: darkBlue,
+                      //   onTap: () {
+                      //     Navigator.push(
+                      //       context,
+                      //       MaterialPageRoute(
+                      //           builder: (context) => const AnnualAveragePage()),
+                      //     );
+                      //   },
+                      //   child: Container(
+                      //     width: double.infinity,
+                      //     padding: const EdgeInsets.all(25.0),
+                      //     decoration: BoxDecoration(
+                      //       color: primaryBlue,
+                      //       borderRadius: BorderRadius.circular(30),
+                      //     ),
+                      //     height: 150.0,
+                      //     child: Column(
+                      //       mainAxisAlignment: MainAxisAlignment.end,
+                      //       crossAxisAlignment: CrossAxisAlignment.start,
+                      //       children: [
+                      //         Text(
+                      //           'Start Studying Now!',
+                      //           style: textStyle.copyWith(
+                      //               fontWeight: FontWeight.w500,
+                      //               fontSize: 25.0,
+                      //               height: 1,
+                      //               color: darkBlue),
+                      //         ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
+
+                      InkWell(
+                        splashColor: darkBlue,
+                        onTap: () {},
+                        child: CarouselSlider(
+                          options: CarouselOptions(
+                            height: 150.0,
+                            aspectRatio: 16 / 9,
+                            viewportFraction: 1,
+                            autoPlay: true,
+                            enlargeCenterPage: true,
+                            enlargeFactor: 0.2,
+                          ),
+                          items: [1, 2, 3, 4, 5].map((i) {
+                            return Builder(
+                              builder: (BuildContext context) {
+                                return Container(
+                                    width: double.infinity,
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 0.0),
+                                    decoration: BoxDecoration(
+                                      color: primaryBlue,
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(25.0),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const Icon(
+                                              size: 40.0,
+                                              color: darkBlue,
+                                              Icons.video_library_rounded),
+                                          Text(
+                                            'Start Studying $i',
+                                            style: textStyle.copyWith(
+                                                fontSize: 28.0,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                        ],
                                       ),
-                                      Text(
-                                        'Start Studying $i',
-                                        style: textStyle.copyWith(
-                                            fontSize: 28.0,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                    ],
-                                  ),
-                                ));
-                          },
-                        );
-                      }).toList(),
-                    ),
-                  ],
+                                    ));
+                              },
+                            );
+                          }).toList(),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 15.0,
-              ),
-              _buildBottomNavBar(),
-            ],
-          ),
+                const SizedBox(
+                  height: 15.0,
+                ),
+                _buildBottomNavBar(),
+              ]),
         ),
       ),
     );

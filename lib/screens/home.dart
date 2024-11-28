@@ -393,7 +393,8 @@ class _HomeState extends State<HomePage> {
                       // ),
 
                       InkWell(
-                        splashColor: darkBlue,
+                        borderRadius: BorderRadius.circular(30),
+                        splashColor: Colors.orange,
                         onTap: () {},
                         child: CarouselSlider(
                           options: CarouselOptions(
@@ -412,7 +413,10 @@ class _HomeState extends State<HomePage> {
                                     margin: const EdgeInsets.symmetric(
                                         horizontal: 0.0),
                                     decoration: BoxDecoration(
-                                      color: primaryBlue,
+                                      border: Border.all(
+                                          color: primaryBlue, width: 1.4),
+
+                                      // color: primaryBlue,
                                       borderRadius: BorderRadius.circular(30),
                                     ),
                                     child: Padding(
@@ -425,7 +429,7 @@ class _HomeState extends State<HomePage> {
                                         children: [
                                           const Icon(
                                               size: 40.0,
-                                              color: darkBlue,
+                                              color: primaryBlue,
                                               Icons.video_library_rounded),
                                           Text(
                                             'Start Studying $i',

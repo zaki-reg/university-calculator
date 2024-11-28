@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:uni_calculator_test/screens/annual_calculator.dart';
-import 'package:uni_calculator_test/screens/semester_calculator.dart';
+import 'package:uni_calculator_test/screens/semester1.dart';
+import 'package:uni_calculator_test/screens/semester2.dart';
 import 'package:uni_calculator_test/screens/settings_page.dart';
 import '../constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -216,7 +217,7 @@ class _HomeState extends State<HomePage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const SemesterCalculatorPage()),
+                                        const Semester1CalculatorPage()),
                               );
                             },
                             child: Container(
@@ -262,7 +263,7 @@ class _HomeState extends State<HomePage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const SemesterCalculatorPage()),
+                                        const Semester2CalculatorPage()),
                               );
                             },
                             borderRadius: BorderRadius.circular(30.0),

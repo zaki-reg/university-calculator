@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import '../module_calculator.dart';
 import 'package:uni_calculator_test/constants.dart';
 
-class SemesterCalculatorPage extends StatefulWidget {
-  const SemesterCalculatorPage({super.key});
+class Semester2CalculatorPage extends StatefulWidget {
+  const Semester2CalculatorPage({super.key});
 
   @override
-  State<SemesterCalculatorPage> createState() => _SemesterCalculatorPageState();
+  State<Semester2CalculatorPage> createState() =>
+      _Semester2CalculatorPageState();
 }
 
-class _SemesterCalculatorPageState extends State<SemesterCalculatorPage> {
+class _Semester2CalculatorPageState extends State<Semester2CalculatorPage> {
   final List<Module> modules = [];
   double semesterAverage = 0.0;
 
@@ -57,7 +58,7 @@ class _SemesterCalculatorPageState extends State<SemesterCalculatorPage> {
                   ),
                   const SizedBox(width: 15),
                   Text(
-                    'Semester Average',
+                    'Semester 2',
                     style: textStyle.copyWith(
                         fontSize: 25,
                         fontWeight: FontWeight.w600,

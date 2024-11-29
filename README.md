@@ -1,3 +1,3 @@
 # Nokta
-This application is intended to be a solution for students of all ages, to see if they rather run to thier grandparents home for the vacation or demand a refund from their parents for the good work they did.
+This application is intended to be a solution for students of all ages, to see if they rather run to thier grandparents home for the vacation or stay with their lovely parents who -for sure- wouldn't compare them to thier cousins.
 

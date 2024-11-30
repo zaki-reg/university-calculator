@@ -394,7 +394,7 @@ class _HomeState extends State<HomePage> {
 
                       InkWell(
                         borderRadius: BorderRadius.circular(30),
-                        splashColor: Colors.orange,
+                        splashColor: primaryBlue,
                         onTap: () {},
                         child: CarouselSlider(
                           options: CarouselOptions(
@@ -435,6 +435,7 @@ class _HomeState extends State<HomePage> {
                                             'Start Studying $i',
                                             style: textStyle.copyWith(
                                                 fontSize: 28.0,
+                                                color: whiteBlue,
                                                 fontWeight: FontWeight.w600),
                                           ),
                                         ],

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../constants.dart';
+
 class FieldYear extends StatefulWidget {
   const FieldYear({super.key});
 
@@ -55,7 +57,7 @@ class _FieldYearState extends State<FieldYear> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: backgroundDarkBlue,
       appBar: AppBar(
         shape:
             const Border(bottom: BorderSide(color: Colors.black, width: 1.4)),

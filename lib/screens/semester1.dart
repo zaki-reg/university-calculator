@@ -30,7 +30,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF000B2B),
+      backgroundColor: backgroundDarkBlue,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25.0),

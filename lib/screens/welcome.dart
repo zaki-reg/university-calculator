@@ -16,7 +16,7 @@ class _WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF000B2B),
+      backgroundColor: backgroundDarkBlue,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -109,7 +109,7 @@ class _WelcomeState extends State<Welcome> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      Userfieldyear(enteredText: enteredText),
+                                      HomePage(enteredText: enteredText),
                                 ),
                               );
                             },
@@ -122,7 +122,7 @@ class _WelcomeState extends State<Welcome> {
                                     Border.all(color: primaryBlue, width: 1.4),
                                 borderRadius: BorderRadius.circular(15.0),
                               ),
-                              child: Icon(
+                              child: const Icon(
                                 CupertinoIcons.arrow_turn_up_left,
                                 color: primaryBlue,
                               ),

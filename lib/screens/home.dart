@@ -113,7 +113,7 @@ class _HomeState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF000B2B),
+      backgroundColor: backgroundDarkBlue,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -212,8 +212,9 @@ class _HomeState extends State<HomePage> {
                         children: [
                           Expanded(
                             child: InkWell(
-                              borderRadius: BorderRadius.circular(30.0),
+                              highlightColor: darkBlue,
                               splashColor: darkBlue,
+                              borderRadius: BorderRadius.circular(30.0),
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -260,6 +261,7 @@ class _HomeState extends State<HomePage> {
                           ),
                           Expanded(
                             child: InkWell(
+                              highlightColor: darkBlue,
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -269,7 +271,6 @@ class _HomeState extends State<HomePage> {
                                 );
                               },
                               borderRadius: BorderRadius.circular(30.0),
-                              splashColor: darkBlue,
                               child: Container(
                                 padding: const EdgeInsets.all(25.0),
                                 decoration: BoxDecoration(
@@ -310,6 +311,7 @@ class _HomeState extends State<HomePage> {
                       ),
                       InkWell(
                         borderRadius: BorderRadius.circular(30.0),
+                        highlightColor: darkBlue,
                         splashColor: darkBlue,
                         onTap: () {
                           Navigator.push(
@@ -394,7 +396,8 @@ class _HomeState extends State<HomePage> {
 
                       InkWell(
                         borderRadius: BorderRadius.circular(30),
-                        splashColor: Colors.orange,
+                        highlightColor: darkBlue,
+                        splashColor: darkBlue,
                         onTap: () {},
                         child: CarouselSlider(
                           options: CarouselOptions(
@@ -435,6 +438,7 @@ class _HomeState extends State<HomePage> {
                                             'Start Studying $i',
                                             style: textStyle.copyWith(
                                                 fontSize: 28.0,
+                                                color: whiteBlue,
                                                 fontWeight: FontWeight.w600),
                                           ),
                                         ],

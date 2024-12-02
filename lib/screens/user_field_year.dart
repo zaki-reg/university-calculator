@@ -7,14 +7,12 @@ import '../constants.dart';
 class Userfieldyear extends StatelessWidget {
   final String enteredText;
 
-  Userfieldyear({required this.enteredText, super.key});
-
-  final TextEditingController _controller = TextEditingController();
+  const Userfieldyear({required this.enteredText, super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF000B2B),
+      backgroundColor: backgroundDarkBlue,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30.0),

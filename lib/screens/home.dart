@@ -30,8 +30,10 @@ class _HomeState extends State<HomePage> {
           flex: 3,
           child: Container(
             decoration: BoxDecoration(
-              color: const Color(0xFF01124C),
-              borderRadius: BorderRadius.circular(100),
+              border: Border.all(color: darkBlue, width: 1.4),
+
+              // color: const Color(0xFF01124C),
+              borderRadius: BorderRadius.circular(20),
             ),
             height: 65.0,
           ),
@@ -43,21 +45,21 @@ class _HomeState extends State<HomePage> {
               icon: 'assets/vectors/home.svg',
               label: 'Home',
               activeColor: primaryBlue,
-              inactiveColor: primaryBlue,
+              inactiveColor: darkBlue,
             ),
             _buildNavItem(
               index: 1,
               icon: 'assets/vectors/study.svg',
               label: 'Study',
               activeColor: primaryBlue,
-              inactiveColor: primaryBlue,
+              inactiveColor: darkBlue,
             ),
             _buildNavItem(
               index: 2,
               icon: 'assets/vectors/profile.svg',
               label: 'Profile',
               activeColor: primaryBlue,
-              inactiveColor: primaryBlue,
+              inactiveColor: darkBlue,
             ),
           ],
         ),
@@ -82,8 +84,12 @@ class _HomeState extends State<HomePage> {
           width: 150,
           height: 65.0,
           decoration: BoxDecoration(
-            color: isSelected ? activeColor : const Color(0xFF01124C),
-            borderRadius: BorderRadius.circular(100),
+            border: Border.all(
+              width: 1.4,
+              color: isSelected ? activeColor : Colors.transparent,
+            ),
+            // color: isSelected ? activeColor : const Color(0xFF01124C),
+            borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -156,31 +162,31 @@ class _HomeState extends State<HomePage> {
                               ],
                             ),
                           ),
-                          // InkWell(
-                          //   borderRadius: BorderRadius.circular(30),
-                          //   onTap: () {
-                          //     Navigator.push(
-                          //       context,
-                          //       MaterialPageRoute(
-                          //           builder: (context) => const SettingsPage()),
-                          //     );
-                          //   },
-                          //   child: Container(
-                          //     padding: const EdgeInsets.all(12.0),
-                          //     width: 50.0,
-                          //     height: 50.0,
-                          //     decoration: BoxDecoration(
-                          //       border:
-                          //           Border.all(color: primaryBlue, width: 1.4),
-                          //       borderRadius: BorderRadius.circular(30),
-                          //     ),
-                          //     child: SvgPicture.asset(
-                          //       'assets/vectors/settings.svg',
-                          //       colorFilter: const ColorFilter.mode(
-                          //           primaryBlue, BlendMode.srcATop),
-                          //     ),
-                          //   ),
-                          // ),
+                          InkWell(
+                            borderRadius: BorderRadius.circular(30),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SettingsPage()),
+                              );
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(12.0),
+                              width: 50.0,
+                              height: 50.0,
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: primaryBlue, width: 1.4),
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: SvgPicture.asset(
+                                'assets/vectors/settings.svg',
+                                colorFilter: const ColorFilter.mode(
+                                    primaryBlue, BlendMode.srcATop),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                       const SizedBox(
@@ -455,7 +461,7 @@ class _HomeState extends State<HomePage> {
                 const SizedBox(
                   height: 15.0,
                 ),
-                // _buildBottomNavBar(),
+                _buildBottomNavBar(),
               ]),
         ),
       ),

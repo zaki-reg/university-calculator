@@ -208,6 +208,10 @@ class _HomeState extends State<HomePage> {
                                 fontSize: 40.0,
                                 color: primaryBlue),
                           ),
+                          Text(
+                            ' 👋',
+                            style: textStyle.copyWith(fontSize: 32.0),
+                          )
                         ],
                       ),
                       const SizedBox(

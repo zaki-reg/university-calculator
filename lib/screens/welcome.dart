@@ -109,8 +109,9 @@ class _WelcomeState extends State<Welcome> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      const CustomDropdownButton(),
+                                  builder: (context) => CustomDropdownButton(
+                                    enteredText: enteredText,
+                                  ),
                                 ),
                               );
                             },

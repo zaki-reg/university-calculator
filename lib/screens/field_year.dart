@@ -5,7 +5,9 @@ import 'package:uni_calculator_test/screens/home.dart';
 import '../constants.dart';
 
 class CustomDropdownButton extends StatefulWidget {
-  const CustomDropdownButton({super.key});
+  final String enteredText;
+
+  const CustomDropdownButton({super.key, required this.enteredText});
 
   @override
   _CustomDropdownButtonState createState() => _CustomDropdownButtonState();
@@ -260,7 +262,7 @@ class _YearRowState extends State<YearRow> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const HomePage(
-                      enteredText: '',
+                      enteredText: 'user',
                     ),
                   ),
                 );

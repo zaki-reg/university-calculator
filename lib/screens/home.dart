@@ -190,32 +190,48 @@ class _HomeState extends State<HomePage> {
                         ],
                       ),
                       const SizedBox(
-                        height: 10.0,
+                        height: 30.0,
                       ),
                       Row(
                         children: [
-                          Text(
-                            'Hello, ',
-                            style: textStyle.copyWith(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 40.0,
-                                color: whiteBlue),
+                          Flexible(
+                            child: RichText(
+                              text: TextSpan(
+                                style: textStyle.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 40.0,
+                                  height: 1,
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: 'Hello ',
+                                    style: textStyle.copyWith(
+                                        color: whiteBlue,
+                                        fontWeight: FontWeight
+                                            .normal), // Replace with your WhiteBlue color
+                                  ),
+                                  TextSpan(
+                                    text: widget.enteredText,
+                                    style: textStyle.copyWith(
+                                        color: primaryBlue,
+                                        fontWeight: FontWeight
+                                            .w500), // Replace with your WhiteBlue color
+                                  ),
+                                  TextSpan(
+                                    text: ' 👋',
+                                    style: textStyle.copyWith(
+                                        color: primaryBlue,
+                                        fontWeight: FontWeight
+                                            .w500), // Replace with your WhiteBlue color
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                          Text(
-                            widget.enteredText,
-                            style: textStyle.copyWith(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 40.0,
-                                color: primaryBlue),
-                          ),
-                          Text(
-                            ' 👋',
-                            style: textStyle.copyWith(fontSize: 32.0),
-                          )
                         ],
                       ),
                       const SizedBox(
-                        height: 5.0,
+                        height: 10.0,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

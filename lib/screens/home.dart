@@ -9,7 +9,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage extends StatefulWidget {
   final String enteredText;
-  const HomePage({required this.enteredText, super.key});
+  const HomePage({super.key, required this.enteredText});
 
   @override
   State<HomePage> createState() => _HomeState();
@@ -404,24 +404,24 @@ class _HomeState extends State<HomePage> {
                       //   ),
                       // ),
 
-                      InkWell(
-                        borderRadius: BorderRadius.circular(30),
-                        highlightColor: darkBlue,
-                        splashColor: darkBlue,
-                        onTap: () {},
-                        child: CarouselSlider(
-                          options: CarouselOptions(
-                            height: 150.0,
-                            aspectRatio: 16 / 9,
-                            viewportFraction: 1,
-                            autoPlay: true,
-                            enlargeCenterPage: true,
-                            enlargeFactor: 0.2,
-                          ),
-                          items: [1, 2, 3, 4, 5].map((i) {
-                            return Builder(
-                              builder: (BuildContext context) {
-                                return Container(
+                      CarouselSlider(
+                        options: CarouselOptions(
+                          height: 150.0,
+                          aspectRatio: 16 / 9,
+                          viewportFraction: 1,
+                          autoPlay: true,
+                          enlargeCenterPage: true,
+                          enlargeFactor: 0.2,
+                        ),
+                        items: [1, 2, 3, 4, 5].map((i) {
+                          return Builder(
+                            builder: (BuildContext context) {
+                              return InkWell(
+                                borderRadius: BorderRadius.circular(30),
+                                highlightColor: darkBlue,
+                                splashColor: darkBlue,
+                                onTap: () {},
+                                child: Container(
                                     width: double.infinity,
                                     margin: const EdgeInsets.symmetric(
                                         horizontal: 0.0),
@@ -453,11 +453,11 @@ class _HomeState extends State<HomePage> {
                                           ),
                                         ],
                                       ),
-                                    ));
-                              },
-                            );
-                          }).toList(),
-                        ),
+                                    )),
+                              );
+                            },
+                          );
+                        }).toList(),
                       ),
                     ],
                   ),

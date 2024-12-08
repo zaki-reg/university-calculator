@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:uni_calculator_test/screens/home.dart';
 
 import '../constants.dart';
 
@@ -41,16 +42,60 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
     return Scaffold(
       backgroundColor: backgroundDarkBlue,
       body: Padding(
-        padding: const EdgeInsets.all(25.0),
+        padding: const EdgeInsets.all(30.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Flexible(
+              child: RichText(
+                text: TextSpan(
+                  style: textStyle.copyWith(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 40.0,
+                    height: 1,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: 'What is your',
+                      style: textStyle.copyWith(
+                          color: whiteBlue,
+                          fontWeight: FontWeight
+                              .normal), // Replace with your WhiteBlue color
+                    ),
+                    TextSpan(
+                      text: ' speciality? ',
+                      style: textStyle.copyWith(
+                          color: primaryBlue,
+                          fontWeight: FontWeight
+                              .w500), // Replace with your WhiteBlue color
+                    ),
+                    TextSpan(
+                      text: 'What ',
+                      style: textStyle.copyWith(
+                          color: whiteBlue,
+                          fontWeight: FontWeight
+                              .normal), // Replace with your PrimaryBlue color
+                    ),
+                    TextSpan(
+                      text: 'Year?',
+                      style: textStyle.copyWith(
+                          color: primaryBlue,
+                          fontWeight: FontWeight
+                              .w500), // Replace with your WhiteBlue color
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 15.0,
+            ),
             Row(
               children: [
                 Expanded(
                   child: InkWell(
                     highlightColor: primaryBlue,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(15.0),
                     onTap: () async {
                       final selected = await _showMenu(context);
                       if (selected != null) {
@@ -68,11 +113,11 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                     child: Material(
                       color: Colors.transparent,
                       child: Container(
-                        height: 55,
+                        height: 60,
                         padding: const EdgeInsets.symmetric(
                             horizontal: 12, vertical: 8),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(15.0),
                           border: Border.all(color: primaryBlue, width: 1.4),
                         ),
                         child: Row(
@@ -81,7 +126,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                                 color: primaryBlue),
                             const SizedBox(width: 10),
                             Text(selectedField,
-                                style: const TextStyle(
+                                style: textStyle.copyWith(
                                     fontSize: 16, color: whiteBlue)),
                           ],
                         ),
@@ -95,13 +140,13 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                   color: isFieldSelected ? primaryBlue : Colors.transparent,
                   child: InkWell(
                     splashColor: primaryBlue,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(15.0),
                     onTap: isFieldSelected ? addNewRow : null,
                     child: Container(
-                      height: 55,
+                      height: 60,
                       width: 70,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(15.0),
                           border: Border.all(color: primaryBlue, width: 1.4)),
                       child: const Center(
                         child: Icon(Icons.arrow_back, color: whiteBlue),
@@ -131,9 +176,13 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
       items: fieldYears.keys.map((field) {
         return PopupMenuItem(
           value: field,
-          child: Text(field),
+          child: Text(
+            field,
+            style: textStyle.copyWith(fontSize: 15, color: whiteBlue),
+          ),
         );
       }).toList(),
+      color: Colors.transparent,
       elevation: 0,
     );
   }
@@ -160,7 +209,7 @@ class _YearRowState extends State<YearRow> {
           Expanded(
             child: InkWell(
               highlightColor: primaryBlue,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(15.0),
               onTap: () async {
                 final selected = await _showYearMenu(context);
                 if (selected != null) {
@@ -172,11 +221,11 @@ class _YearRowState extends State<YearRow> {
               child: Material(
                 color: Colors.transparent,
                 child: Container(
-                  padding: const EdgeInsets.all(12),
-                  height: 55,
+                  padding: const EdgeInsets.all(15.0),
+                  height: 60,
                   decoration: BoxDecoration(
                     color: Colors.transparent,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(15.0),
                     border: Border.all(color: primaryBlue, width: 1.4),
                   ),
                   child: Row(
@@ -190,7 +239,8 @@ class _YearRowState extends State<YearRow> {
                       ),
                       Text(
                         selectedYear,
-                        style: const TextStyle(color: whiteBlue, fontSize: 16),
+                        style:
+                            textStyle.copyWith(color: whiteBlue, fontSize: 16),
                       ),
                     ],
                   ),
@@ -200,17 +250,26 @@ class _YearRowState extends State<YearRow> {
           ),
           const SizedBox(width: 10),
           Material(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(15.0),
             color: primaryBlue,
             child: InkWell(
               splashColor: primaryBlue,
-              borderRadius: BorderRadius.circular(12),
-              onTap: () {},
+              borderRadius: BorderRadius.circular(15.0),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(
+                      enteredText: '',
+                    ),
+                  ),
+                );
+              },
               child: Container(
-                height: 55,
+                height: 60,
                 width: 70,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(15.0),
                     border: Border.all(color: darkBlue, width: 1.4)),
                 child: const Center(
                   child: Icon(Icons.check, color: whiteBlue),
@@ -236,9 +295,13 @@ class _YearRowState extends State<YearRow> {
         items: widget.years.map((year) {
           return PopupMenuItem(
             value: year,
-            child: Text(year),
+            child: Text(
+              year,
+              style: textStyle.copyWith(fontSize: 15, color: whiteBlue),
+            ),
           );
         }).toList(),
+        color: Colors.transparent,
         elevation: 0);
   }
 }

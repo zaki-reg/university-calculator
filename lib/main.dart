@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uni_calculator_test/constants.dart';
 import 'package:uni_calculator_test/screens/field_year.dart';
 import 'package:uni_calculator_test/screens/welcome.dart';
 
@@ -16,7 +17,7 @@ class UniCal extends StatelessWidget {
         popupMenuTheme: PopupMenuThemeData(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
-              side: const BorderSide(color: Colors.black, width: 1.4)),
+              side: const BorderSide(color: primaryBlue, width: 1.4)),
         ),
       ),
       home: const Scaffold(

@@ -3,175 +3,242 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
-class FieldYear extends StatefulWidget {
-  const FieldYear({super.key});
+class CustomDropdownButton extends StatefulWidget {
+  const CustomDropdownButton({super.key});
 
   @override
-  State<FieldYear> createState() => _FieldYearState();
+  _CustomDropdownButtonState createState() => _CustomDropdownButtonState();
 }
 
-class _FieldYearState extends State<FieldYear> {
-  String selectedField = 'Choose your field';
-  String selectedYear = 'Choose your year';
+class _CustomDropdownButtonState extends State<CustomDropdownButton> {
+  String selectedField = "Choose your field";
+  bool isFieldSelected = false;
 
-  final List<String> fields = ['Informatique ING', 'Informatique LMD', 'MI'];
-  final List<String> years = [
-    '1st year',
-    '2nd year',
-    '3rd year',
-    '4th year',
-    '5th year'
-  ];
+  final Map<String, List<String>> fieldYears = {
+    "Informatique ING": ["ing-1", "ing-2", "ing-3", "ing-4", "ing-5"],
+    "Informatique LMD": ["lmd-1", "lmd-2", "lmd-3", "lmd-4", "lmd-5"],
+    "Science Matière": ["sci-1", "sci-2", "sci-3", "sci-4", "sci-5"],
+    "Mécanique": ["mech-1", "mech-2", "mech-3", "mech-4", "mech-5"],
+    "Médecine": ["med-1", "med-2", "med-3", "med-4", "med-5"],
+  };
 
-  // Method to show a bottom sheet for selecting options
-  void _showBottomSheet(List<String> options, String type) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return Container(
-          height: 250, // Set height for the bottom sheet
-          padding: const EdgeInsets.all(16),
-          child: ListView.builder(
-            itemCount: options.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(options[index]),
-                onTap: () {
-                  setState(() {
-                    if (type == 'Field') {
-                      selectedField = options[index];
-                    } else if (type == 'Year') {
-                      selectedYear = options[index];
-                    }
-                  });
-                  Navigator.of(context).pop(); // Close the bottom sheet
-                },
-              );
-            },
-          ),
+  List<YearRow> additionalRows = [];
+  bool hasAddedRow = false; // Control adding rows
+
+  void addNewRow() {
+    if (!hasAddedRow) {
+      setState(() {
+        additionalRows.add(
+          YearRow(key: UniqueKey(), years: fieldYears[selectedField]!),
         );
-      },
-    );
+        hasAddedRow = true; // Prevent further additions
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundDarkBlue,
-      appBar: AppBar(
-        shape:
-            const Border(bottom: BorderSide(color: Colors.black, width: 1.4)),
-        backgroundColor: const Color(0xFFE5EDFF),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(CupertinoIcons.arrow_left),
-          color: Colors.black,
-        ),
-      ),
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(35.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+      body: Padding(
+        padding: const EdgeInsets.all(25.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
               children: [
-                InkWell(
-                  borderRadius: BorderRadius.circular(10),
-                  onTap: () {
-                    _showBottomSheet(fields, 'Field'); // Show field options
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    height: 55,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                          color: const Color(0xFF000000), width: 1.4),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          selectedField,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'Helvetica',
-                          ),
+                Expanded(
+                  child: InkWell(
+                    highlightColor: primaryBlue,
+                    borderRadius: BorderRadius.circular(12),
+                    onTap: () async {
+                      final selected = await _showMenu(context);
+                      if (selected != null) {
+                        setState(() {
+                          if (selectedField != selected) {
+                            selectedField = selected;
+                            isFieldSelected = true;
+                            additionalRows.clear(); // Clear previous rows
+                            hasAddedRow =
+                                false; // Allow adding rows for the new field
+                          }
+                        });
+                      }
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      child: Container(
+                        height: 55,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 8),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: primaryBlue, width: 1.4),
                         ),
-                        const Icon(Icons.keyboard_arrow_down_sharp),
-                      ],
+                        child: Row(
+                          children: [
+                            const Icon(Icons.arrow_drop_down_circle_outlined,
+                                color: primaryBlue),
+                            const SizedBox(width: 10),
+                            Text(selectedField,
+                                style: const TextStyle(
+                                    fontSize: 16, color: whiteBlue)),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 12.0),
-                InkWell(
-                  borderRadius: BorderRadius.circular(10),
-                  onTap: () {
-                    _showBottomSheet(years, 'Year'); // Show year options
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    height: 55,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                          color: const Color(0xFF000000), width: 1.4),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          selectedYear,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'Helvetica',
-                          ),
-                        ),
-                        const Icon(Icons.keyboard_arrow_down_sharp),
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 12),
-                InkWell(
-                  splashColor: Colors.green,
-                  borderRadius: BorderRadius.circular(10),
-                  onTap: () {
-                    // Action on continue button tap
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    height: 55,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                          color: const Color(0xFF000000), width: 1.4),
-                    ),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Continue',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'Helvetica',
-                          ),
-                        ),
-                        Icon(Icons.keyboard_arrow_right_sharp),
-                      ],
+                const SizedBox(width: 10),
+                Material(
+                  borderRadius: BorderRadius.circular(12),
+                  color: isFieldSelected ? primaryBlue : Colors.transparent,
+                  child: InkWell(
+                    splashColor: primaryBlue,
+                    borderRadius: BorderRadius.circular(12),
+                    onTap: isFieldSelected ? addNewRow : null,
+                    child: Container(
+                      height: 55,
+                      width: 70,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(color: primaryBlue, width: 1.4)),
+                      child: const Center(
+                        child: Icon(Icons.arrow_back, color: whiteBlue),
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
-          ),
+            ...additionalRows,
+          ],
         ),
       ),
     );
+  }
+
+  Future<String?> _showMenu(BuildContext context) async {
+    RenderBox renderBox = context.findRenderObject() as RenderBox;
+    var offset = renderBox.localToGlobal(Offset.zero);
+    double top = offset.dy + renderBox.size.height + 5;
+    double left = offset.dx;
+
+    return await showMenu(
+      context: context,
+      position:
+          RelativeRect.fromLTRB(left, top, left + renderBox.size.width, 0),
+      items: fieldYears.keys.map((field) {
+        return PopupMenuItem(
+          value: field,
+          child: Text(field),
+        );
+      }).toList(),
+      elevation: 0,
+    );
+  }
+}
+
+class YearRow extends StatefulWidget {
+  final List<String> years;
+
+  const YearRow({super.key, required this.years});
+
+  @override
+  _YearRowState createState() => _YearRowState();
+}
+
+class _YearRowState extends State<YearRow> {
+  String selectedYear = "Select Year";
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: InkWell(
+              highlightColor: primaryBlue,
+              borderRadius: BorderRadius.circular(12),
+              onTap: () async {
+                final selected = await _showYearMenu(context);
+                if (selected != null) {
+                  setState(() {
+                    selectedYear = selected;
+                  });
+                }
+              },
+              child: Material(
+                color: Colors.transparent,
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  height: 55,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: primaryBlue, width: 1.4),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.arrow_drop_down_circle_outlined,
+                        color: primaryBlue,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        selectedYear,
+                        style: const TextStyle(color: whiteBlue, fontSize: 16),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 10),
+          Material(
+            borderRadius: BorderRadius.circular(12),
+            color: primaryBlue,
+            child: InkWell(
+              splashColor: primaryBlue,
+              borderRadius: BorderRadius.circular(12),
+              onTap: () {},
+              child: Container(
+                height: 55,
+                width: 70,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: darkBlue, width: 1.4)),
+                child: const Center(
+                  child: Icon(Icons.check, color: whiteBlue),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<String?> _showYearMenu(BuildContext context) async {
+    RenderBox renderBox = context.findRenderObject() as RenderBox;
+    var offset = renderBox.localToGlobal(Offset.zero);
+    double top = offset.dy + renderBox.size.height + 5;
+    double left = offset.dx;
+
+    return await showMenu(
+        context: context,
+        position:
+            RelativeRect.fromLTRB(left, top, left + renderBox.size.width, 0),
+        items: widget.years.map((year) {
+          return PopupMenuItem(
+            value: year,
+            child: Text(year),
+          );
+        }).toList(),
+        elevation: 0);
   }
 }

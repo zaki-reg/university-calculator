@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_calculator_test/screens/home.dart';
 import '../constants.dart';
+import 'field_year.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({super.key});
@@ -12,6 +13,7 @@ class Welcome extends StatefulWidget {
 
 class _WelcomeState extends State<Welcome> {
   TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,7 +110,7 @@ class _WelcomeState extends State<Welcome> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      HomePage(enteredText: enteredText),
+                                      const CustomDropdownButton(),
                                 ),
                               );
                             },

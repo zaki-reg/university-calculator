@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_calculator_test/screens/home.dart';
 
@@ -16,6 +15,7 @@ class CustomDropdownButton extends StatefulWidget {
 class _CustomDropdownButtonState extends State<CustomDropdownButton> {
   String selectedField = "Choose your field";
   bool isFieldSelected = false;
+  bool isYearSelected = false;
 
   final Map<String, List<String>> fieldYears = {
     "Informatique ING": ["ing-1", "ing-2", "ing-3", "ing-4", "ing-5"],
@@ -138,10 +138,10 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                 ),
                 const SizedBox(width: 10),
                 Material(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(15.0),
                   color: isFieldSelected ? primaryBlue : Colors.transparent,
                   child: InkWell(
-                    splashColor: primaryBlue,
+                    highlightColor: darkBlue,
                     borderRadius: BorderRadius.circular(15.0),
                     onTap: isFieldSelected ? addNewRow : null,
                     child: Container(
@@ -168,13 +168,21 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
   Future<String?> _showMenu(BuildContext context) async {
     RenderBox renderBox = context.findRenderObject() as RenderBox;
     var offset = renderBox.localToGlobal(Offset.zero);
-    double top = offset.dy + renderBox.size.height + 5;
+
+    double top =
+        offset.dy + renderBox.size.height; // Align just below the button
     double left = offset.dx;
+
+    // Add a check to ensure that the left is within screen bounds (optional)
+    double screenWidth = MediaQuery.of(context).size.width;
+    if (left + renderBox.size.width > screenWidth) {
+      left = screenWidth - renderBox.size.width;
+    }
 
     return await showMenu(
       context: context,
-      position:
-          RelativeRect.fromLTRB(left, top, left + renderBox.size.width, 0),
+      position: RelativeRect.fromLTRB(
+          left, top, left + renderBox.size.width, top + renderBox.size.height),
       items: fieldYears.keys.map((field) {
         return PopupMenuItem(
           value: field,
@@ -255,7 +263,7 @@ class _YearRowState extends State<YearRow> {
             borderRadius: BorderRadius.circular(15.0),
             color: primaryBlue,
             child: InkWell(
-              splashColor: primaryBlue,
+              highlightColor: darkBlue,
               borderRadius: BorderRadius.circular(15.0),
               onTap: () {
                 Navigator.push(
@@ -271,8 +279,9 @@ class _YearRowState extends State<YearRow> {
                 height: 60,
                 width: 70,
                 decoration: BoxDecoration(
+                    // color: isYearSelected ? primaryBlue : Colors.transparent,
                     borderRadius: BorderRadius.circular(15.0),
-                    border: Border.all(color: darkBlue, width: 1.4)),
+                    border: Border.all(color: primaryBlue, width: 1.4)),
                 child: const Center(
                   child: Icon(Icons.check, color: whiteBlue),
                 ),
@@ -287,23 +296,25 @@ class _YearRowState extends State<YearRow> {
   Future<String?> _showYearMenu(BuildContext context) async {
     RenderBox renderBox = context.findRenderObject() as RenderBox;
     var offset = renderBox.localToGlobal(Offset.zero);
-    double top = offset.dy + renderBox.size.height + 5;
+    double top =
+        offset.dy + renderBox.size.height + 5; // A bit more space for clarity
     double left = offset.dx;
 
     return await showMenu(
-        context: context,
-        position:
-            RelativeRect.fromLTRB(left, top, left + renderBox.size.width, 0),
-        items: widget.years.map((year) {
-          return PopupMenuItem(
-            value: year,
-            child: Text(
-              year,
-              style: textStyle.copyWith(fontSize: 15, color: whiteBlue),
-            ),
-          );
-        }).toList(),
-        color: Colors.transparent,
-        elevation: 0);
+      context: context,
+      position: RelativeRect.fromLTRB(
+          left, top, left + renderBox.size.width, top + renderBox.size.height),
+      items: widget.years.map((year) {
+        return PopupMenuItem(
+          value: year,
+          child: Text(
+            year,
+            style: textStyle.copyWith(fontSize: 15, color: whiteBlue),
+          ),
+        );
+      }).toList(),
+      color: Colors.transparent,
+      elevation: 0,
+    );
   }
 }

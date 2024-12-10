@@ -30,7 +30,7 @@ class _HomeState extends State<HomePage> {
           flex: 3,
           child: Container(
             decoration: BoxDecoration(
-              border: Border.all(color: darkBlue, width: 1.4),
+              border: Border.all(color: primaryBlue, width: 1.4),
 
               // color: const Color(0xFF01124C),
               borderRadius: BorderRadius.circular(20),
@@ -45,21 +45,21 @@ class _HomeState extends State<HomePage> {
               icon: 'assets/vectors/home.svg',
               label: 'Home',
               activeColor: primaryBlue,
-              inactiveColor: darkBlue,
+              inactiveColor: primaryBlue.withOpacity(0.5),
             ),
             _buildNavItem(
               index: 1,
               icon: 'assets/vectors/study.svg',
               label: 'Study',
               activeColor: primaryBlue,
-              inactiveColor: darkBlue,
+              inactiveColor: primaryBlue.withOpacity(0.5),
             ),
             _buildNavItem(
               index: 2,
               icon: 'assets/vectors/profile.svg',
               label: 'Profile',
               activeColor: primaryBlue,
-              inactiveColor: darkBlue,
+              inactiveColor: primaryBlue.withOpacity(0.5),
             ),
           ],
         ),
@@ -84,9 +84,10 @@ class _HomeState extends State<HomePage> {
           width: 150,
           height: 65.0,
           decoration: BoxDecoration(
+            color: isSelected ? primaryBlue : Colors.transparent,
             border: Border.all(
               width: 1.4,
-              color: isSelected ? activeColor : Colors.transparent,
+              color: isSelected ? primaryBlue : Colors.transparent,
             ),
             // color: isSelected ? activeColor : const Color(0xFF01124C),
             borderRadius: BorderRadius.circular(20),
@@ -98,13 +99,13 @@ class _HomeState extends State<HomePage> {
                 icon,
                 height: 17,
                 colorFilter: ColorFilter.mode(
-                    isSelected ? whiteBlue : inactiveColor, BlendMode.srcATop),
+                    isSelected ? whiteBlue : primaryBlue, BlendMode.srcATop),
               ),
               const SizedBox(width: 3.0),
               Text(
                 label,
                 style: textStyle.copyWith(
-                  color: isSelected ? whiteBlue : inactiveColor,
+                  color: isSelected ? whiteBlue : primaryBlue,
                   fontSize: 14.0,
                   fontWeight: FontWeight.w500,
                 ),

@@ -27,6 +27,14 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
     super.dispose();
   }
 
+  // setstate for keep track of the selected year
+  void _onYearSelected(String year) {
+    setState(() {
+      selectedYear = year;
+      modules = presets[year] ?? [];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

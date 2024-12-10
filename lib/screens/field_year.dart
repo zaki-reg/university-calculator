@@ -269,7 +269,8 @@ class _YearRowState extends State<YearRow> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const HomePage(
+                    builder: (context) => HomePage(
+                      selectedYear: selectedYear,
                       enteredText: 'user',
                     ),
                   ),

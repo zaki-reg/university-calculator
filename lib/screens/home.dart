@@ -9,7 +9,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage extends StatefulWidget {
   final String enteredText;
-  const HomePage({super.key, required this.enteredText});
+  final String selectedYear;
+  const HomePage(
+      {super.key, required this.enteredText, required this.selectedYear});
 
   @override
   State<HomePage> createState() => _HomeState();

@@ -14,6 +14,7 @@ class CustomDropdownButton extends StatefulWidget {
 
 class _CustomDropdownButtonState extends State<CustomDropdownButton> {
   String selectedField = "Choose your field";
+  late String enteredText;
   bool isFieldSelected = false;
   bool isYearSelected = false;
 
@@ -57,6 +58,20 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                     height: 1,
                   ),
                   children: [
+                    TextSpan(
+                      text: 'Hello ',
+                      style: textStyle.copyWith(
+                          color: whiteBlue,
+                          fontWeight: FontWeight
+                              .normal), // Replace with your WhiteBlue color
+                    ),
+                    TextSpan(
+                      text: '${widget.enteredText}, ',
+                      style: textStyle.copyWith(
+                          color: primaryBlue,
+                          fontWeight: FontWeight
+                              .w500), // Replace with your WhiteBlue color
+                    ),
                     TextSpan(
                       text: 'What is your',
                       style: textStyle.copyWith(
@@ -271,7 +286,7 @@ class _YearRowState extends State<YearRow> {
                   MaterialPageRoute(
                     builder: (context) => HomePage(
                       selectedYear: selectedYear,
-                      enteredText: 'user',
+                      enteredText: enteredText,
                     ),
                   ),
                 );

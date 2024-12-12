@@ -4,17 +4,23 @@ import 'package:flutter/material.dart';
 class Module {
   final String name;
   final double coef;
-  final double examRatio; // Add examRatio to the Module class
-  final double tdTpRatio; // Add tdTpRatio to the Module class
+  final double examRatio;
+  final double tdTpRatio;
   final bool isTdTp;
+  double modAvg = 0.0;
 
   final TextEditingController tdController = TextEditingController();
   final TextEditingController tpController = TextEditingController();
   final TextEditingController examController = TextEditingController();
   final TextEditingController coefficientController = TextEditingController();
 
-  // Modify the constructor to accept examRatio and tdTpRatio
-  Module(this.name, this.coef, this.examRatio, this.tdTpRatio, this.isTdTp) {
+  Module(
+    this.name,
+    this.coef,
+    this.examRatio,
+    this.tdTpRatio,
+    this.isTdTp,
+  ) {
     coefficientController.text = coef.toString();
   }
 
@@ -40,7 +46,7 @@ class ModulePreset {
 
 // Preset data (ING-1 with modules and coefficients)
 final Map<String, List<ModulePreset>> presets = {
-  'ING-SEM1': [
+  'ing-1': [
     ModulePreset('Analyse 1', 6, 0.6, 0.4, false),
     ModulePreset('Algèbre 1', 4, 0.6, 0.4, false),
     ModulePreset('ADO1', 4, 0.6, 0.4, false),
@@ -49,7 +55,7 @@ final Map<String, List<ModulePreset>> presets = {
     ModulePreset('ASD 1', 6, 0.6, 0.4, true),
     ModulePreset('Tech', 1, 1, 1, false),
   ],
-  'ING-SEM2': [
+  'ing-2': [
     ModulePreset('Analyse 2', 6, 0.6, 0.4, false),
     ModulePreset('Algèbre 2', 4, 0.6, 0.4, false),
     ModulePreset('Logique', 4, 0.6, 0.4, false),
@@ -58,7 +64,7 @@ final Map<String, List<ModulePreset>> presets = {
     ModulePreset('SE 2', 6, 0.6, 0.4, true),
     ModulePreset('ASD 2', 6, 0.6, 0.4, false),
   ],
-  'ING-SEM3': [
+  'ing-3': [
     ModulePreset('SFSD', 5, 0.6, 0.4, false),
     ModulePreset('POO 1', 5, 0.6, 0.4, false),
     ModulePreset('ADO 2', 5, 0.6, 0.4, false),
@@ -68,7 +74,7 @@ final Map<String, List<ModulePreset>> presets = {
     ModulePreset('PS 2', 2, 0.6, 0.4, false),
     ModulePreset('Entreprenariat', 1, 1, 1, false),
   ],
-  'ING-SEM4': [
+  'ing-4': [
     ModulePreset('POO 2', 6, 0.6, 0.4, false),
     ModulePreset('SI', 3, 0.6, 0.4, false),
     ModulePreset('RI', 4, 0.6, 0.4, false),
@@ -117,7 +123,6 @@ final Map<String, List<ModulePreset>> presets = {
   ],
 };
 
-// Function to calculate the semester average based on modules
 double calculateSemesterAverage(List<Module> modules) {
   double modAvgXCoef = 0;
   double totalCoefficient = 0;
@@ -128,21 +133,23 @@ double calculateSemesterAverage(List<Module> modules) {
     double examGrade = double.tryParse(module.examController.text) ?? 0.0;
     double coefficient =
         double.tryParse(module.coefficientController.text) ?? 1.0;
-
     totalCoefficient += coefficient;
 
     if (module.isTdTp) {
-      double modAvg = (examGrade * module.examRatio) +
+      module.modAvg = (examGrade * module.examRatio) +
           (((tdGrade + tpGrade) / 2) * module.tdTpRatio);
-      modAvgXCoef += (modAvg * coefficient);
     } else {
-      double modAvg = (examGrade * module.examRatio) +
+      module.modAvg = (examGrade * module.examRatio) +
           (((tdGrade + tpGrade)) * module.tdTpRatio);
-      modAvgXCoef += (modAvg * coefficient);
     }
+
+    modAvgXCoef += (module.modAvg * coefficient);
+    module.modAvg = module.modAvg > 20.00 ? 20.00 : module.modAvg;
   }
 
-  return modAvgXCoef / totalCoefficient;
+  return (modAvgXCoef / totalCoefficient) == 0
+      ? 0
+      : (modAvgXCoef / totalCoefficient);
 }
 
 List<Module> applyPreset(String presetKey) {

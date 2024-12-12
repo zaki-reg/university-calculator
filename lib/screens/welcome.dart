@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:uni_calculator_test/screens/home.dart';
 import '../constants.dart';
 import 'field_year.dart';
 

@@ -10,6 +10,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 class HomePage extends StatefulWidget {
   final String enteredText;
   final String selectedYear;
+
   const HomePage(
       {super.key, required this.enteredText, required this.selectedYear});
 
@@ -214,7 +215,7 @@ class _HomeState extends State<HomePage> {
                                             .normal), // Replace with your WhiteBlue color
                                   ),
                                   TextSpan(
-                                    text: widget.enteredText,
+                                    text: widget.selectedYear,
                                     style: textStyle.copyWith(
                                         color: primaryBlue,
                                         fontWeight: FontWeight

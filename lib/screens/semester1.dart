@@ -27,14 +27,6 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
     super.dispose();
   }
 
-  // setstate for keep track of the selected year
-  void _onYearSelected(String year) {
-    setState(() {
-      selectedYear = year;
-      modules = presets[year] ?? [];
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +88,9 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            semesterAverage.toStringAsFixed(2),
+                            semesterAverage > 20
+                                ? 'Null'
+                                : semesterAverage.toStringAsFixed(2),
                             style: textStyle.copyWith(
                                 fontSize: 32,
                                 fontWeight: FontWeight.w600,
@@ -247,8 +241,66 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
               _buildGradeInput('TP', module.tpController),
               const SizedBox(width: 10),
               _buildGradeInput('Exam', module.examController),
+              // const SizedBox(width: 10),
+              // _buildGradeInput('Coef', module.coefficientController),
               const SizedBox(width: 10),
-              _buildGradeInput('Coef', module.coefficientController),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Coef',
+                      style: textStyle.copyWith(fontSize: 15, color: whiteBlue),
+                    ),
+                    const SizedBox(height: 4),
+                    Container(
+                      width: double.infinity,
+                      height: 50,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: primaryBlue, width: 1),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Center(
+                        child: Text(
+                          module.coef.toStringAsFixed(0),
+                          style: textStyle.copyWith(
+                              color: whiteBlue, fontSize: 15),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Avg',
+                      style: textStyle.copyWith(fontSize: 15, color: whiteBlue),
+                    ),
+                    const SizedBox(height: 4),
+                    Container(
+                      width: double.infinity,
+                      height: 50,
+                      // padding: const EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: primaryBlue, width: 1),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Center(
+                        child: Text(
+                          module.modAvg.toStringAsFixed(2),
+                          style: textStyle.copyWith(
+                              color: whiteBlue, fontSize: 15),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ],
@@ -263,7 +315,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
         children: [
           Text(
             label,
-            style: textStyle.copyWith(fontSize: 14, color: whiteBlue),
+            style: textStyle.copyWith(fontSize: 15, color: whiteBlue),
           ),
           const SizedBox(height: 4),
           Container(
@@ -273,12 +325,14 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
               borderRadius: BorderRadius.circular(8),
             ),
             child: TextField(
+              textAlign: TextAlign.center,
               style: textStyle.copyWith(color: whiteBlue),
               cursorColor: primaryBlue,
               controller: controller,
               keyboardType: TextInputType.number,
               onChanged: (_) => _calculateAverage(),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
+                labelStyle: textStyle.copyWith(fontSize: 15, color: whiteBlue),
                 border: InputBorder.none,
               ),
             ),

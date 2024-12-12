@@ -286,7 +286,7 @@ class _YearRowState extends State<YearRow> {
                   MaterialPageRoute(
                     builder: (context) => HomePage(
                       selectedYear: selectedYear,
-                      enteredText: enteredText,
+                      // enteredText: enteredText,
                     ),
                   ),
                 );

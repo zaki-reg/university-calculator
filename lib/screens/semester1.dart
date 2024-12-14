@@ -45,14 +45,14 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                       width: 100.0,
                       height: 50.0,
                       padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: limeGreen, width: 1.4),
+                      decoration: BoxDecoration(color: limeGreen,
+                        border: Border.all(color: darkGreen, width:2),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: const Icon(
                         Icons.arrow_back,
                         size: 24,
-                        color: limeGreen,
+                        color: darkGreen,
                       ),
                     ),
                   ),
@@ -62,7 +62,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                     style: textStyle.copyWith(
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
-                        color: limeGreen),
+                        color: darkGreen),
                   ),
                 ],
               ),
@@ -74,8 +74,8 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                     child: Container(
                       height: 105.0,
                       padding: const EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: limeGreen, width: 1.4),
+                      decoration: BoxDecoration(color: limeGreen,
+                        border: Border.all(color: darkGreen, width: 2),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Column(
@@ -84,7 +84,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                           Text(
                             'Semester Average',
                             style: textStyle.copyWith(
-                                fontSize: 14, color: highlightWhite),
+                                fontSize: 14, color: darkGreen),
                           ),
                           const SizedBox(height: 4),
                           Text(
@@ -94,7 +94,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                             style: textStyle.copyWith(
                                 fontSize: 32,
                                 fontWeight: FontWeight.w600,
-                                color: limeGreen),
+                                color: darkGreen),
                           ),
                         ],
                       ),
@@ -111,8 +111,8 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                       child: Container(
                         height: 105.0,
                         padding: const EdgeInsets.all(15),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: limeGreen, width: 1.4),
+                        decoration: BoxDecoration(color: limeGreen,
+                          border: Border.all(color: darkGreen, width: 2),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -121,7 +121,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                             Text(
                               'Select a preset',
                               style: textStyle.copyWith(
-                                  fontSize: 14, color: highlightWhite),
+                                  fontSize: 14, color: darkGreen),
                             ),
                             const SizedBox(
                               height: 3.0,
@@ -130,7 +130,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                             const Icon(
                               Icons.tune_rounded,
                               size: 40.0,
-                              color: limeGreen,
+                              color: darkGreen,
                             ),
                           ],
                         ),
@@ -159,14 +159,14 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
 
               // Add Module Button
               InkWell(
-                focusColor: limeGreen,
+                highlightColor: darkGreen,
                 borderRadius: BorderRadius.circular(50),
                 onTap: _showAddModuleDialog,
                 child: Container(
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(vertical: 15),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: limeGreen, width: 1.4),
+                  decoration: BoxDecoration(color: limeGreen,
+                    border: Border.all(color: darkGreen, width: 2),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Row(
@@ -174,7 +174,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                     children: [
                       const Icon(
                         Icons.add,
-                        color: limeGreen,
+                        color: darkGreen,
                         size: 25,
                       ),
                       const SizedBox(width: 2),
@@ -182,7 +182,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                         'Add Module',
                         style: textStyle.copyWith(
                             fontSize: 17,
-                            color: limeGreen,
+                            color: darkGreen,
                             fontWeight: FontWeight.w600),
                       ),
                     ],
@@ -200,7 +200,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        border: Border.all(color: limeGreen, width: 1.4),
+        border: Border.all(color: darkGreen, width:2),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -214,7 +214,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                 style: textStyle.copyWith(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: highlightWhite),
+                    color: darkGreen),
               ),
               InkWell(
                 borderRadius: BorderRadius.circular(10.0),
@@ -223,8 +223,8 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                 onTap: () => _deleteModule(module),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: const Color(0x52F41D1D),
-                    border: Border.all(color: Colors.black, width: 1.4),
+                    color: const Color(0x20F41D1D),
+                    border: Border.all(color: darkGreen, width: 2),
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   padding: const EdgeInsets.all(8),
@@ -251,22 +251,22 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                     Text(
                       'Coef',
                       style: textStyle.copyWith(
-                          fontSize: 15, color: highlightWhite),
+                          fontSize: 15, color: darkGreen),
                     ),
                     const SizedBox(height: 4),
                     Container(
                       width: double.infinity,
                       height: 50,
                       padding: const EdgeInsets.symmetric(horizontal: 10),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: limeGreen, width: 1),
+                      decoration: BoxDecoration(color: limeGreen,
+                        border: Border.all(color: darkGreen, width: 2),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Center(
                         child: Text(
                           module.coef.toStringAsFixed(0),
                           style: textStyle.copyWith(
-                              color: highlightWhite, fontSize: 15),
+                              color: darkGreen, fontSize: 15),
                         ),
                       ),
                     ),
@@ -281,22 +281,22 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                     Text(
                       'Avg',
                       style: textStyle.copyWith(
-                          fontSize: 15, color: highlightWhite),
+                          fontSize: 15, color: darkGreen),
                     ),
                     const SizedBox(height: 4),
                     Container(
                       width: double.infinity,
                       height: 50,
                       // padding: const EdgeInsets.symmetric(horizontal: 10),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: limeGreen, width: 1),
+                      decoration: BoxDecoration(color: limeGreen,
+                        border: Border.all(color: darkGreen, width: 2),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Center(
                         child: Text(
                           module.modAvg.toStringAsFixed(2),
                           style: textStyle.copyWith(
-                              color: highlightWhite, fontSize: 15),
+                              color: darkGreen, fontSize: 15),
                         ),
                       ),
                     ),
@@ -317,25 +317,25 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
         children: [
           Text(
             label,
-            style: textStyle.copyWith(fontSize: 15, color: highlightWhite),
+            style: textStyle.copyWith(fontSize: 15, color: darkGreen),
           ),
           const SizedBox(height: 4),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            decoration: BoxDecoration(
-              border: Border.all(color: limeGreen, width: 1),
+            decoration: BoxDecoration(color: limeGreen,
+              border: Border.all(color: darkGreen, width: 2),
               borderRadius: BorderRadius.circular(8),
             ),
             child: TextField(
               textAlign: TextAlign.center,
-              style: textStyle.copyWith(color: highlightWhite),
-              cursorColor: limeGreen,
+              style: textStyle.copyWith(color: darkGreen),
+              cursorColor: darkGreen,
               controller: controller,
               keyboardType: TextInputType.number,
               onChanged: (_) => _calculateAverage(),
               decoration: InputDecoration(
                 labelStyle:
-                    textStyle.copyWith(fontSize: 15, color: highlightWhite),
+                    textStyle.copyWith(fontSize: 15, color: darkGreen),
                 border: InputBorder.none,
               ),
             ),
@@ -361,64 +361,64 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
           builder: (BuildContext context, StateSetter dialogSetState) {
             return AlertDialog(
               clipBehavior: Clip.antiAlias,
-              backgroundColor: const Color(0xF0000F40),
+              backgroundColor: backgroundColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30.0),
               ),
               title: Text(
                 'Add Module',
-                style: textStyle.copyWith(color: limeGreen),
+                style: textStyle.copyWith(color: darkGreen),
               ),
               content: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     TextField(
-                      cursorColor: limeGreen,
-                      style: textStyle.copyWith(color: highlightWhite),
+                      cursorColor: darkGreen,
+                      style: textStyle.copyWith(color: darkGreen),
                       onChanged: (value) {
                         moduleName = value;
                       },
-                      decoration: InputDecoration(
+                      decoration: InputDecoration(fillColor: limeGreen,filled: true,
                         labelText: 'Module Name',
                         labelStyle:
-                            textStyle.copyWith(color: const Color(0xFF285efe)),
+                            textStyle.copyWith(color: darkGreen),
                         floatingLabelStyle:
-                            textStyle.copyWith(color: limeGreen),
+                            textStyle.copyWith(color: darkGreen),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                                const BorderSide(color: limeGreen, width: 1.4)),
+                                const BorderSide(color: darkGreen, width: 2)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                                const BorderSide(color: limeGreen, width: 1.4)),
+                                const BorderSide(color: darkGreen, width: 2)),
                       ),
                     ),
                     const SizedBox(
                       height: 8.0,
                     ),
                     TextField(
-                      cursorColor: limeGreen,
-                      style: textStyle.copyWith(color: highlightWhite),
+                      cursorColor: darkGreen,
+                      style: textStyle.copyWith(color: darkGreen),
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         coefficient = double.tryParse(value) ?? 1.0;
                       },
-                      decoration: InputDecoration(
+                      decoration: InputDecoration(fillColor: limeGreen,filled: true,
                         labelText: 'Coefficient',
                         labelStyle:
-                            textStyle.copyWith(color: const Color(0xFF0C37CD)),
+                            textStyle.copyWith(color: darkGreen),
                         floatingLabelStyle:
-                            textStyle.copyWith(color: limeGreen),
+                            textStyle.copyWith(color: darkGreen),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                                const BorderSide(color: limeGreen, width: 1.4)),
+                                const BorderSide(color: darkGreen, width: 1.4)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8.0),
                             borderSide:
-                                const BorderSide(color: limeGreen, width: 1.4)),
+                                const BorderSide(color: darkGreen, width: 1.4)),
                       ),
                     ),
                     const SizedBox(
@@ -431,25 +431,25 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                       onChanged: (value) {
                         examRatio = double.tryParse(value) ?? 0.6;
                       },
-                      decoration: InputDecoration(
+                      decoration: InputDecoration(fillColor: limeGreen,filled: true,
                         labelText: 'Exam Ratio',
                         hintText: 'Example: 0.6',
                         hintStyle: TextStyle(
                             fontFamily: 'Helvetica',
                             fontSize: 15,
-                            color: Colors.grey[400]),
+                            color: darkGreen.withAlpha(80)),
                         labelStyle:
-                            textStyle.copyWith(color: const Color(0xFF0C37CD)),
+                            textStyle.copyWith(color: darkGreen),
                         floatingLabelStyle:
-                            textStyle.copyWith(color: limeGreen),
+                            textStyle.copyWith(color: darkGreen),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                                const BorderSide(color: limeGreen, width: 1.4)),
+                                const BorderSide(color: darkGreen, width: 2)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                                const BorderSide(color: limeGreen, width: 1.4)),
+                                const BorderSide(color: darkGreen, width: 2)),
                       ),
                     ),
                     const SizedBox(
@@ -462,25 +462,25 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                       onChanged: (value) {
                         tdTpRatio = double.tryParse(value) ?? 0.4;
                       },
-                      decoration: InputDecoration(
+                      decoration: InputDecoration(fillColor: limeGreen,filled: true,
                         labelText: 'TD/TP Ratio',
                         hintText: 'Example: 0.4',
                         hintStyle: TextStyle(
                             fontFamily: 'Helvetica',
                             fontSize: 15,
-                            color: Colors.grey[400]),
+                            color: darkGreen.withAlpha(80)),
                         labelStyle:
-                            textStyle.copyWith(color: const Color(0xFF0C37CD)),
+                            textStyle.copyWith(color: darkGreen),
                         floatingLabelStyle:
-                            textStyle.copyWith(color: limeGreen),
+                            textStyle.copyWith(color: darkGreen),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                                const BorderSide(color: limeGreen, width: 1.4)),
+                                const BorderSide(color: darkGreen, width: 2)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                                const BorderSide(color: limeGreen, width: 1.4)),
+                                const BorderSide(color: darkGreen, width: 2)),
                       ),
                     ),
                     const SizedBox(
@@ -490,8 +490,8 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                       height: 56,
                       padding: const EdgeInsets.symmetric(horizontal: 14.5),
                       width: double.infinity,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: limeGreen, width: 1.4),
+                      decoration: BoxDecoration(color: limeGreen,
+                          border: Border.all(color: darkGreen, width:2),
                           borderRadius: BorderRadius.circular(15.0)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -499,7 +499,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                           Text(
                             'Has both TD/TP?',
                             style: textStyle.copyWith(
-                                fontSize: 15.0, color: const Color(0xFF0C37CD)),
+                                fontSize: 15.0, color: darkGreen),
                           ),
                           Switch(
                             value: isTdTp, // Use the external variable
@@ -511,12 +511,12 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                               });
                             },
                             activeColor: limeGreen,
-                            activeTrackColor: const Color(0xFF0015FF),
-                            inactiveThumbColor: const Color(0xFF0C37CD),
+                            activeTrackColor: limeGreen.withGreen(10),
+                            inactiveThumbColor: darkGreen.withAlpha(99),
                             inactiveTrackColor: darkGreen,
                             trackOutlineColor: WidgetStateProperty.all(
-                                const Color(0x000c37cd)),
-                            trackOutlineWidth: WidgetStateProperty.all(0.0),
+                                darkGreen),
+                            trackOutlineWidth: WidgetStateProperty.all(2),
                           ),
                         ],
                       ),
@@ -526,8 +526,8 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
               ),
               actions: [
                 TextButton(
-                  style: TextButton.styleFrom(
-                      side: const BorderSide(width: 1.4, color: limeGreen),
+                  style: TextButton.styleFrom(backgroundColor: limeGreen,
+                      side: const BorderSide(width: 2, color: darkGreen),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0))),
                   onPressed: () {
@@ -535,12 +535,12 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                   },
                   child: Text(
                     'Cancel',
-                    style: textStyle.copyWith(color: limeGreen),
+                    style: textStyle.copyWith(color: darkGreen),
                   ),
                 ),
                 TextButton(
-                  style: TextButton.styleFrom(
-                      side: const BorderSide(width: 1.4, color: limeGreen),
+                  style: TextButton.styleFrom(backgroundColor: limeGreen,
+                      side: const BorderSide(width: 2, color: darkGreen),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0))),
                   onPressed: () {
@@ -555,7 +555,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                   },
                   child: Text(
                     'Add',
-                    style: textStyle.copyWith(color: limeGreen),
+                    style: textStyle.copyWith(color: darkGreen),
                   ),
                 ),
               ],
@@ -587,55 +587,57 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
       builder: (context) {
         return AlertDialog(
           clipBehavior: Clip.antiAlias,
-          backgroundColor: const Color(0xF0000F40),
+          backgroundColor: backgroundColor,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
           title: Text(
             'Select a Preset',
-            style: textStyle.copyWith(color: limeGreen),
+            style: textStyle.copyWith(color: darkGreen),
           ),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: presets.keys.map((key) {
-              return Container(
-                margin: const EdgeInsets.symmetric(vertical: 4.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(
-                    color: limeGreen,
-                    width: 1.4,
-                  ),
-                ),
-                child: ListTile(
-                  splashColor: limeGreen,
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  shape: RoundedRectangleBorder(
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: presets.keys.map((key) {
+                return Container(
+                  margin: const EdgeInsets.symmetric(vertical: 4.0),
+                  decoration: BoxDecoration(color: limeGreen,
                     borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: darkGreen,
+                      width: 2,
+                    ),
                   ),
-                  title: Text(
-                    key,
-                    style: textStyle.copyWith(color: limeGreen),
+                  child: ListTile(
+                    splashColor: darkGreen,
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    title: Text(
+                      key,
+                      style: textStyle.copyWith(color: darkGreen),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        // Dispose of existing module controllers
+                        for (var module in modules) {
+                          module.dispose();
+                        }
+                        modules.clear();
+                        modules.addAll(applyPreset(key));
+                        _calculateAverage();
+                      });
+                      Navigator.pop(context);
+                    },
                   ),
-                  onTap: () {
-                    setState(() {
-                      // Dispose of existing module controllers
-                      for (var module in modules) {
-                        module.dispose();
-                      }
-                      modules.clear();
-                      modules.addAll(applyPreset(key));
-                      _calculateAverage();
-                    });
-                    Navigator.pop(context);
-                  },
-                ),
-              );
-            }).toList(),
+                );
+              }).toList(),
+            ),
           ),
           actions: [
             TextButton(
-              style: TextButton.styleFrom(
-                side: const BorderSide(width: 1.4, color: limeGreen),
+              style: TextButton.styleFrom(backgroundColor: limeGreen,
+                side: const BorderSide(width: 2, color: darkGreen),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
@@ -643,7 +645,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
               onPressed: () => Navigator.pop(context),
               child: Text(
                 'Cancel',
-                style: textStyle.copyWith(color: limeGreen),
+                style: textStyle.copyWith(color: darkGreen),
               ),
             ),
           ],

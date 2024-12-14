@@ -33,7 +33,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundDarkBlue,
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -58,13 +58,13 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                                   padding: const EdgeInsets.all(8),
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                        color: primaryBlue, width: 1.4),
+                                        color: limeGreen, width: 1.4),
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                   child: const Icon(
                                     Icons.arrow_back,
                                     size: 24,
-                                    color: primaryBlue,
+                                    color: limeGreen,
                                   ),
                                 ),
                               ),
@@ -74,7 +74,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                                 style: textStyle.copyWith(
                                     fontSize: 25,
                                     fontWeight: FontWeight.w600,
-                                    color: primaryBlue),
+                                    color: limeGreen),
                               ),
                             ],
                           ),
@@ -85,8 +85,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                             width: double.infinity,
                             padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: primaryBlue, width: 1.4),
+                              border: Border.all(color: limeGreen, width: 1.4),
                               borderRadius: BorderRadius.circular(15),
                             ),
                             child: Column(
@@ -95,12 +94,12 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                                 Row(
                                   children: [
                                     const Icon(Icons.calculate_rounded,
-                                        color: primaryBlue, size: 24),
+                                        color: limeGreen, size: 24),
                                     const SizedBox(width: 2),
                                     Text(
                                       'Annual Average',
                                       style: textStyle.copyWith(
-                                          fontSize: 16, color: whiteBlue),
+                                          fontSize: 16, color: highlightWhite),
                                     ),
                                   ],
                                 ),
@@ -109,7 +108,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                                     style: textStyle.copyWith(
                                         fontSize: 40,
                                         fontWeight: FontWeight.bold,
-                                        color: primaryBlue)),
+                                        color: limeGreen)),
                                 if (annualAverage > 0) ...[
                                   const SizedBox(height: 10),
                                   Text(
@@ -132,7 +131,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                             style: textStyle.copyWith(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600,
-                                color: whiteBlue),
+                                color: highlightWhite),
                           ),
                           const SizedBox(height: 15),
 
@@ -155,14 +154,14 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                 ),
               ),
               InkWell(
-                focusColor: primaryBlue,
+                focusColor: limeGreen,
                 borderRadius: BorderRadius.circular(50),
                 onTap: _calculateAnnualAverage,
                 child: Container(
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   decoration: BoxDecoration(
-                    border: Border.all(color: primaryBlue, width: 1.4),
+                    border: Border.all(color: limeGreen, width: 1.4),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Row(
@@ -170,7 +169,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                     children: [
                       const Icon(
                         Icons.calculate_rounded,
-                        color: primaryBlue,
+                        color: limeGreen,
                         size: 25,
                       ),
                       const SizedBox(width: 2),
@@ -178,7 +177,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                         'Calculate',
                         style: textStyle.copyWith(
                             fontSize: 17,
-                            color: primaryBlue,
+                            color: limeGreen,
                             fontWeight: FontWeight.w600),
                       ),
                     ],
@@ -197,7 +196,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        border: Border.all(color: primaryBlue, width: 1.4),
+        border: Border.all(color: limeGreen, width: 1.4),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
@@ -206,17 +205,19 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
           Text(
             semester.name,
             style: textStyle.copyWith(
-                fontSize: 16, fontWeight: FontWeight.w600, color: whiteBlue),
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: highlightWhite),
           ),
           const SizedBox(height: 10),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
-              border: Border.all(color: darkBlue, width: 1),
+              border: Border.all(color: darkGreen, width: 1),
               borderRadius: BorderRadius.circular(10),
             ),
             child: TextField(
-              cursorColor: primaryBlue,
+              cursorColor: limeGreen,
               controller: controller,
               keyboardType: TextInputType.number,
               onChanged: (value) {
@@ -227,10 +228,10 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'Enter average',
-                hintStyle: textStyle.copyWith(color: darkBlue),
+                hintStyle: textStyle.copyWith(color: darkGreen),
                 contentPadding: const EdgeInsets.symmetric(vertical: 8),
               ),
-              style: textStyle.copyWith(fontSize: 16, color: whiteBlue),
+              style: textStyle.copyWith(fontSize: 16, color: highlightWhite),
             ),
           ),
         ],

@@ -30,7 +30,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundDarkBlue,
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -46,13 +46,13 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                       height: 50.0,
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        border: Border.all(color: primaryBlue, width: 1.4),
+                        border: Border.all(color: limeGreen, width: 1.4),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: const Icon(
                         Icons.arrow_back,
                         size: 24,
-                        color: primaryBlue,
+                        color: limeGreen,
                       ),
                     ),
                   ),
@@ -62,7 +62,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                     style: textStyle.copyWith(
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
-                        color: primaryBlue),
+                        color: limeGreen),
                   ),
                 ],
               ),
@@ -75,7 +75,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                       height: 105.0,
                       padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
-                        border: Border.all(color: primaryBlue, width: 1.4),
+                        border: Border.all(color: limeGreen, width: 1.4),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Column(
@@ -84,7 +84,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                           Text(
                             'Semester Average',
                             style: textStyle.copyWith(
-                                fontSize: 14, color: whiteBlue),
+                                fontSize: 14, color: highlightWhite),
                           ),
                           const SizedBox(height: 4),
                           Text(
@@ -94,7 +94,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                             style: textStyle.copyWith(
                                 fontSize: 32,
                                 fontWeight: FontWeight.w600,
-                                color: primaryBlue),
+                                color: limeGreen),
                           ),
                         ],
                       ),
@@ -112,7 +112,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                         height: 105.0,
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
-                          border: Border.all(color: primaryBlue, width: 1.4),
+                          border: Border.all(color: limeGreen, width: 1.4),
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Column(
@@ -121,7 +121,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                             Text(
                               'Select a preset',
                               style: textStyle.copyWith(
-                                  fontSize: 14, color: whiteBlue),
+                                  fontSize: 14, color: highlightWhite),
                             ),
                             const SizedBox(
                               height: 3.0,
@@ -130,7 +130,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                             const Icon(
                               Icons.tune_rounded,
                               size: 40.0,
-                              color: primaryBlue,
+                              color: limeGreen,
                             ),
                           ],
                         ),
@@ -159,14 +159,14 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
 
               // Add Module Button
               InkWell(
-                focusColor: primaryBlue,
+                focusColor: limeGreen,
                 borderRadius: BorderRadius.circular(50),
                 onTap: _showAddModuleDialog,
                 child: Container(
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   decoration: BoxDecoration(
-                    border: Border.all(color: primaryBlue, width: 1.4),
+                    border: Border.all(color: limeGreen, width: 1.4),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Row(
@@ -174,7 +174,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                     children: [
                       const Icon(
                         Icons.add,
-                        color: primaryBlue,
+                        color: limeGreen,
                         size: 25,
                       ),
                       const SizedBox(width: 2),
@@ -182,7 +182,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                         'Add Module',
                         style: textStyle.copyWith(
                             fontSize: 17,
-                            color: primaryBlue,
+                            color: limeGreen,
                             fontWeight: FontWeight.w600),
                       ),
                     ],
@@ -200,7 +200,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        border: Border.all(color: primaryBlue, width: 1.4),
+        border: Border.all(color: limeGreen, width: 1.4),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -214,7 +214,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                 style: textStyle.copyWith(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: whiteBlue),
+                    color: highlightWhite),
               ),
               InkWell(
                 borderRadius: BorderRadius.circular(10.0),
@@ -250,7 +250,8 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                   children: [
                     Text(
                       'Coef',
-                      style: textStyle.copyWith(fontSize: 15, color: whiteBlue),
+                      style: textStyle.copyWith(
+                          fontSize: 15, color: highlightWhite),
                     ),
                     const SizedBox(height: 4),
                     Container(
@@ -258,14 +259,14 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                       height: 50,
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
-                        border: Border.all(color: primaryBlue, width: 1),
+                        border: Border.all(color: limeGreen, width: 1),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Center(
                         child: Text(
                           module.coef.toStringAsFixed(0),
                           style: textStyle.copyWith(
-                              color: whiteBlue, fontSize: 15),
+                              color: highlightWhite, fontSize: 15),
                         ),
                       ),
                     ),
@@ -279,7 +280,8 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                   children: [
                     Text(
                       'Avg',
-                      style: textStyle.copyWith(fontSize: 15, color: whiteBlue),
+                      style: textStyle.copyWith(
+                          fontSize: 15, color: highlightWhite),
                     ),
                     const SizedBox(height: 4),
                     Container(
@@ -287,14 +289,14 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                       height: 50,
                       // padding: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
-                        border: Border.all(color: primaryBlue, width: 1),
+                        border: Border.all(color: limeGreen, width: 1),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Center(
                         child: Text(
                           module.modAvg.toStringAsFixed(2),
                           style: textStyle.copyWith(
-                              color: whiteBlue, fontSize: 15),
+                              color: highlightWhite, fontSize: 15),
                         ),
                       ),
                     ),
@@ -315,24 +317,25 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
         children: [
           Text(
             label,
-            style: textStyle.copyWith(fontSize: 15, color: whiteBlue),
+            style: textStyle.copyWith(fontSize: 15, color: highlightWhite),
           ),
           const SizedBox(height: 4),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
-              border: Border.all(color: primaryBlue, width: 1),
+              border: Border.all(color: limeGreen, width: 1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: TextField(
               textAlign: TextAlign.center,
-              style: textStyle.copyWith(color: whiteBlue),
-              cursorColor: primaryBlue,
+              style: textStyle.copyWith(color: highlightWhite),
+              cursorColor: limeGreen,
               controller: controller,
               keyboardType: TextInputType.number,
               onChanged: (_) => _calculateAverage(),
               decoration: InputDecoration(
-                labelStyle: textStyle.copyWith(fontSize: 15, color: whiteBlue),
+                labelStyle:
+                    textStyle.copyWith(fontSize: 15, color: highlightWhite),
                 border: InputBorder.none,
               ),
             ),
@@ -364,15 +367,15 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
               ),
               title: Text(
                 'Add Module',
-                style: textStyle.copyWith(color: primaryBlue),
+                style: textStyle.copyWith(color: limeGreen),
               ),
               content: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     TextField(
-                      cursorColor: primaryBlue,
-                      style: textStyle.copyWith(color: whiteBlue),
+                      cursorColor: limeGreen,
+                      style: textStyle.copyWith(color: highlightWhite),
                       onChanged: (value) {
                         moduleName = value;
                       },
@@ -381,23 +384,23 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                         labelStyle:
                             textStyle.copyWith(color: const Color(0xFF285efe)),
                         floatingLabelStyle:
-                            textStyle.copyWith(color: primaryBlue),
+                            textStyle.copyWith(color: limeGreen),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
-                            borderSide: const BorderSide(
-                                color: primaryBlue, width: 1.4)),
+                            borderSide:
+                                const BorderSide(color: limeGreen, width: 1.4)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
-                            borderSide: const BorderSide(
-                                color: primaryBlue, width: 1.4)),
+                            borderSide:
+                                const BorderSide(color: limeGreen, width: 1.4)),
                       ),
                     ),
                     const SizedBox(
                       height: 8.0,
                     ),
                     TextField(
-                      cursorColor: primaryBlue,
-                      style: textStyle.copyWith(color: whiteBlue),
+                      cursorColor: limeGreen,
+                      style: textStyle.copyWith(color: highlightWhite),
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         coefficient = double.tryParse(value) ?? 1.0;
@@ -407,23 +410,23 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                         labelStyle:
                             textStyle.copyWith(color: const Color(0xFF0C37CD)),
                         floatingLabelStyle:
-                            textStyle.copyWith(color: primaryBlue),
+                            textStyle.copyWith(color: limeGreen),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
-                            borderSide: const BorderSide(
-                                color: primaryBlue, width: 1.4)),
+                            borderSide:
+                                const BorderSide(color: limeGreen, width: 1.4)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8.0),
-                            borderSide: const BorderSide(
-                                color: primaryBlue, width: 1.4)),
+                            borderSide:
+                                const BorderSide(color: limeGreen, width: 1.4)),
                       ),
                     ),
                     const SizedBox(
                       height: 8.0,
                     ),
                     TextField(
-                      cursorColor: primaryBlue,
-                      style: textStyle.copyWith(color: whiteBlue),
+                      cursorColor: limeGreen,
+                      style: textStyle.copyWith(color: highlightWhite),
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         examRatio = double.tryParse(value) ?? 0.6;
@@ -438,23 +441,23 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                         labelStyle:
                             textStyle.copyWith(color: const Color(0xFF0C37CD)),
                         floatingLabelStyle:
-                            textStyle.copyWith(color: primaryBlue),
+                            textStyle.copyWith(color: limeGreen),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
-                            borderSide: const BorderSide(
-                                color: primaryBlue, width: 1.4)),
+                            borderSide:
+                                const BorderSide(color: limeGreen, width: 1.4)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
-                            borderSide: const BorderSide(
-                                color: primaryBlue, width: 1.4)),
+                            borderSide:
+                                const BorderSide(color: limeGreen, width: 1.4)),
                       ),
                     ),
                     const SizedBox(
                       height: 8.0,
                     ),
                     TextField(
-                      cursorColor: primaryBlue,
-                      style: textStyle.copyWith(color: whiteBlue),
+                      cursorColor: limeGreen,
+                      style: textStyle.copyWith(color: highlightWhite),
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         tdTpRatio = double.tryParse(value) ?? 0.4;
@@ -469,15 +472,15 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                         labelStyle:
                             textStyle.copyWith(color: const Color(0xFF0C37CD)),
                         floatingLabelStyle:
-                            textStyle.copyWith(color: primaryBlue),
+                            textStyle.copyWith(color: limeGreen),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
-                            borderSide: const BorderSide(
-                                color: primaryBlue, width: 1.4)),
+                            borderSide:
+                                const BorderSide(color: limeGreen, width: 1.4)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
-                            borderSide: const BorderSide(
-                                color: primaryBlue, width: 1.4)),
+                            borderSide:
+                                const BorderSide(color: limeGreen, width: 1.4)),
                       ),
                     ),
                     const SizedBox(
@@ -488,7 +491,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                       padding: const EdgeInsets.symmetric(horizontal: 14.5),
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          border: Border.all(color: primaryBlue, width: 1.4),
+                          border: Border.all(color: limeGreen, width: 1.4),
                           borderRadius: BorderRadius.circular(15.0)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -507,10 +510,10 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                                 // print(isTdTp);
                               });
                             },
-                            activeColor: primaryBlue,
+                            activeColor: limeGreen,
                             activeTrackColor: const Color(0xFF0015FF),
                             inactiveThumbColor: const Color(0xFF0C37CD),
-                            inactiveTrackColor: darkBlue,
+                            inactiveTrackColor: darkGreen,
                             trackOutlineColor: WidgetStateProperty.all(
                                 const Color(0x000c37cd)),
                             trackOutlineWidth: WidgetStateProperty.all(0.0),
@@ -524,7 +527,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
               actions: [
                 TextButton(
                   style: TextButton.styleFrom(
-                      side: const BorderSide(width: 1.4, color: primaryBlue),
+                      side: const BorderSide(width: 1.4, color: limeGreen),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0))),
                   onPressed: () {
@@ -532,12 +535,12 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                   },
                   child: Text(
                     'Cancel',
-                    style: textStyle.copyWith(color: primaryBlue),
+                    style: textStyle.copyWith(color: limeGreen),
                   ),
                 ),
                 TextButton(
                   style: TextButton.styleFrom(
-                      side: const BorderSide(width: 1.4, color: primaryBlue),
+                      side: const BorderSide(width: 1.4, color: limeGreen),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0))),
                   onPressed: () {
@@ -552,7 +555,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                   },
                   child: Text(
                     'Add',
-                    style: textStyle.copyWith(color: primaryBlue),
+                    style: textStyle.copyWith(color: limeGreen),
                   ),
                 ),
               ],
@@ -589,7 +592,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
           title: Text(
             'Select a Preset',
-            style: textStyle.copyWith(color: primaryBlue),
+            style: textStyle.copyWith(color: limeGreen),
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
@@ -599,19 +602,19 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(
-                    color: primaryBlue,
+                    color: limeGreen,
                     width: 1.4,
                   ),
                 ),
                 child: ListTile(
-                  splashColor: primaryBlue,
+                  splashColor: limeGreen,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 12.0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
                   title: Text(
                     key,
-                    style: textStyle.copyWith(color: primaryBlue),
+                    style: textStyle.copyWith(color: limeGreen),
                   ),
                   onTap: () {
                     setState(() {
@@ -632,7 +635,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
           actions: [
             TextButton(
               style: TextButton.styleFrom(
-                side: const BorderSide(width: 1.4, color: primaryBlue),
+                side: const BorderSide(width: 1.4, color: limeGreen),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),
                 ),
@@ -640,7 +643,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
               onPressed: () => Navigator.pop(context),
               child: Text(
                 'Cancel',
-                style: textStyle.copyWith(color: primaryBlue),
+                style: textStyle.copyWith(color: limeGreen),
               ),
             ),
           ],

@@ -36,9 +36,8 @@ class _HomeState extends State<HomePage> {
           flex: 3,
           child: Container(
             decoration: BoxDecoration(
-              border: Border.all(color: primaryBlue, width: 1.4),
-
-              // color: const Color(0xFF01124C),
+              border: Border.all(color: darkGreen, width: 2),
+              color: darkGreen,
               borderRadius: BorderRadius.circular(20),
             ),
             height: 65.0,
@@ -49,23 +48,23 @@ class _HomeState extends State<HomePage> {
             _buildNavItem(
               index: 0,
               icon: 'assets/vectors/home.svg',
-              label: 'Home',
-              activeColor: primaryBlue,
-              inactiveColor: primaryBlue.withOpacity(0.5),
+              label: 'الرئيسية',
+              activeColor: limeGreen,
+              inactiveColor: limeGreen.withOpacity(0.5),
             ),
             _buildNavItem(
               index: 1,
               icon: 'assets/vectors/study.svg',
-              label: 'Study',
-              activeColor: primaryBlue,
-              inactiveColor: primaryBlue.withOpacity(0.5),
+              label: 'دراسة',
+              activeColor: limeGreen,
+              inactiveColor: limeGreen.withOpacity(0.5),
             ),
             _buildNavItem(
               index: 2,
               icon: 'assets/vectors/profile.svg',
-              label: 'Profile',
-              activeColor: primaryBlue,
-              inactiveColor: primaryBlue.withOpacity(0.5),
+              label: 'الحساب',
+              activeColor: limeGreen,
+              inactiveColor: limeGreen.withOpacity(0.5),
             ),
           ],
         ),
@@ -90,10 +89,10 @@ class _HomeState extends State<HomePage> {
           width: 150,
           height: 65.0,
           decoration: BoxDecoration(
-            color: isSelected ? primaryBlue : Colors.transparent,
+            color: isSelected ? limeGreen : Colors.transparent,
             border: Border.all(
               width: 1.4,
-              color: isSelected ? primaryBlue : Colors.transparent,
+              color: isSelected ? darkGreen : Colors.transparent,
             ),
             // color: isSelected ? activeColor : const Color(0xFF01124C),
             borderRadius: BorderRadius.circular(20),
@@ -105,13 +104,13 @@ class _HomeState extends State<HomePage> {
                 icon,
                 height: 17,
                 colorFilter: ColorFilter.mode(
-                    isSelected ? whiteBlue : primaryBlue, BlendMode.srcATop),
+                    isSelected ? darkGreen : limeGreen, BlendMode.srcATop),
               ),
               const SizedBox(width: 3.0),
               Text(
                 label,
-                style: textStyle.copyWith(
-                  color: isSelected ? whiteBlue : primaryBlue,
+                style: arabicTextStyle.copyWith(
+                  color: isSelected ? darkGreen : limeGreen,
                   fontSize: 14.0,
                   fontWeight: FontWeight.w500,
                 ),
@@ -126,7 +125,7 @@ class _HomeState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundDarkBlue,
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -140,31 +139,33 @@ class _HomeState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
-                            width: 100.0,
+                            width: 170.0,
                             height: 50.0,
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 12.0),
                             decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: primaryBlue, width: 1.4),
+                              color: limeGreen,
+                              border: Border.all(color: darkGreen, width: 2),
                               borderRadius: BorderRadius.circular(30),
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                SvgPicture.asset(
-                                  width: 16.0,
-                                  'assets/vectors/home.svg',
-                                  colorFilter: const ColorFilter.mode(
-                                      primaryBlue, BlendMode.srcATop),
+                                const Icon(
+                                  Icons.home_rounded,
+                                  color: darkGreen,
+                                  size: 20,
                                 ),
                                 const SizedBox(
-                                  width: 5.0,
+                                  width: 2.0,
                                 ),
                                 Text(
-                                  'Home',
-                                  style: textStyle.copyWith(
-                                      fontSize: 14.0, color: primaryBlue),
+                                  'الصفحة الرئيسية',
+                                  style: arabicTextStyle.copyWith(
+                                      fontSize: 14.0,
+                                      color: darkGreen,
+                                      fontWeight: FontWeight.w500),
                                 )
                               ],
                             ),
@@ -183,14 +184,14 @@ class _HomeState extends State<HomePage> {
                               width: 50.0,
                               height: 50.0,
                               decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: primaryBlue, width: 1.4),
+                                color: limeGreen,
+                                border: Border.all(color: darkGreen, width: 2),
                                 borderRadius: BorderRadius.circular(30),
                               ),
-                              child: SvgPicture.asset(
-                                'assets/vectors/settings.svg',
-                                colorFilter: const ColorFilter.mode(
-                                    primaryBlue, BlendMode.srcATop),
+                              child: const Icon(
+                                Icons.settings_rounded,
+                                color: darkGreen,
+                                size: 20,
                               ),
                             ),
                           ),
@@ -200,38 +201,42 @@ class _HomeState extends State<HomePage> {
                         height: 30.0,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Flexible(
-                            child: RichText(
-                              text: TextSpan(
-                                style: textStyle.copyWith(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 40.0,
-                                  height: 1,
+                            child: Directionality(
+                              textDirection: TextDirection.rtl,
+                              child: RichText(
+                                textDirection: TextDirection.rtl,
+                                text: TextSpan(
+                                  style: textStyle.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 40.0,
+                                    height: 1,
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                      text: 'أهلا ',
+                                      style: arabicTextStyle.copyWith(
+                                          color: darkGreen,
+                                          fontWeight: FontWeight
+                                              .normal), // Replace with your WhiteBlue color
+                                    ),
+                                    TextSpan(
+                                      text: widget.selectedYear,
+                                      style: arabicTextStyle.copyWith(
+                                          color: darkGreen,
+                                          fontWeight: FontWeight
+                                              .w600), // Replace with your WhiteBlue color
+                                    ),
+                                    TextSpan(
+                                      text: ' 👋',
+                                      style: arabicTextStyle.copyWith(
+                                          fontWeight: FontWeight
+                                              .w500), // Replace with your WhiteBlue color
+                                    ),
+                                  ],
                                 ),
-                                children: [
-                                  TextSpan(
-                                    text: 'Hello ',
-                                    style: textStyle.copyWith(
-                                        color: whiteBlue,
-                                        fontWeight: FontWeight
-                                            .normal), // Replace with your WhiteBlue color
-                                  ),
-                                  TextSpan(
-                                    text: widget.selectedYear,
-                                    style: textStyle.copyWith(
-                                        color: primaryBlue,
-                                        fontWeight: FontWeight
-                                            .w500), // Replace with your WhiteBlue color
-                                  ),
-                                  TextSpan(
-                                    text: ' 👋',
-                                    style: textStyle.copyWith(
-                                        color: primaryBlue,
-                                        fontWeight: FontWeight
-                                            .w500), // Replace with your WhiteBlue color
-                                  ),
-                                ],
                               ),
                             ),
                           ),
@@ -245,8 +250,8 @@ class _HomeState extends State<HomePage> {
                         children: [
                           Expanded(
                             child: InkWell(
-                              highlightColor: darkBlue,
-                              splashColor: darkBlue,
+                              highlightColor: darkGreen,
+                              splashColor: darkGreen,
                               borderRadius: BorderRadius.circular(30.0),
                               onTap: () {
                                 Navigator.push(
@@ -259,8 +264,9 @@ class _HomeState extends State<HomePage> {
                               child: Container(
                                 padding: const EdgeInsets.all(25.0),
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: primaryBlue, width: 1.4),
+                                  color: limeGreen,
+                                  border:
+                                      Border.all(color: darkGreen, width: 2),
                                   borderRadius: BorderRadius.circular(30),
                                 ),
                                 height: 150.0,
@@ -271,7 +277,7 @@ class _HomeState extends State<HomePage> {
                                     const Icon(
                                       size: 40.0,
                                       Icons.calculate_rounded,
-                                      color: primaryBlue,
+                                      color: darkGreen,
                                     ),
                                     const SizedBox(
                                       height: 5.0,
@@ -282,7 +288,7 @@ class _HomeState extends State<HomePage> {
                                           fontWeight: FontWeight.w500,
                                           fontSize: 23.0,
                                           height: 1,
-                                          color: whiteBlue),
+                                          color: darkGreen),
                                     ),
                                   ],
                                 ),
@@ -294,7 +300,7 @@ class _HomeState extends State<HomePage> {
                           ),
                           Expanded(
                             child: InkWell(
-                              highlightColor: darkBlue,
+                              highlightColor: darkGreen,
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -307,8 +313,9 @@ class _HomeState extends State<HomePage> {
                               child: Container(
                                 padding: const EdgeInsets.all(25.0),
                                 decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: primaryBlue, width: 1.4),
+                                  color: limeGreen,
+                                  border:
+                                      Border.all(color: darkGreen, width: 2),
                                   borderRadius: BorderRadius.circular(30),
                                 ),
                                 height: 150.0,
@@ -319,7 +326,7 @@ class _HomeState extends State<HomePage> {
                                     const Icon(
                                       size: 40.0,
                                       Icons.calculate_rounded,
-                                      color: primaryBlue,
+                                      color: darkGreen,
                                     ),
                                     const SizedBox(
                                       height: 5.0,
@@ -330,7 +337,7 @@ class _HomeState extends State<HomePage> {
                                           fontWeight: FontWeight.w500,
                                           fontSize: 23.0,
                                           height: 1,
-                                          color: whiteBlue),
+                                          color: darkGreen),
                                     ),
                                   ],
                                 ),
@@ -344,8 +351,8 @@ class _HomeState extends State<HomePage> {
                       ),
                       InkWell(
                         borderRadius: BorderRadius.circular(30.0),
-                        highlightColor: darkBlue,
-                        splashColor: darkBlue,
+                        highlightColor: darkGreen,
+                        splashColor: darkGreen,
                         onTap: () {
                           Navigator.push(
                             context,
@@ -358,7 +365,8 @@ class _HomeState extends State<HomePage> {
                           width: double.infinity,
                           padding: const EdgeInsets.all(25.0),
                           decoration: BoxDecoration(
-                            border: Border.all(color: primaryBlue, width: 1.4),
+                            color: limeGreen,
+                            border: Border.all(color: darkGreen, width: 2),
                             borderRadius: BorderRadius.circular(30),
                           ),
                           height: 150.0,
@@ -369,7 +377,7 @@ class _HomeState extends State<HomePage> {
                               const Icon(
                                 size: 40.0,
                                 Icons.calculate_rounded,
-                                color: primaryBlue,
+                                color: darkGreen,
                               ),
                               const SizedBox(
                                 height: 5.0,
@@ -382,7 +390,7 @@ class _HomeState extends State<HomePage> {
                                           fontWeight: FontWeight.w500,
                                           fontSize: 28,
                                           height: 1,
-                                          color: whiteBlue)),
+                                          color: darkGreen)),
                                 ),
                               ),
                             ],
@@ -441,16 +449,17 @@ class _HomeState extends State<HomePage> {
                             builder: (BuildContext context) {
                               return InkWell(
                                 borderRadius: BorderRadius.circular(30),
-                                highlightColor: darkBlue,
-                                splashColor: darkBlue,
+                                highlightColor: darkGreen,
+                                splashColor: darkGreen,
                                 onTap: () {},
                                 child: Container(
                                     width: double.infinity,
                                     margin: const EdgeInsets.symmetric(
                                         horizontal: 0.0),
                                     decoration: BoxDecoration(
+                                      color: limeGreen,
                                       border: Border.all(
-                                          color: primaryBlue, width: 1.4),
+                                          color: darkGreen, width: 2),
 
                                       // color: primaryBlue,
                                       borderRadius: BorderRadius.circular(30),
@@ -465,13 +474,13 @@ class _HomeState extends State<HomePage> {
                                         children: [
                                           const Icon(
                                               size: 40.0,
-                                              color: primaryBlue,
+                                              color: darkGreen,
                                               Icons.video_library_rounded),
                                           Text(
                                             'Start Studying $i',
                                             style: textStyle.copyWith(
                                                 fontSize: 28.0,
-                                                color: whiteBlue,
+                                                color: darkGreen,
                                                 fontWeight: FontWeight.w600),
                                           ),
                                         ],

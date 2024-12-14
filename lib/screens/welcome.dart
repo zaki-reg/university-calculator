@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
 import '../constants.dart';
 import 'field_year.dart';
 
@@ -16,147 +18,185 @@ class _WelcomeState extends State<Welcome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundDarkBlue,
+      backgroundColor: backgroundColor,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0),
-          child: Column(
-            children: [
-              Expanded(
-                child: Container(),
-              ),
-              Column(
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                child: IntrinsicHeight(
+                  child: Column(
+                    textDirection: TextDirection.rtl,
                     children: [
-                      Row(
-                        children: [
-                          Flexible(
-                            child: RichText(
-                              text: TextSpan(
-                                style: textStyle.copyWith(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 40.0,
-                                  height: 1,
+                      // Top Card Section
+                      Expanded(
+                        child: Card(
+                          margin: EdgeInsets.zero,
+                          elevation: 0,
+                          shape: const BeveledRectangleBorder(
+                            side: BorderSide(width: 1, color: darkGreen),
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(30),
+                              bottomRight: Radius.circular(30),
+                            ),
+                          ),
+                          color: limeGreen,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 30.0, horizontal: 20.0),
+                            child: Center(
+                              child: SvgPicture.asset(
+                                'assets/vectors/logo.svg',
+                                width: 180,
+                                colorFilter: const ColorFilter.mode(
+                                    darkGreen, BlendMode.srcATop),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      // Middle Section
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // Welcome Text
+                              Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: RichText(
+                                  textAlign: TextAlign.right,
+                                  text: TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'مرحباً بك! ',
+                                        style: arabicTextStyle.copyWith(
+                                            color: limeGreen,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 45.0,
+                                            height: 1.2),
+                                      ),
+                                      TextSpan(
+                                        text: 'ما الإسم الكريم؟',
+                                        // text: 'كي سمّاك الله؟',
+                                        style: arabicTextStyle.copyWith(
+                                            color: darkGreen,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 45.0,
+                                            height: 1.2),
+                                      ),
+                                    ],
+                                  ),
                                 ),
+                              ),
+
+                              const SizedBox(height: 10.0),
+
+                              // Input Row
+                              Row(
+                                textDirection: TextDirection.rtl,
                                 children: [
-                                  TextSpan(
-                                    text: 'Hello ',
-                                    style: textStyle.copyWith(
-                                        color: whiteBlue,
-                                        fontWeight: FontWeight
-                                            .normal), // Replace with your WhiteBlue color
+                                  // Submit Button
+                                  InkWell(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              CustomDropdownButton(
+                                            enteredText: controller.text,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                    child: Container(
+                                      width: 60.0,
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: darkGreen, width: 2),
+                                        borderRadius:
+                                            BorderRadius.circular(15.0),
+                                      ),
+                                      child: const Icon(
+                                        CupertinoIcons.arrow_turn_up_left,
+                                        color: darkGreen,
+                                      ),
+                                    ),
                                   ),
-                                  TextSpan(
-                                    text: 'there! ',
-                                    style: textStyle.copyWith(
-                                        color: primaryBlue,
-                                        fontWeight: FontWeight
-                                            .normal), // Replace with your PrimaryBlue color
-                                  ),
-                                  TextSpan(
-                                    text: 'Tell us about you!',
-                                    style: textStyle.copyWith(
-                                        color: whiteBlue,
-                                        fontWeight: FontWeight
-                                            .normal), // Replace with your WhiteBlue color
+
+                                  const SizedBox(width: 10),
+
+                                  // Text Input
+                                  Expanded(
+                                    child: Container(
+                                      height: 60.0,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: darkGreen, width: 2),
+                                        borderRadius:
+                                            BorderRadius.circular(15.0),
+                                      ),
+                                      child: Directionality(
+                                        textDirection: TextDirection.rtl,
+                                        child: TextField(
+                                          controller: controller,
+                                          style: textStyle.copyWith(
+                                            color: darkGreen,
+                                            fontSize: 18.0,
+                                          ),
+                                          textAlign: TextAlign.right,
+                                          textDirection: TextDirection.rtl,
+                                          decoration: InputDecoration(
+                                            contentPadding:
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 20.0),
+                                            hintText: 'أدخِل اسمك هنا',
+                                            hintStyle: arabicTextStyle.copyWith(
+                                              color: Colors.grey,
+                                              fontSize: 18.0,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                            border: InputBorder.none,
+                                          ),
+                                          keyboardType: TextInputType.text,
+                                          textInputAction: TextInputAction.done,
+                                          enableInteractiveSelection: true,
+                                          autocorrect: false,
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
-                            ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
-                      const SizedBox(
-                        height: 15.0,
-                      ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Container(
-                              width: 200,
-                              height: 60.0,
-                              padding: const EdgeInsets.only(
-                                  left: 20, top: 5, bottom: 5),
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: primaryBlue, width: 1.4),
-                                  borderRadius: BorderRadius.circular(15.0)),
-                              child: TextField(
-                                controller: controller,
-                                style: textStyle.copyWith(
-                                    color: Colors.white, fontSize: 18.0),
-                                cursorColor: Colors.blue,
-                                decoration: InputDecoration(
-                                  hintText: 'Enter your name',
-                                  hintStyle: textStyle.copyWith(
-                                      color: Colors.grey, fontSize: 18.0),
-                                  border: InputBorder.none,
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          InkWell(
-                            borderRadius: BorderRadius.circular(15.0),
-                            onTap: () {
-                              String enteredText = controller.text;
 
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => CustomDropdownButton(
-                                    enteredText: enteredText,
-                                  ),
-                                ),
-                              );
-                            },
-                            splashColor: primaryBlue,
-                            child: Container(
-                              width: 60.0,
-                              height: 60.0,
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: primaryBlue, width: 1.4),
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              child: const Icon(
-                                CupertinoIcons.arrow_turn_up_left,
-                                color: primaryBlue,
-                              ),
-                            ),
+                      // Bottom Section
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 20.0),
+                        child: Text(
+                          'كل الحقوق محفوظة 2025©',
+                          textDirection: TextDirection.rtl,
+                          style: arabicTextStyle.copyWith(
+                            fontSize: 15,
+                            color: darkGreen,
                           ),
-                        ],
+                        ),
                       ),
                     ],
                   ),
-                ],
-              ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(),
-                    Column(
-                      children: [
-                        Text(
-                          'All rights reserved 2025©',
-                          style: textStyle.copyWith(
-                              fontSize: 15, color: primaryBlue),
-                        ),
-                        const SizedBox(
-                          height: 20.0,
-                        ),
-                      ],
-                    ),
-                  ],
                 ),
               ),
-            ],
-          ),
+            );
+          },
         ),
       ),
     );

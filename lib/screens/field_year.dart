@@ -43,64 +43,69 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundDarkBlue,
+      backgroundColor: limeGreen,
       body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Column(
+          textDirection: TextDirection.rtl,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Flexible(
-              child: RichText(
-                text: TextSpan(
-                  style: textStyle.copyWith(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 40.0,
-                    height: 1,
+              child: Directionality(
+                textDirection: TextDirection.rtl,
+                child: RichText(
+                  textAlign: TextAlign.right,
+                  text: TextSpan(
+                    style: textStyle.copyWith(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 40.0,
+                      height: 1.1,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: 'أهلا ',
+                        style: arabicTextStyle.copyWith(
+                            color: darkGreen,
+                            fontWeight: FontWeight
+                                .normal), // Replace with your WhiteBlue color
+                      ),
+                      TextSpan(
+                        text: '${widget.enteredText}, ',
+                        style: arabicTextStyle.copyWith(
+                            color: darkGreen,
+                            fontWeight: FontWeight
+                                .w500), // Replace with your WhiteBlue color
+                      ),
+                      TextSpan(
+                        text: 'ماهو ',
+                        style: arabicTextStyle.copyWith(
+                            color: darkGreen,
+                            fontWeight: FontWeight
+                                .normal), // Replace with your WhiteBlue color
+                      ),
+                      TextSpan(
+                        text: 'تخصصك؟ ',
+                        style: arabicTextStyle.copyWith(
+                            color: darkGreen,
+                            fontWeight: FontWeight
+                                .w500), // Replace with your WhiteBlue color
+                      ),
+                      TextSpan(
+                        text: 'أي ',
+                        style: arabicTextStyle.copyWith(
+                            color: darkGreen,
+                            fontWeight: FontWeight
+                                .normal), // Replace with your PrimaryBlue color
+                      ),
+                      TextSpan(
+                        text: 'عام؟',
+                        style: arabicTextStyle.copyWith(
+                            color: darkGreen,
+                            fontWeight: FontWeight
+                                .w500), // Replace with your WhiteBlue color
+                      ),
+                    ],
                   ),
-                  children: [
-                    TextSpan(
-                      text: 'Hello ',
-                      style: textStyle.copyWith(
-                          color: whiteBlue,
-                          fontWeight: FontWeight
-                              .normal), // Replace with your WhiteBlue color
-                    ),
-                    TextSpan(
-                      text: '${widget.enteredText}, ',
-                      style: textStyle.copyWith(
-                          color: primaryBlue,
-                          fontWeight: FontWeight
-                              .w500), // Replace with your WhiteBlue color
-                    ),
-                    TextSpan(
-                      text: 'What is your',
-                      style: textStyle.copyWith(
-                          color: whiteBlue,
-                          fontWeight: FontWeight
-                              .normal), // Replace with your WhiteBlue color
-                    ),
-                    TextSpan(
-                      text: ' speciality? ',
-                      style: textStyle.copyWith(
-                          color: primaryBlue,
-                          fontWeight: FontWeight
-                              .w500), // Replace with your WhiteBlue color
-                    ),
-                    TextSpan(
-                      text: 'What ',
-                      style: textStyle.copyWith(
-                          color: whiteBlue,
-                          fontWeight: FontWeight
-                              .normal), // Replace with your PrimaryBlue color
-                    ),
-                    TextSpan(
-                      text: 'Year?',
-                      style: textStyle.copyWith(
-                          color: primaryBlue,
-                          fontWeight: FontWeight
-                              .w500), // Replace with your WhiteBlue color
-                    ),
-                  ],
                 ),
               ),
             ),
@@ -111,7 +116,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
               children: [
                 Expanded(
                   child: InkWell(
-                    highlightColor: primaryBlue,
+                    highlightColor: limeGreen,
                     borderRadius: BorderRadius.circular(15.0),
                     onTap: () async {
                       final selected = await _showMenu(context);
@@ -135,16 +140,16 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                             horizontal: 12, vertical: 8),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15.0),
-                          border: Border.all(color: primaryBlue, width: 1.4),
+                          border: Border.all(color: darkGreen, width: 2),
                         ),
                         child: Row(
                           children: [
                             const Icon(Icons.arrow_drop_down_circle_outlined,
-                                color: primaryBlue),
+                                color: darkGreen),
                             const SizedBox(width: 10),
                             Text(selectedField,
                                 style: textStyle.copyWith(
-                                    fontSize: 16, color: whiteBlue)),
+                                    fontSize: 16, color: darkGreen)),
                           ],
                         ),
                       ),
@@ -154,9 +159,9 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                 const SizedBox(width: 10),
                 Material(
                   borderRadius: BorderRadius.circular(15.0),
-                  color: isFieldSelected ? primaryBlue : Colors.transparent,
+                  color: isFieldSelected ? darkGreen : Colors.transparent,
                   child: InkWell(
-                    highlightColor: darkBlue,
+                    highlightColor: darkGreen,
                     borderRadius: BorderRadius.circular(15.0),
                     onTap: isFieldSelected ? addNewRow : null,
                     child: Container(
@@ -164,9 +169,9 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                       width: 70,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15.0),
-                          border: Border.all(color: primaryBlue, width: 1.4)),
+                          border: Border.all(color: darkGreen, width: 2)),
                       child: const Center(
-                        child: Icon(Icons.arrow_back, color: whiteBlue),
+                        child: Icon(Icons.arrow_back, color: highlightWhite),
                       ),
                     ),
                   ),
@@ -203,11 +208,11 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
           value: field,
           child: Text(
             field,
-            style: textStyle.copyWith(fontSize: 15, color: whiteBlue),
+            style: textStyle.copyWith(fontSize: 15, color: limeGreen),
           ),
         );
       }).toList(),
-      color: Colors.transparent,
+      color: darkGreen,
       elevation: 0,
     );
   }
@@ -233,7 +238,7 @@ class _YearRowState extends State<YearRow> {
         children: [
           Expanded(
             child: InkWell(
-              highlightColor: primaryBlue,
+              highlightColor: darkGreen,
               borderRadius: BorderRadius.circular(15.0),
               onTap: () async {
                 final selected = await _showYearMenu(context);
@@ -251,13 +256,13 @@ class _YearRowState extends State<YearRow> {
                   decoration: BoxDecoration(
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(15.0),
-                    border: Border.all(color: primaryBlue, width: 1.4),
+                    border: Border.all(color: darkGreen, width: 2),
                   ),
                   child: Row(
                     children: [
                       const Icon(
                         Icons.arrow_drop_down_circle_outlined,
-                        color: primaryBlue,
+                        color: darkGreen,
                       ),
                       const SizedBox(
                         width: 10,
@@ -265,7 +270,7 @@ class _YearRowState extends State<YearRow> {
                       Text(
                         selectedYear,
                         style:
-                            textStyle.copyWith(color: whiteBlue, fontSize: 16),
+                            textStyle.copyWith(color: darkGreen, fontSize: 16),
                       ),
                     ],
                   ),
@@ -276,9 +281,9 @@ class _YearRowState extends State<YearRow> {
           const SizedBox(width: 10),
           Material(
             borderRadius: BorderRadius.circular(15.0),
-            color: primaryBlue,
+            color: darkGreen,
             child: InkWell(
-              highlightColor: darkBlue,
+              highlightColor: darkGreen,
               borderRadius: BorderRadius.circular(15.0),
               onTap: () {
                 Navigator.push(
@@ -297,9 +302,9 @@ class _YearRowState extends State<YearRow> {
                 decoration: BoxDecoration(
                     // color: isYearSelected ? primaryBlue : Colors.transparent,
                     borderRadius: BorderRadius.circular(15.0),
-                    border: Border.all(color: primaryBlue, width: 1.4)),
+                    border: Border.all(color: darkGreen, width: 2)),
                 child: const Center(
-                  child: Icon(Icons.check, color: whiteBlue),
+                  child: Icon(Icons.check, color: highlightWhite),
                 ),
               ),
             ),
@@ -325,11 +330,11 @@ class _YearRowState extends State<YearRow> {
           value: year,
           child: Text(
             year,
-            style: textStyle.copyWith(fontSize: 15, color: whiteBlue),
+            style: textStyle.copyWith(fontSize: 15, color: limeGreen),
           ),
         );
       }).toList(),
-      color: Colors.transparent,
+      color: darkGreen,
       elevation: 0,
     );
   }

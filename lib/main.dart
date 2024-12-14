@@ -17,7 +17,7 @@ class UniCal extends StatelessWidget {
         popupMenuTheme: PopupMenuThemeData(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
-              side: const BorderSide(color: primaryBlue, width: 1.4)),
+              side: const BorderSide(color: darkGreen, width: 2)),
         ),
       ),
       home: const Scaffold(

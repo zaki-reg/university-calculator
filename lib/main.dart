@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uni_calculator_test/constants.dart';
+import 'package:uni_calculator_test/screens/study_page.dart';
 import 'package:uni_calculator_test/screens/welcome.dart';
 
 void main() {

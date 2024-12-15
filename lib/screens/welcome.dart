@@ -119,8 +119,7 @@ class _WelcomeState extends State<Welcome> {
                                     decoration: BoxDecoration(
                                       border: Border.all(
                                           color: darkGreen, width: 2),
-                                      borderRadius:
-                                          BorderRadius.circular(15.0),
+                                      borderRadius: BorderRadius.circular(15.0),
                                     ),
                                     child: const Icon(
                                       CupertinoIcons.arrow_turn_up_left,
@@ -138,8 +137,7 @@ class _WelcomeState extends State<Welcome> {
                                     decoration: BoxDecoration(
                                       border: Border.all(
                                           color: darkGreen, width: 2),
-                                      borderRadius:
-                                          BorderRadius.circular(15.0),
+                                      borderRadius: BorderRadius.circular(15.0),
                                     ),
                                     child: Directionality(
                                       textDirection: TextDirection.rtl,
@@ -178,7 +176,9 @@ class _WelcomeState extends State<Welcome> {
                       ),
                     ),
 
-                    // Bottom Section
+                    const SizedBox(
+                      height: 200,
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 20.0),
                       child: Text(
@@ -189,6 +189,9 @@ class _WelcomeState extends State<Welcome> {
                           color: darkGreen,
                         ),
                       ),
+                    ),
+                    const SizedBox(
+                      height: 20,
                     ),
                   ],
                 ),

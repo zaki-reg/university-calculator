@@ -4,6 +4,7 @@ import 'package:uni_calculator_test/screens/annual_calculator.dart';
 import 'package:uni_calculator_test/screens/semester1.dart';
 import 'package:uni_calculator_test/screens/semester2.dart';
 import 'package:uni_calculator_test/screens/settings_page.dart';
+import 'package:uni_calculator_test/screens/study_page.dart';
 import '../constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -58,6 +59,12 @@ class _HomeState extends State<HomePage> {
               label: 'دراسة',
               activeColor: limeGreen,
               inactiveColor: limeGreen.withOpacity(0.5),
+              ontap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ActivityGrid()),
+                );
+              },
             ),
             _buildNavItem(
               index: 2,
@@ -65,6 +72,12 @@ class _HomeState extends State<HomePage> {
               label: 'الحساب',
               activeColor: limeGreen,
               inactiveColor: limeGreen.withOpacity(0.5),
+              ontap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SettingsPage()),
+                );
+              },
             ),
           ],
         ),
@@ -78,11 +91,12 @@ class _HomeState extends State<HomePage> {
     required String label,
     required Color activeColor,
     required Color inactiveColor,
+    Function()? ontap,
   }) {
     bool isSelected = _selectedNavIndex == index;
     return Expanded(
       child: GestureDetector(
-        onTap: () => _onNavItemTapped(index),
+        onTap: ontap,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 120),
           curve: Curves.easeInOutQuad,

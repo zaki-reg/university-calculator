@@ -105,7 +105,7 @@ class _HomeState extends State<HomePage> {
           decoration: BoxDecoration(
             color: isSelected ? limeGreen : Colors.transparent,
             border: Border.all(
-              width: 1.4,
+              width: 2,
               color: isSelected ? darkGreen : Colors.transparent,
             ),
             // color: isSelected ? activeColor : const Color(0xFF01124C),

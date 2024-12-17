@@ -45,8 +45,9 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                       width: 100.0,
                       height: 50.0,
                       padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(color: limeGreen,
-                        border: Border.all(color: darkGreen, width:2),
+                      decoration: BoxDecoration(
+                        color: limeGreen,
+                        border: Border.all(color: darkGreen, width: 2),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: const Icon(
@@ -74,7 +75,8 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                     child: Container(
                       height: 105.0,
                       padding: const EdgeInsets.all(15),
-                      decoration: BoxDecoration(color: limeGreen,
+                      decoration: BoxDecoration(
+                        color: limeGreen,
                         border: Border.all(color: darkGreen, width: 2),
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -111,7 +113,8 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                       child: Container(
                         height: 105.0,
                         padding: const EdgeInsets.all(15),
-                        decoration: BoxDecoration(color: limeGreen,
+                        decoration: BoxDecoration(
+                          color: limeGreen,
                           border: Border.all(color: darkGreen, width: 2),
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -165,7 +168,8 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                 child: Container(
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(vertical: 15),
-                  decoration: BoxDecoration(color: limeGreen,
+                  decoration: BoxDecoration(
+                    color: limeGreen,
                     border: Border.all(color: darkGreen, width: 2),
                     borderRadius: BorderRadius.circular(50),
                   ),
@@ -200,7 +204,7 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        border: Border.all(color: darkGreen, width:2),
+        border: Border.all(color: darkGreen, width: 2),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -250,15 +254,15 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                   children: [
                     Text(
                       'Coef',
-                      style: textStyle.copyWith(
-                          fontSize: 15, color: darkGreen),
+                      style: textStyle.copyWith(fontSize: 15, color: darkGreen),
                     ),
                     const SizedBox(height: 4),
                     Container(
                       width: double.infinity,
                       height: 50,
                       padding: const EdgeInsets.symmetric(horizontal: 10),
-                      decoration: BoxDecoration(color: limeGreen,
+                      decoration: BoxDecoration(
+                        color: limeGreen,
                         border: Border.all(color: darkGreen, width: 2),
                         borderRadius: BorderRadius.circular(8),
                       ),
@@ -280,15 +284,15 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                   children: [
                     Text(
                       'Avg',
-                      style: textStyle.copyWith(
-                          fontSize: 15, color: darkGreen),
+                      style: textStyle.copyWith(fontSize: 15, color: darkGreen),
                     ),
                     const SizedBox(height: 4),
                     Container(
                       width: double.infinity,
                       height: 50,
                       // padding: const EdgeInsets.symmetric(horizontal: 10),
-                      decoration: BoxDecoration(color: limeGreen,
+                      decoration: BoxDecoration(
+                        color: limeGreen,
                         border: Border.all(color: darkGreen, width: 2),
                         borderRadius: BorderRadius.circular(8),
                       ),
@@ -322,7 +326,8 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
           const SizedBox(height: 4),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            decoration: BoxDecoration(color: limeGreen,
+            decoration: BoxDecoration(
+              color: limeGreen,
               border: Border.all(color: darkGreen, width: 2),
               borderRadius: BorderRadius.circular(8),
             ),
@@ -334,8 +339,7 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
               keyboardType: TextInputType.number,
               onChanged: (_) => _calculateAverage(),
               decoration: InputDecoration(
-                labelStyle:
-                textStyle.copyWith(fontSize: 15, color: darkGreen),
+                labelStyle: textStyle.copyWith(fontSize: 15, color: darkGreen),
                 border: InputBorder.none,
               ),
             ),
@@ -379,20 +383,21 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                       onChanged: (value) {
                         moduleName = value;
                       },
-                      decoration: InputDecoration(fillColor: limeGreen,filled: true,
+                      decoration: InputDecoration(
+                        fillColor: limeGreen,
+                        filled: true,
                         labelText: 'Module Name',
-                        labelStyle:
-                        textStyle.copyWith(color: darkGreen),
+                        labelStyle: textStyle.copyWith(color: darkGreen),
                         floatingLabelStyle:
-                        textStyle.copyWith(color: darkGreen),
+                            textStyle.copyWith(color: darkGreen),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                            const BorderSide(color: darkGreen, width: 2)),
+                                const BorderSide(color: darkGreen, width: 2)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                            const BorderSide(color: darkGreen, width: 2)),
+                                const BorderSide(color: darkGreen, width: 2)),
                       ),
                     ),
                     const SizedBox(
@@ -405,20 +410,21 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                       onChanged: (value) {
                         coefficient = double.tryParse(value) ?? 1.0;
                       },
-                      decoration: InputDecoration(fillColor: limeGreen,filled: true,
+                      decoration: InputDecoration(
+                        fillColor: limeGreen,
+                        filled: true,
                         labelText: 'Coefficient',
-                        labelStyle:
-                        textStyle.copyWith(color: darkGreen),
+                        labelStyle: textStyle.copyWith(color: darkGreen),
                         floatingLabelStyle:
-                        textStyle.copyWith(color: darkGreen),
+                            textStyle.copyWith(color: darkGreen),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                            const BorderSide(color: darkGreen, width: 1.4)),
+                                const BorderSide(color: darkGreen, width: 2)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8.0),
                             borderSide:
-                            const BorderSide(color: darkGreen, width: 1.4)),
+                                const BorderSide(color: darkGreen, width: 2)),
                       ),
                     ),
                     const SizedBox(
@@ -431,25 +437,26 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                       onChanged: (value) {
                         examRatio = double.tryParse(value) ?? 0.6;
                       },
-                      decoration: InputDecoration(fillColor: limeGreen,filled: true,
+                      decoration: InputDecoration(
+                        fillColor: limeGreen,
+                        filled: true,
                         labelText: 'Exam Ratio',
                         hintText: 'Example: 0.6',
                         hintStyle: TextStyle(
                             fontFamily: 'Helvetica',
                             fontSize: 15,
                             color: darkGreen.withAlpha(80)),
-                        labelStyle:
-                        textStyle.copyWith(color: darkGreen),
+                        labelStyle: textStyle.copyWith(color: darkGreen),
                         floatingLabelStyle:
-                        textStyle.copyWith(color: darkGreen),
+                            textStyle.copyWith(color: darkGreen),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                            const BorderSide(color: darkGreen, width: 2)),
+                                const BorderSide(color: darkGreen, width: 2)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                            const BorderSide(color: darkGreen, width: 2)),
+                                const BorderSide(color: darkGreen, width: 2)),
                       ),
                     ),
                     const SizedBox(
@@ -462,25 +469,26 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                       onChanged: (value) {
                         tdTpRatio = double.tryParse(value) ?? 0.4;
                       },
-                      decoration: InputDecoration(fillColor: limeGreen,filled: true,
+                      decoration: InputDecoration(
+                        fillColor: limeGreen,
+                        filled: true,
                         labelText: 'TD/TP Ratio',
                         hintText: 'Example: 0.4',
                         hintStyle: TextStyle(
                             fontFamily: 'Helvetica',
                             fontSize: 15,
                             color: darkGreen.withAlpha(80)),
-                        labelStyle:
-                        textStyle.copyWith(color: darkGreen),
+                        labelStyle: textStyle.copyWith(color: darkGreen),
                         floatingLabelStyle:
-                        textStyle.copyWith(color: darkGreen),
+                            textStyle.copyWith(color: darkGreen),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                            const BorderSide(color: darkGreen, width: 2)),
+                                const BorderSide(color: darkGreen, width: 2)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                             borderSide:
-                            const BorderSide(color: darkGreen, width: 2)),
+                                const BorderSide(color: darkGreen, width: 2)),
                       ),
                     ),
                     const SizedBox(
@@ -490,8 +498,9 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                       height: 56,
                       padding: const EdgeInsets.symmetric(horizontal: 14.5),
                       width: double.infinity,
-                      decoration: BoxDecoration(color: limeGreen,
-                          border: Border.all(color: darkGreen, width:2),
+                      decoration: BoxDecoration(
+                          color: limeGreen,
+                          border: Border.all(color: darkGreen, width: 2),
                           borderRadius: BorderRadius.circular(15.0)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -514,8 +523,8 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                             activeTrackColor: limeGreen.withGreen(10),
                             inactiveThumbColor: darkGreen.withAlpha(99),
                             inactiveTrackColor: darkGreen,
-                            trackOutlineColor: WidgetStateProperty.all(
-                                darkGreen),
+                            trackOutlineColor:
+                                WidgetStateProperty.all(darkGreen),
                             trackOutlineWidth: WidgetStateProperty.all(2),
                           ),
                         ],
@@ -526,7 +535,8 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
               ),
               actions: [
                 TextButton(
-                  style: TextButton.styleFrom(backgroundColor: limeGreen,
+                  style: TextButton.styleFrom(
+                      backgroundColor: limeGreen,
                       side: const BorderSide(width: 2, color: darkGreen),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0))),
@@ -539,7 +549,8 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                   ),
                 ),
                 TextButton(
-                  style: TextButton.styleFrom(backgroundColor: limeGreen,
+                  style: TextButton.styleFrom(
+                      backgroundColor: limeGreen,
                       side: const BorderSide(width: 2, color: darkGreen),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0))),
@@ -589,7 +600,7 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
           clipBehavior: Clip.antiAlias,
           backgroundColor: backgroundColor,
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
           title: Text(
             'Select a Preset',
             style: textStyle.copyWith(color: darkGreen),
@@ -600,7 +611,8 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
               children: presets.keys.map((key) {
                 return Container(
                   margin: const EdgeInsets.symmetric(vertical: 4.0),
-                  decoration: BoxDecoration(color: limeGreen,
+                  decoration: BoxDecoration(
+                    color: limeGreen,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
                       color: darkGreen,
@@ -609,7 +621,8 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                   ),
                   child: ListTile(
                     splashColor: darkGreen,
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    contentPadding:
+                        const EdgeInsets.symmetric(horizontal: 12.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -636,7 +649,8 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
           ),
           actions: [
             TextButton(
-              style: TextButton.styleFrom(backgroundColor: limeGreen,
+              style: TextButton.styleFrom(
+                backgroundColor: limeGreen,
                 side: const BorderSide(width: 2, color: darkGreen),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15.0),

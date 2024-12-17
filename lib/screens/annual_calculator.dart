@@ -57,8 +57,8 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                                   height: 50.0,
                                   padding: const EdgeInsets.all(8),
                                   decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: limeGreen, width: 1.4),
+                                    border:
+                                        Border.all(color: limeGreen, width: 2),
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                   child: const Icon(
@@ -85,7 +85,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                             width: double.infinity,
                             padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
-                              border: Border.all(color: limeGreen, width: 1.4),
+                              border: Border.all(color: limeGreen, width: 2),
                               borderRadius: BorderRadius.circular(15),
                             ),
                             child: Column(
@@ -161,7 +161,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   decoration: BoxDecoration(
-                    border: Border.all(color: limeGreen, width: 1.4),
+                    border: Border.all(color: limeGreen, width: 2),
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: Row(
@@ -196,7 +196,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        border: Border.all(color: limeGreen, width: 1.4),
+        border: Border.all(color: limeGreen, width: 2),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(

@@ -18,14 +18,13 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF000B2B),
+      backgroundColor: backgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header with back button
               Row(
                 children: [
                   GestureDetector(
@@ -35,13 +34,14 @@ class _SettingsPageState extends State<SettingsPage> {
                       height: 50.0,
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        border: Border.all(color: limeGreen, width: 1.4),
+                        color: limeGreen,
+                        border: Border.all(color: darkGreen, width: 2),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: const Icon(
                         Icons.arrow_back,
                         size: 24,
-                        color: limeGreen,
+                        color: darkGreen,
                       ),
                     ),
                   ),
@@ -51,33 +51,32 @@ class _SettingsPageState extends State<SettingsPage> {
                     style: textStyle.copyWith(
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
-                        color: limeGreen),
+                        color: darkGreen),
                   ),
                 ],
               ),
               const SizedBox(height: 25),
 
-              // Profile Section
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  border: Border.all(color: limeGreen, width: 1.4),
+                  border: Border.all(color: darkGreen, width: 2),
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Column(
                   children: [
-                    // Profile Picture
                     Container(
                       width: 80,
                       height: 80,
                       decoration: BoxDecoration(
-                        border: Border.all(color: limeGreen, width: 1.4),
+                        color: limeGreen,
+                        border: Border.all(color: darkGreen, width: 2),
                         borderRadius: BorderRadius.circular(40),
                       ),
                       child: const Icon(
                         Icons.person,
                         size: 40,
-                        color: limeGreen,
+                        color: darkGreen,
                       ),
                     ),
                     const SizedBox(height: 15),
@@ -86,7 +85,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       style: textStyle.copyWith(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: highlightWhite),
+                          color: darkGreen),
                     ),
                     Text(
                       userEmail,
@@ -99,10 +98,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     _buildActionButton(
                       'Edit Profile',
                       Icons.edit,
-                      color: limeGreen,
-                      () {
-                        // Implement edit profile functionality
-                      },
+                      color: darkGreen,
+                      () {},
                     ),
                   ],
                 ),
@@ -123,9 +120,9 @@ class _SettingsPageState extends State<SettingsPage> {
                             trailing: DropdownButton<String>(
                               style: textStyle.copyWith(
                                 fontSize: 15,
-                                color: limeGreen,
+                                color: darkGreen,
                               ),
-                              iconEnabledColor: limeGreen,
+                              iconEnabledColor: darkGreen,
                               iconDisabledColor: darkGreen,
                               value: selectedLanguage,
                               underline: const SizedBox(),
@@ -152,7 +149,7 @@ class _SettingsPageState extends State<SettingsPage> {
                               elevation: 0,
                               borderRadius: BorderRadius.circular(15.0),
                               menuWidth: 120.0,
-                              dropdownColor: darkGreen,
+                              dropdownColor: limeGreen,
                               iconSize: 20.0,
                               icon: const Icon(
                                 Icons.keyboard_arrow_down_rounded,
@@ -241,7 +238,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 () {
                   // Implement logout functionality
                 },
-                color: Colors.red,
+                color: darkGreen,
               ),
             ],
           ),
@@ -257,12 +254,12 @@ class _SettingsPageState extends State<SettingsPage> {
         Text(
           title,
           style: textStyle.copyWith(
-              fontSize: 18, fontWeight: FontWeight.bold, color: highlightWhite),
+              fontSize: 18, fontWeight: FontWeight.bold, color: darkGreen),
         ),
         const SizedBox(height: 15),
         Container(
           decoration: BoxDecoration(
-            border: Border.all(color: limeGreen, width: 1.4),
+            border: Border.all(color: darkGreen, width: 2),
             borderRadius: BorderRadius.circular(30),
           ),
           child: Column(
@@ -283,23 +280,16 @@ class _SettingsPageState extends State<SettingsPage> {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-        decoration: const BoxDecoration(
-            // border: Border(
-            //   bottom: BorderSide(
-            //     color: PrimaryBlue,
-            //     width: 1.4,
-            //   ),
-            // ),
-            ),
+        decoration: const BoxDecoration(),
         child: Row(
           children: [
-            Icon(icon, size: 24, color: limeGreen),
+            Icon(icon, size: 24, color: darkGreen),
             const SizedBox(width: 15),
             Text(
               title,
               style: textStyle.copyWith(
                 fontSize: 16,
-                color: limeGreen,
+                color: darkGreen,
               ),
             ),
             const Spacer(),
@@ -310,12 +300,8 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  Widget _buildActionButton(
-    String title,
-    IconData icon,
-    VoidCallback onTap, {
-    Color color = Colors.green,
-  }) {
+  Widget _buildActionButton(String title, IconData icon, VoidCallback onTap,
+      {Color color = Colors.green}) {
     return InkWell(
       borderRadius: BorderRadius.circular(15),
       splashColor: color,
@@ -324,7 +310,8 @@ class _SettingsPageState extends State<SettingsPage> {
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 15),
         decoration: BoxDecoration(
-          border: Border.all(color: limeGreen, width: 1.4),
+          color: limeGreen,
+          border: Border.all(color: darkGreen, width: 2),
           borderRadius: BorderRadius.circular(15),
         ),
         child: Row(

@@ -46,384 +46,462 @@ class ActivityGrid extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      GestureDetector(
-                        onTap: () => Navigator.pop(context),
-                        child: Container(
-                          width: 70.0,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () => Navigator.pop(context),
+                          child: Container(
+                            width: 70.0,
+                            height: 50.0,
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: limeGreen,
+                              border: Border.all(color: darkGreen, width: 2),
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: const Icon(
+                              Icons.arrow_back,
+                              size: 24,
+                              color: darkGreen,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Container(
+                          width: 120.0,
                           height: 50.0,
-                          padding: const EdgeInsets.all(8),
+                          padding: const EdgeInsets.symmetric(horizontal: 12.0),
                           decoration: BoxDecoration(
                             color: limeGreen,
                             border: Border.all(color: darkGreen, width: 2),
                             borderRadius: BorderRadius.circular(30),
                           ),
-                          child: const Icon(
-                            Icons.arrow_back,
-                            size: 24,
-                            color: darkGreen,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              const Icon(
+                                Icons.library_books_outlined,
+                                color: darkGreen,
+                                size: 20,
+                              ),
+                              const SizedBox(
+                                width: 2.0,
+                              ),
+                              Text(
+                                'دراسة',
+                                style: arabicTextStyle.copyWith(
+                                    fontSize: 14.0,
+                                    color: darkGreen,
+                                    fontWeight: FontWeight.w500),
+                              )
+                            ],
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      Container(
-                        width: 120.0,
+                      ],
+                    ),
+                    InkWell(
+                      borderRadius: BorderRadius.circular(30),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SettingsPage()),
+                        );
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.all(12.0),
+                        width: 50.0,
                         height: 50.0,
-                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
                         decoration: BoxDecoration(
                           color: limeGreen,
                           border: Border.all(color: darkGreen, width: 2),
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            const Icon(
-                              Icons.library_books_outlined,
-                              color: darkGreen,
-                              size: 20,
-                            ),
-                            const SizedBox(
-                              width: 2.0,
-                            ),
-                            Text(
-                              'دراسة',
-                              style: arabicTextStyle.copyWith(
-                                  fontSize: 14.0,
-                                  color: darkGreen,
-                                  fontWeight: FontWeight.w500),
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  InkWell(
-                    borderRadius: BorderRadius.circular(30),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SettingsPage()),
-                      );
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.all(12.0),
-                      width: 50.0,
-                      height: 50.0,
-                      decoration: BoxDecoration(
-                        color: limeGreen,
-                        border: Border.all(color: darkGreen, width: 2),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: const Icon(
-                        Icons.settings_rounded,
-                        color: darkGreen,
-                        size: 20,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: 70,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: limeGreen,
-                        border: Border.all(
-                          width: 2,
-                          color: darkGreen,
-                        ),
-                        borderRadius: BorderRadius.circular(30)),
-                    child: const Icon(
-                      Icons.arrow_back_ios_rounded,
-                      color: darkGreen,
-                      size: 20,
-                    ),
-                  ),
-                  Text(
-                    textAlign: TextAlign.right,
-                    textDirection: TextDirection.rtl,
-                    'شبكة النشاط 📑',
-                    style: arabicTextStyle.copyWith(
-                        fontSize: 35, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Wrap(
-                spacing: 4,
-                runSpacing: 4,
-                children: daysInMonth.map((date) {
-                  final dateStr =
-                      "${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}";
-                  final activityCount = activityData[dateStr] ?? 0;
-
-                  return Container(
-                    width: 20,
-                    height: 20,
-                    decoration: BoxDecoration(
-                      color: getColor(activityCount),
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                  );
-                }).toList(),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        width: 70,
-                        height: 40,
-                        decoration: BoxDecoration(
-                            color: limeGreen,
-                            border: Border.all(
-                              width: 2,
-                              color: darkGreen,
-                            ),
-                            borderRadius: BorderRadius.circular(30)),
                         child: const Icon(
-                          Icons.arrow_back_ios_rounded,
+                          Icons.settings_rounded,
                           color: darkGreen,
                           size: 20,
                         ),
                       ),
-                      Text(
-                        textAlign: TextAlign.right,
-                        textDirection: TextDirection.rtl,
-                        'قائمة المهام 🗓️',
-                        style: arabicTextStyle.copyWith(
-                            fontSize: 35, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 30.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: 70,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: limeGreen,
+                          border: Border.all(
+                            width: 2,
+                            color: darkGreen,
+                          ),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: const Icon(
+                        Icons.arrow_back_ios_rounded,
+                        color: darkGreen,
+                        size: 20,
                       ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  )
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(
-                    child: Row(
+                    ),
+                    Text(
+                      textAlign: TextAlign.right,
+                      textDirection: TextDirection.rtl,
+                      'شبكة النشاط 📑',
+                      style: arabicTextStyle.copyWith(
+                          fontSize: 35, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Wrap(
+                  spacing: 4,
+                  runSpacing: 4,
+                  children: daysInMonth.map((date) {
+                    final dateStr =
+                        "${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}";
+                    final activityCount = activityData[dateStr] ?? 0;
+
+                    return Container(
+                      width: 20,
+                      height: 20,
+                      decoration: BoxDecoration(
+                        color: getColor(activityCount),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                    );
+                  }).toList(),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
-                          child: Container(
-                            height: 80,
-                            decoration: BoxDecoration(
-                                color: Colors.redAccent,
-                                border: Border.all(color: darkGreen, width: 2),
-                                borderRadius: BorderRadius.circular(20)),
-                            child: const Icon(
-                                Icons.remove_circle_outline_outlined),
+                        Container(
+                          width: 70,
+                          height: 40,
+                          decoration: BoxDecoration(
+                              color: limeGreen,
+                              border: Border.all(
+                                width: 2,
+                                color: darkGreen,
+                              ),
+                              borderRadius: BorderRadius.circular(30)),
+                          child: const Icon(
+                            Icons.arrow_back_ios_rounded,
+                            color: darkGreen,
+                            size: 20,
                           ),
                         ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                          child: Container(
-                            height: 80,
-                            decoration: BoxDecoration(
-                                color: Colors.orangeAccent,
-                                border: Border.all(color: darkGreen, width: 2),
-                                borderRadius: BorderRadius.circular(20)),
-                            child: const Icon(Icons.grid_view_outlined),
-                          ),
+                        Text(
+                          textAlign: TextAlign.right,
+                          textDirection: TextDirection.rtl,
+                          'قائمة المهام 🗓️',
+                          style: arabicTextStyle.copyWith(
+                              fontSize: 35, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: Material(
-                      color: limeGreen,
-                      borderRadius: BorderRadius.circular(20),
-                      child: InkWell(
-                        splashColor: darkGreen,
-                        child: Container(
-                          height: 80,
-                          decoration: BoxDecoration(
-                            color: Colors.transparent,
-                            border: Border.all(color: darkGreen, width: 2),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: const Icon(Icons.add),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: Colors.transparent,
-                    border: Border.all(color: darkGreen, width: 2),
-                    borderRadius: BorderRadius.circular(20)),
-                child: Padding(
-                  padding: const EdgeInsets.all(25.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        mainAxisSize: MainAxisSize.max,
+                    const SizedBox(
+                      height: 20,
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Row(
                         children: [
-                          Row(
-                            children: [
-                              Container(
-                                width: 24,
-                                height: 24,
-                                decoration: BoxDecoration(
-                                    border:
-                                        Border.all(color: darkGreen, width: 2),
-                                    borderRadius: BorderRadius.circular(40)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(2.0),
-                                  child: Container(
-                                    width: 24,
-                                    height: 24,
-                                    decoration: BoxDecoration(
-                                        color: limeGreen,
-                                        border: Border.all(
-                                            color: Colors.transparent,
-                                            width: 0),
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                'Complete hashing playlist.',
-                                style: textStyle.copyWith(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
-                                  color: darkGreen,
-                                  decoration: TextDecoration.lineThrough,
-                                ),
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Row(
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                width: 24,
-                                height: 24,
-                                decoration: BoxDecoration(
-                                    border:
-                                        Border.all(color: darkGreen, width: 2),
-                                    borderRadius: BorderRadius.circular(40)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(2.0),
-                                  child: Container(
-                                    width: 24,
-                                    height: 24,
-                                    decoration: BoxDecoration(
-                                        color: Colors.transparent,
-                                        border: Border.all(
-                                            color: Colors.transparent,
-                                            width: 0),
-                                        borderRadius:
-                                            BorderRadius.circular(20)),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                'Watch semi-conductors video.',
-                                style: textStyle.copyWith(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
-                                  color: darkGreen,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            width: 24,
-                            height: 24,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: darkGreen, width: 2),
-                                borderRadius: BorderRadius.circular(40)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(2.0),
-                              child: Container(
-                                width: 24,
-                                height: 24,
-                                decoration: BoxDecoration(
-                                    color: limeGreen,
-                                    border: Border.all(
-                                        color: Colors.transparent, width: 0),
-                                    borderRadius: BorderRadius.circular(20)),
+                          Expanded(
+                            child: Container(
+                              height: 80,
+                              decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: darkGreen, width: 2),
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: const Icon(
+                                Icons.remove_circle_outline_outlined,
+                                color: darkGreen,
                               ),
                             ),
                           ),
                           const SizedBox(
-                            width: 5,
+                            width: 10,
                           ),
-                          Text(
-                            'Commit 5 times to Github.',
-                            style: textStyle.copyWith(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              color: darkGreen,
-                              decoration: TextDecoration.lineThrough,
+                          Expanded(
+                            child: Container(
+                              height: 80,
+                              decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: darkGreen, width: 2),
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: const Icon(
+                                Icons.grid_view_outlined,
+                                color: darkGreen,
+                              ),
                             ),
-                          )
+                          ),
                         ],
                       ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: Material(
+                        color: limeGreen,
+                        borderRadius: BorderRadius.circular(20),
+                        child: InkWell(
+                          splashColor: darkGreen,
+                          child: Container(
+                            height: 80,
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              border: Border.all(color: darkGreen, width: 2),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: const Icon(Icons.add),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      border: Border.all(color: darkGreen, width: 2),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(25.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  width: 24,
+                                  height: 24,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: darkGreen, width: 2),
+                                      borderRadius: BorderRadius.circular(40)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Container(
+                                      width: 24,
+                                      height: 24,
+                                      decoration: BoxDecoration(
+                                          color: limeGreen,
+                                          border: Border.all(
+                                              color: Colors.transparent,
+                                              width: 0),
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'Complete hashing playlist.',
+                                  style: textStyle.copyWith(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                    color: darkGreen,
+                                    decoration: TextDecoration.lineThrough,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Row(
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  width: 24,
+                                  height: 24,
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: darkGreen, width: 2),
+                                      borderRadius: BorderRadius.circular(40)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Container(
+                                      width: 24,
+                                      height: 24,
+                                      decoration: BoxDecoration(
+                                          color: Colors.transparent,
+                                          border: Border.all(
+                                              color: Colors.transparent,
+                                              width: 0),
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'Watch semi-conductors video.',
+                                  style: textStyle.copyWith(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                    color: darkGreen,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 8,
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              width: 24,
+                              height: 24,
+                              decoration: BoxDecoration(
+                                  border:
+                                      Border.all(color: darkGreen, width: 2),
+                                  borderRadius: BorderRadius.circular(40)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: Container(
+                                  width: 24,
+                                  height: 24,
+                                  decoration: BoxDecoration(
+                                      color: limeGreen,
+                                      border: Border.all(
+                                          color: Colors.transparent, width: 0),
+                                      borderRadius: BorderRadius.circular(20)),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              'Commit 5 times to Github.',
+                              style: textStyle.copyWith(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                color: darkGreen,
+                                decoration: TextDecoration.lineThrough,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: 70,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: limeGreen,
+                          border: Border.all(
+                            width: 2,
+                            color: darkGreen,
+                          ),
+                          borderRadius: BorderRadius.circular(30)),
+                      child: const Icon(
+                        Icons.arrow_back_ios_rounded,
+                        color: darkGreen,
+                        size: 20,
+                      ),
+                    ),
+                    Text(
+                      textAlign: TextAlign.right,
+                      textDirection: TextDirection.rtl,
+                      'المراجع الدراسية 📕',
+                      style: arabicTextStyle.copyWith(
+                          fontSize: 35, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  height: 300,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: darkGreen, width: 2),
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(25.0),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  child: Icon(Icons.personal_video_rounded),
+                                  height: 80,
+                                  decoration: BoxDecoration(
+                                    color: limeGreen,
+                                    border:
+                                        Border.all(color: darkGreen, width: 2),
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text('URL'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

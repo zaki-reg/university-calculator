@@ -145,17 +145,15 @@ class ActivityGrid extends StatelessWidget {
                     Container(
                       width: 70,
                       height: 40,
-                      decoration: BoxDecoration(
-                          color: limeGreen,
-                          border: Border.all(
-                            width: 2,
-                            color: darkGreen,
-                          ),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: const Icon(
-                        Icons.arrow_back_ios_rounded,
-                        color: darkGreen,
-                        size: 20,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(20),
+                        onTap: () {},
+                        splashColor: darkGreen.withAlpha(30),
+                        child: const Icon(
+                          Icons.arrow_back_ios,
+                          color: darkGreen,
+                          size: 20,
+                        ),
                       ),
                     ),
                     Text(
@@ -198,17 +196,15 @@ class ActivityGrid extends StatelessWidget {
                         Container(
                           width: 70,
                           height: 40,
-                          decoration: BoxDecoration(
-                              color: limeGreen,
-                              border: Border.all(
-                                width: 2,
-                                color: darkGreen,
-                              ),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: const Icon(
-                            Icons.arrow_back_ios_rounded,
-                            color: darkGreen,
-                            size: 20,
+                          child: InkWell(
+                            borderRadius: BorderRadius.circular(20),
+                            onTap: () {},
+                            splashColor: darkGreen.withAlpha(30),
+                            child: const Icon(
+                              Icons.arrow_back_ios,
+                              color: darkGreen,
+                              size: 20,
+                            ),
                           ),
                         ),
                         Text(
@@ -232,15 +228,20 @@ class ActivityGrid extends StatelessWidget {
                       child: Row(
                         children: [
                           Expanded(
-                            child: Container(
-                              height: 80,
-                              decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: darkGreen, width: 2),
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: const Icon(
-                                Icons.remove_circle_outline_outlined,
-                                color: darkGreen,
+                            child: InkWell(
+                              onTap: () {},
+                              splashColor: darkGreen.withAlpha(30),
+                              borderRadius: BorderRadius.circular(20),
+                              child: Container(
+                                height: 80,
+                                decoration: BoxDecoration(
+                                    border:
+                                        Border.all(color: darkGreen, width: 2),
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: const Icon(
+                                  Icons.remove_circle_outline_outlined,
+                                  color: darkGreen,
+                                ),
                               ),
                             ),
                           ),
@@ -248,15 +249,20 @@ class ActivityGrid extends StatelessWidget {
                             width: 10,
                           ),
                           Expanded(
-                            child: Container(
-                              height: 80,
-                              decoration: BoxDecoration(
-                                  border:
-                                      Border.all(color: darkGreen, width: 2),
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: const Icon(
-                                Icons.grid_view_outlined,
-                                color: darkGreen,
+                            child: InkWell(
+                              onTap: () {},
+                              splashColor: darkGreen.withAlpha(30),
+                              borderRadius: BorderRadius.circular(20),
+                              child: Container(
+                                height: 80,
+                                decoration: BoxDecoration(
+                                    border:
+                                        Border.all(color: darkGreen, width: 2),
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: const Icon(
+                                  Icons.grid_view_outlined,
+                                  color: darkGreen,
+                                ),
                               ),
                             ),
                           ),
@@ -271,7 +277,9 @@ class ActivityGrid extends StatelessWidget {
                         color: limeGreen,
                         borderRadius: BorderRadius.circular(20),
                         child: InkWell(
-                          splashColor: darkGreen,
+                          borderRadius: BorderRadius.circular(20),
+                          onTap: () {},
+                          splashColor: darkGreen.withAlpha(30),
                           child: Container(
                             height: 80,
                             decoration: BoxDecoration(
@@ -343,7 +351,7 @@ class ActivityGrid extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         Row(
@@ -357,19 +365,16 @@ class ActivityGrid extends StatelessWidget {
                                       border: Border.all(
                                           color: darkGreen, width: 2),
                                       borderRadius: BorderRadius.circular(40)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(2.0),
-                                    child: Container(
-                                      width: 24,
-                                      height: 24,
-                                      decoration: BoxDecoration(
-                                          color: Colors.transparent,
-                                          border: Border.all(
-                                              color: Colors.transparent,
-                                              width: 0),
-                                          borderRadius:
-                                              BorderRadius.circular(20)),
-                                    ),
+                                  child: Container(
+                                    width: 24,
+                                    height: 24,
+                                    decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        border: Border.all(
+                                            color: Colors.transparent,
+                                            width: 0),
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
                                   ),
                                 ),
                                 const SizedBox(
@@ -387,7 +392,7 @@ class ActivityGrid extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         Row(
@@ -399,17 +404,14 @@ class ActivityGrid extends StatelessWidget {
                                   border:
                                       Border.all(color: darkGreen, width: 2),
                                   borderRadius: BorderRadius.circular(40)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(2.0),
-                                child: Container(
-                                  width: 24,
-                                  height: 24,
-                                  decoration: BoxDecoration(
-                                      color: limeGreen,
-                                      border: Border.all(
-                                          color: Colors.transparent, width: 0),
-                                      borderRadius: BorderRadius.circular(20)),
-                                ),
+                              child: Container(
+                                width: 24,
+                                height: 24,
+                                decoration: BoxDecoration(
+                                    color: limeGreen,
+                                    border: Border.all(
+                                        color: Colors.transparent, width: 0),
+                                    borderRadius: BorderRadius.circular(20)),
                               ),
                             ),
                             const SizedBox(
@@ -430,26 +432,24 @@ class ActivityGrid extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Container(
                       width: 70,
                       height: 40,
-                      decoration: BoxDecoration(
-                          color: limeGreen,
-                          border: Border.all(
-                            width: 2,
-                            color: darkGreen,
-                          ),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: const Icon(
-                        Icons.arrow_back_ios_rounded,
-                        color: darkGreen,
-                        size: 20,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(20),
+                        onTap: () {},
+                        splashColor: darkGreen.withAlpha(30),
+                        child: const Icon(
+                          Icons.arrow_back_ios,
+                          color: darkGreen,
+                          size: 20,
+                        ),
                       ),
                     ),
                     Text(
@@ -461,42 +461,175 @@ class ActivityGrid extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Container(
-                  height: 300,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: darkGreen, width: 2),
-                      borderRadius: BorderRadius.circular(20)),
+                Directionality(
+                  textDirection: TextDirection.rtl,
                   child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(25.0),
-                        child: Column(
-                          children: [
-                            Row(
-                              children: [
-                                Container(
-                                  child: Icon(Icons.personal_video_rounded),
-                                  height: 80,
-                                  decoration: BoxDecoration(
-                                    color: limeGreen,
-                                    border:
-                                        Border.all(color: darkGreen, width: 2),
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text('URL'),
-                              ],
+                      Material(
+                        borderRadius: BorderRadius.circular(20),
+                        color: limeGreen,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(20),
+                          onTap: () {},
+                          splashColor: darkGreen.withAlpha(30),
+                          child: Container(
+                            width: double.infinity,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              border: Border.all(color: darkGreen, width: 2),
+                              borderRadius: BorderRadius.circular(20),
                             ),
-                          ],
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 25.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.videocam_rounded,
+                                        size: 25,
+                                        color: darkGreen,
+                                      ),
+                                      const SizedBox(
+                                        width: 7,
+                                      ),
+                                      Text(
+                                        'خوارزميات وبنية المعلومات',
+                                        style: arabicTextStyle.copyWith(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w500,
+                                            color: darkGreen),
+                                      ),
+                                    ],
+                                  ),
+                                  const Icon(
+                                    Icons.arrow_back_ios,
+                                    size: 20,
+                                    color: darkGreen,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
-                      )
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Material(
+                        borderRadius: BorderRadius.circular(20),
+                        color: limeGreen,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(20),
+                          onTap: () {},
+                          splashColor: darkGreen.withAlpha(30),
+                          child: Container(
+                            width: double.infinity,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              border: Border.all(color: darkGreen, width: 2),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 25.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.videocam_rounded,
+                                        size: 25,
+                                        color: darkGreen,
+                                      ),
+                                      const SizedBox(
+                                        width: 7,
+                                      ),
+                                      Text(
+                                        'أساسيات لغة سي من الصفر',
+                                        style: arabicTextStyle.copyWith(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w500,
+                                            color: darkGreen),
+                                      ),
+                                    ],
+                                  ),
+                                  const Icon(
+                                    Icons.arrow_back_ios,
+                                    size: 20,
+                                    color: darkGreen,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Material(
+                        borderRadius: BorderRadius.circular(20),
+                        color: limeGreen,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(20),
+                          onTap: () {},
+                          splashColor: darkGreen.withAlpha(30),
+                          child: Container(
+                            width: double.infinity,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              border: Border.all(color: darkGreen, width: 2),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 25.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        Icons.videocam_rounded,
+                                        size: 25,
+                                        color: darkGreen,
+                                      ),
+                                      const SizedBox(
+                                        width: 7,
+                                      ),
+                                      Text(
+                                        'كالكيلس 3 بالكامل',
+                                        style: arabicTextStyle.copyWith(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w500,
+                                            color: darkGreen),
+                                      ),
+                                    ],
+                                  ),
+                                  const Icon(
+                                    Icons.arrow_back_ios,
+                                    size: 20,
+                                    color: darkGreen,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),

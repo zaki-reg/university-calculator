@@ -140,6 +140,139 @@ class _HomeState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: backgroundColor,
+      bottomNavigationBar: Container(
+        height: 74,
+        margin: const EdgeInsets.only(bottom: 30, right: 25, left: 25),
+        decoration: BoxDecoration(
+          color: limeGreen,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: darkGreen, width: 2),
+        ),
+        child: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Row(
+            children: [
+              Expanded(
+                child: Material(
+                  borderRadius: BorderRadius.circular(20),
+                  color: limeGreen,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(20),
+                    onTap: () {},
+                    splashColor: darkGreen.withAlpha(30),
+                    child: Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.home, color: darkGreen),
+                          const SizedBox(
+                            width: 3,
+                          ),
+                          Text(
+                            'الرئيسية',
+                            style: arabicTextStyle.copyWith(
+                                fontSize: 17,
+                                color: darkGreen,
+                                fontWeight: FontWeight.w500),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Material(
+                  borderRadius: BorderRadius.circular(20),
+                  color: limeGreen,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(20),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ActivityGrid()),
+                      );
+                    },
+                    splashColor: darkGreen.withAlpha(30),
+                    child: Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.home, color: darkGreen),
+                          const SizedBox(
+                            width: 3,
+                          ),
+                          Text(
+                            'دراسة',
+                            style: arabicTextStyle.copyWith(
+                                fontSize: 17,
+                                color: darkGreen,
+                                fontWeight: FontWeight.w500),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Material(
+                  borderRadius: BorderRadius.circular(20),
+                  color: limeGreen,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(20),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const Semester2CalculatorPage()),
+                      );
+                    },
+                    splashColor: darkGreen.withAlpha(30),
+                    child: Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.home, color: darkGreen),
+                          const SizedBox(
+                            width: 3,
+                          ),
+                          Text(
+                            'إنتاجية',
+                            style: arabicTextStyle.copyWith(
+                                fontSize: 17,
+                                color: darkGreen,
+                                fontWeight: FontWeight.w500),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -490,7 +623,7 @@ class _HomeState extends State<HomePage> {
                 const SizedBox(
                   height: 15.0,
                 ),
-                _buildBottomNavBar(),
+                // _buildBottomNavBar(),
               ]),
         ),
       ),

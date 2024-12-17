@@ -21,6 +21,7 @@ class UniCal extends StatelessWidget {
       ),
       home: const Scaffold(
         body: Welcome(),
+        backgroundColor: backgroundColor,
       ),
     );
   }

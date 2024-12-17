@@ -225,6 +225,7 @@ class ActivityGrid extends StatelessWidget {
                 ],
               ),
               Row(
+                mainAxisSize: MainAxisSize.max,
                 children: [
                   Expanded(
                     child: Row(
@@ -260,16 +261,167 @@ class ActivityGrid extends StatelessWidget {
                     width: 10,
                   ),
                   Expanded(
-                    child: Container(
-                      height: 80,
-                      decoration: BoxDecoration(
-                          color: limeGreen,
-                          border: Border.all(color: darkGreen, width: 2),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: const Icon(Icons.add),
+                    child: Material(
+                      color: limeGreen,
+                      borderRadius: BorderRadius.circular(20),
+                      child: InkWell(
+                        splashColor: darkGreen,
+                        child: Container(
+                          height: 80,
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            border: Border.all(color: darkGreen, width: 2),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: const Icon(Icons.add),
+                        ),
+                      ),
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    border: Border.all(color: darkGreen, width: 2),
+                    borderRadius: BorderRadius.circular(20)),
+                child: Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                width: 24,
+                                height: 24,
+                                decoration: BoxDecoration(
+                                    border:
+                                        Border.all(color: darkGreen, width: 2),
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Container(
+                                    width: 24,
+                                    height: 24,
+                                    decoration: BoxDecoration(
+                                        color: limeGreen,
+                                        border: Border.all(
+                                            color: Colors.transparent,
+                                            width: 0),
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Complete hashing playlist.',
+                                style: textStyle.copyWith(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  color: darkGreen,
+                                  decoration: TextDecoration.lineThrough,
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Row(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                width: 24,
+                                height: 24,
+                                decoration: BoxDecoration(
+                                    border:
+                                        Border.all(color: darkGreen, width: 2),
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Container(
+                                    width: 24,
+                                    height: 24,
+                                    decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                        border: Border.all(
+                                            color: Colors.transparent,
+                                            width: 0),
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Watch semi-conductors video.',
+                                style: textStyle.copyWith(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  color: darkGreen,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            width: 24,
+                            height: 24,
+                            decoration: BoxDecoration(
+                                border: Border.all(color: darkGreen, width: 2),
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: Container(
+                                width: 24,
+                                height: 24,
+                                decoration: BoxDecoration(
+                                    color: limeGreen,
+                                    border: Border.all(
+                                        color: Colors.transparent, width: 0),
+                                    borderRadius: BorderRadius.circular(20)),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            'Commit 5 times to Github.',
+                            style: textStyle.copyWith(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                              color: darkGreen,
+                              decoration: TextDecoration.lineThrough,
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:uni_calculator_test/screens/home.dart';
 
 import '../constants.dart';
@@ -43,66 +44,76 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: darkGreen,
       body: Padding(
-        padding: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.symmetric(horizontal: 25.0),
         child: Column(
           textDirection: TextDirection.rtl,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Flexible(
-              child: Directionality(
-                textDirection: TextDirection.rtl,
-                child: RichText(
-                  textAlign: TextAlign.right,
-                  text: TextSpan(
-                    style: textStyle.copyWith(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 40.0,
-                      height: 1.1,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 40.0),
+              child: SvgPicture.asset(
+                'assets/vectors/logo.svg',
+                width: 180,
+                colorFilter:
+                    const ColorFilter.mode(limeGreen, BlendMode.srcATop),
+              ),
+            ),
+            Directionality(
+              textDirection: TextDirection.rtl,
+              child: RichText(
+                textAlign: TextAlign.right,
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'أهلا ',
+                      style: arabicTextStyle.copyWith(
+                          color: limeGreen,
+                          fontWeight: FontWeight.normal,
+                          fontSize: 45.0,
+                          height: 1.2),
                     ),
-                    children: [
-                      TextSpan(
-                        text: 'أهلا ',
-                        style: arabicTextStyle.copyWith(
-                            color: darkGreen, fontWeight: FontWeight.normal),
+                    TextSpan(
+                      text: widget.enteredText + ', ',
+                      style: arabicTextStyle.copyWith(
+                          color: brightYellow,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 45.0,
+                          height: 1.2),
+                    ),
+                    TextSpan(
+                      text: 'اختر',
+                      style: arabicTextStyle.copyWith(
+                        color: limeGreen,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 45.0,
+                        height: 1.2,
                       ),
-                      TextSpan(
-                        text: '${widget.enteredText}, ',
-                        style: arabicTextStyle.copyWith(
-                            color: limeGreen.withGreen(190),
-                            fontWeight: FontWeight.w500),
+                    ),
+                    TextSpan(
+                      text: ' تخصصك, ',
+                      style: arabicTextStyle.copyWith(
+                        color: brightYellow,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 45.0,
+                        height: 1.2,
                       ),
-                      TextSpan(
-                        text: 'ماهو ',
-                        style: arabicTextStyle.copyWith(
-                            color: darkGreen, fontWeight: FontWeight.normal),
+                    ),
+                    TextSpan(
+                      text: 'والسنة الجارية.',
+                      style: arabicTextStyle.copyWith(
+                        color: brightYellow,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 45.0,
+                        height: 1.2,
                       ),
-                      TextSpan(
-                        text: 'تخصصك؟ ',
-                        style: arabicTextStyle.copyWith(
-                            color: limeGreen.withGreen(190),
-                            fontWeight: FontWeight.w500),
-                      ),
-                      TextSpan(
-                        text: 'أي ',
-                        style: arabicTextStyle.copyWith(
-                            color: darkGreen, fontWeight: FontWeight.normal),
-                      ),
-                      TextSpan(
-                        text: 'عام؟',
-                        style: arabicTextStyle.copyWith(
-                            color: limeGreen.withGreen(190),
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
-            const SizedBox(
-              height: 15.0,
-            ),
+            const SizedBox(height: 10.0),
             Row(
               children: [
                 Expanded(
@@ -126,21 +137,25 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                     child: Material(
                       color: Colors.transparent,
                       child: Container(
-                        height: 60,
+                        height: 80,
                         padding: const EdgeInsets.symmetric(
                             horizontal: 12, vertical: 8),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15.0),
-                          border: Border.all(color: darkGreen, width: 2),
+                          border: Border.all(color: limeGreen, width: 2),
                         ),
                         child: Row(
                           children: [
                             const Icon(Icons.arrow_drop_down_circle_outlined,
-                                color: darkGreen),
-                            const SizedBox(width: 10),
-                            Text(selectedField,
-                                style: textStyle.copyWith(
-                                    fontSize: 16, color: darkGreen)),
+                                color: limeGreen),
+                            const SizedBox(width: 15),
+                            Text(
+                              selectedField,
+                              style: textStyle.copyWith(
+                                fontSize: 18,
+                                color: limeGreen,
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -156,13 +171,13 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                     borderRadius: BorderRadius.circular(15.0),
                     onTap: isFieldSelected ? addNewRow : null,
                     child: Container(
-                      height: 60,
-                      width: 70,
+                      height: 80,
+                      width: 110,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15.0),
-                          border: Border.all(color: darkGreen, width: 2)),
+                          border: Border.all(color: limeGreen, width: 2)),
                       child: const Center(
-                        child: Icon(Icons.arrow_back, color: darkGreen),
+                        child: Icon(Icons.arrow_back, color: limeGreen),
                       ),
                     ),
                   ),

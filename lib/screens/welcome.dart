@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/svg.dart' show SvgPicture;
 import 'package:uni_calculator_test/custom_shape.dart';
 import '../constants.dart';
 import 'field_year.dart';
@@ -84,7 +83,7 @@ class _WelcomeState extends State<Welcome> {
                   ),
                 ),
                 Stack(
-                  alignment: AlignmentDirectional(0.0, -0.87),
+                  alignment: const AlignmentDirectional(0.0, -0.87),
                   children: [
                     Stack(
                       alignment: AlignmentDirectional.center,
@@ -97,7 +96,7 @@ class _WelcomeState extends State<Welcome> {
                               edgeRadius: 20,
                               bigRectHeight: 350,
                               smallRectHeight: 235,
-                              smallRectWidth: 110 + 15,
+                              smallRectWidth: 110 + 25 - 10,
                             ),
                           ),
                         ),
@@ -106,18 +105,18 @@ class _WelcomeState extends State<Welcome> {
 
                     // submit name button
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                      padding: const EdgeInsets.only(left: 25.0, right: 15),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           // enter your name section
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 15.0),
+                              padding: const EdgeInsets.only(left: 4.0),
                               child: Container(
                                 height: 80.0,
                                 decoration: BoxDecoration(
-                                  color: darkGreen.withAlpha(150),
+                                  color: darkGreen.withAlpha(80),
                                   border:
                                       Border.all(color: darkGreen, width: 2),
                                   borderRadius: BorderRadius.circular(15.0),
@@ -156,7 +155,7 @@ class _WelcomeState extends State<Welcome> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 30,
                           ),
                           InkWell(

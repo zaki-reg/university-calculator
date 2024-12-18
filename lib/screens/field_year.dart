@@ -347,3 +347,29 @@ class _YearRowState extends State<YearRow> {
     );
   }
 }
+// Expanded(
+// child: Card(
+// margin: EdgeInsets.zero,
+// elevation: 0,
+// shape: const BeveledRectangleBorder(
+// side: BorderSide(width: 1, color: darkGreen),
+// borderRadius: BorderRadius.only(
+// bottomLeft: Radius.circular(30),
+// bottomRight: Radius.circular(30),
+// ),
+// ),
+// color: limeGreen,
+// child: Padding(
+// padding: const EdgeInsets.symmetric(
+// vertical: 30.0, horizontal: 20.0),
+// child: Center(
+// child: SvgPicture.asset(
+// 'assets/vectors/logo.svg',
+// width: 180,
+// colorFilter: const ColorFilter.mode(
+// darkGreen, BlendMode.srcATop),
+// ),
+// ),
+// ),
+// ),
+// ),

@@ -15,13 +15,11 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
   ];
   double annualAverage = 0.0;
 
-  // Initialize the TextEditingController list for each semester
   late List<TextEditingController> controllers;
 
   @override
   void initState() {
     super.initState();
-    // Initialize controllers for each semester
     controllers = List.generate(semesters.length, (index) {
       return TextEditingController(
           text: semesters[index].average > 0
@@ -47,24 +45,25 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Header with back button
                           Row(
                             children: [
-                              GestureDetector(
+                              InkWell(
+                                borderRadius: BorderRadius.circular(30),
                                 onTap: () => Navigator.pop(context),
                                 child: Container(
                                   width: 100.0,
                                   height: 50.0,
                                   padding: const EdgeInsets.all(8),
                                   decoration: BoxDecoration(
+                                    color: limeGreen,
                                     border:
-                                        Border.all(color: limeGreen, width: 2),
+                                        Border.all(color: darkGreen, width: 2),
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                   child: const Icon(
                                     Icons.arrow_back,
                                     size: 24,
-                                    color: limeGreen,
+                                    color: darkGreen,
                                   ),
                                 ),
                               ),
@@ -74,68 +73,98 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                                 style: textStyle.copyWith(
                                     fontSize: 25,
                                     fontWeight: FontWeight.w600,
-                                    color: limeGreen),
+                                    color: darkGreen),
                               ),
                             ],
                           ),
                           const SizedBox(height: 20),
-
-                          // Annual Average Display
-                          Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: limeGreen, width: 2),
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    const Icon(Icons.calculate_rounded,
-                                        color: limeGreen, size: 24),
-                                    const SizedBox(width: 2),
-                                    Text(
-                                      'Annual Average',
-                                      style: textStyle.copyWith(
-                                          fontSize: 16, color: highlightWhite),
-                                    ),
-                                  ],
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                flex: 2,
+                                child: Container(
+                                  height: 120,
+                                  width: double.infinity,
+                                  padding: const EdgeInsets.all(20),
+                                  decoration: BoxDecoration(
+                                    color: limeGreen,
+                                    border:
+                                        Border.all(color: darkGreen, width: 2),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Flexible(
+                                        child: RichText(
+                                            text: TextSpan(
+                                          children: [
+                                            TextSpan(
+                                              text: 'You got: ',
+                                              style: textStyle.copyWith(
+                                                  fontSize: 30,
+                                                  fontWeight: FontWeight.normal,
+                                                  color: darkGreen),
+                                            ),
+                                            TextSpan(
+                                              text: annualAverage
+                                                  .toStringAsFixed(2),
+                                              style: textStyle.copyWith(
+                                                  fontSize: 30,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: darkGreen),
+                                            ),
+                                          ],
+                                        )),
+                                      ),
+                                      if (annualAverage > 0) ...[],
+                                    ],
+                                  ),
                                 ),
-                                const SizedBox(height: 10),
-                                Text(annualAverage.toStringAsFixed(2),
-                                    style: textStyle.copyWith(
-                                        fontSize: 40,
-                                        fontWeight: FontWeight.bold,
-                                        color: limeGreen)),
-                                if (annualAverage > 0) ...[
-                                  const SizedBox(height: 10),
-                                  Text(
-                                    _getStatusMessage(annualAverage),
-                                    style: textStyle.copyWith(
-                                      fontSize: 16,
-                                      color: _getStatusColor(annualAverage),
-                                      fontWeight: FontWeight.w500,
+                              ),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: Material(
+                                  color: limeGreen,
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: InkWell(
+                                    onTap: () {},
+                                    borderRadius: BorderRadius.circular(20),
+                                    child: Container(
+                                      height: 120,
+                                      width: double.infinity,
+                                      padding: const EdgeInsets.all(20),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: darkGreen, width: 2),
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                      child: const Icon(
+                                        Icons.add,
+                                        size: 40,
+                                        color: darkGreen,
+                                      ),
                                     ),
                                   ),
-                                ],
-                              ],
-                            ),
+                                ),
+                              ),
+                            ],
                           ),
                           const SizedBox(height: 30),
-
-                          // Semester Inputs
                           Text(
-                            'Enter Semester Averages',
+                            'Custom Inputs',
                             style: textStyle.copyWith(
-                                fontSize: 18,
+                                fontSize: 25,
                                 fontWeight: FontWeight.w600,
-                                color: highlightWhite),
+                                color: darkGreen),
                           ),
-                          const SizedBox(height: 15),
-
-                          // Semester Cards
+                          const SizedBox(height: 10),
                           ...semesters.asMap().entries.map((entry) {
                             int index = entry.key;
                             Semester semester = entry.value;
@@ -153,34 +182,38 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
                   ),
                 ),
               ),
-              InkWell(
-                focusColor: limeGreen,
+              Material(
+                color: limeGreen,
                 borderRadius: BorderRadius.circular(50),
-                onTap: _calculateAnnualAverage,
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: limeGreen, width: 2),
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.calculate_rounded,
-                        color: limeGreen,
-                        size: 25,
-                      ),
-                      const SizedBox(width: 2),
-                      Text(
-                        'Calculate',
-                        style: textStyle.copyWith(
-                            fontSize: 17,
-                            color: limeGreen,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
+                child: InkWell(
+                  focusColor: limeGreen,
+                  borderRadius: BorderRadius.circular(50),
+                  onTap: _calculateAnnualAverage,
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: darkGreen, width: 2),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.calculate_rounded,
+                          color: darkGreen,
+                          size: 25,
+                        ),
+                        const SizedBox(width: 2),
+                        Text(
+                          'Calculate',
+                          style: textStyle.copyWith(
+                              fontSize: 17,
+                              color: darkGreen,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -196,27 +229,43 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        border: Border.all(color: limeGreen, width: 2),
-        borderRadius: BorderRadius.circular(15),
+        color: limeGreen,
+        border: Border.all(color: darkGreen, width: 2),
+        borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            semester.name,
-            style: textStyle.copyWith(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: highlightWhite),
+          Row(
+            children: [
+              const Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 20,
+                color: darkGreen,
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              Text(
+                semester.name,
+                style: textStyle.copyWith(
+                    fontSize: 25,
+                    fontWeight: FontWeight.w600,
+                    color: darkGreen),
+              ),
+            ],
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 20),
           Container(
+            height: 70,
             padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
-              border: Border.all(color: darkGreen, width: 1),
-              borderRadius: BorderRadius.circular(10),
+              color: backgroundColor,
+              border: Border.all(color: darkGreen, width: 2),
+              borderRadius: BorderRadius.circular(20),
             ),
             child: TextField(
+              textAlignVertical: const TextAlignVertical(y: 1),
               cursorColor: limeGreen,
               controller: controller,
               keyboardType: TextInputType.number,
@@ -228,10 +277,13 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'Enter average',
-                hintStyle: textStyle.copyWith(color: darkGreen),
-                contentPadding: const EdgeInsets.symmetric(vertical: 8),
+                hintStyle: textStyle.copyWith(
+                    color: darkGreen.withAlpha(80), fontSize: 17),
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
               ),
-              style: textStyle.copyWith(fontSize: 16, color: highlightWhite),
+              style: textStyle.copyWith(
+                  fontSize: 17, color: darkGreen, fontWeight: FontWeight.w500),
             ),
           ),
         ],
@@ -265,7 +317,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
 
   Color _getStatusColor(double average) {
     if (average >= 10) {
-      return Colors.green;
+      return richPurple;
     } else {
       return Colors.red;
     }

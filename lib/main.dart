@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uni_calculator_test/constants.dart';
+import 'package:uni_calculator_test/custom_shape.dart';
+import 'package:uni_calculator_test/screens/field_year.dart';
 import 'package:uni_calculator_test/screens/welcome.dart';
 
 void main() {
@@ -26,3 +28,11 @@ class UniCal extends StatelessWidget {
     );
   }
 }
+
+
+// CustomShapeWidget(
+//           edgeRadius: 30,
+//           bigRectHeight: 380,
+//           smallRectHeight: 280,
+//           smallRectWidth: 120,
+//         ),

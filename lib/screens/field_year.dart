@@ -27,7 +27,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
   };
 
   List<YearRow> additionalRows = [];
-  bool hasAddedRow = false; // Control adding rows
+  bool hasAddedRow = false;
 
   void addNewRow() {
     if (!hasAddedRow) {
@@ -35,7 +35,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
         additionalRows.add(
           YearRow(key: UniqueKey(), years: fieldYears[selectedField]!),
         );
-        hasAddedRow = true; // Prevent further additions
+        hasAddedRow = true;
       });
     }
   }
@@ -65,44 +65,35 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                       TextSpan(
                         text: 'أهلا ',
                         style: arabicTextStyle.copyWith(
-                            color: darkGreen,
-                            fontWeight: FontWeight
-                                .normal), // Replace with your WhiteBlue color
+                            color: darkGreen, fontWeight: FontWeight.normal),
                       ),
                       TextSpan(
                         text: '${widget.enteredText}, ',
                         style: arabicTextStyle.copyWith(
                             color: limeGreen.withGreen(190),
-                            fontWeight: FontWeight
-                                .w500), // Replace with your WhiteBlue color
+                            fontWeight: FontWeight.w500),
                       ),
                       TextSpan(
                         text: 'ماهو ',
                         style: arabicTextStyle.copyWith(
-                            color: darkGreen,
-                            fontWeight: FontWeight
-                                .normal), // Replace with your WhiteBlue color
+                            color: darkGreen, fontWeight: FontWeight.normal),
                       ),
                       TextSpan(
                         text: 'تخصصك؟ ',
                         style: arabicTextStyle.copyWith(
                             color: limeGreen.withGreen(190),
-                            fontWeight: FontWeight
-                                .w500), // Replace with your WhiteBlue color
+                            fontWeight: FontWeight.w500),
                       ),
                       TextSpan(
                         text: 'أي ',
                         style: arabicTextStyle.copyWith(
-                            color: darkGreen,
-                            fontWeight: FontWeight
-                                .normal), // Replace with your PrimaryBlue color
+                            color: darkGreen, fontWeight: FontWeight.normal),
                       ),
                       TextSpan(
                         text: 'عام؟',
                         style: arabicTextStyle.copyWith(
                             color: limeGreen.withGreen(190),
-                            fontWeight: FontWeight
-                                .w500), // Replace with your WhiteBlue color
+                            fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
@@ -269,8 +260,10 @@ class _YearRowState extends State<YearRow> {
                       ),
                       Text(
                         selectedYear,
-                        style:
-                            textStyle.copyWith(color: darkGreen, fontSize: 16,fontWeight: FontWeight.w500),
+                        style: textStyle.copyWith(
+                            color: darkGreen,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),

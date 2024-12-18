@@ -30,112 +30,6 @@ class _HomeState extends State<HomePage> {
     });
   }
 
-  Widget _buildBottomNavBar() {
-    return Stack(
-      children: [
-        Expanded(
-          flex: 3,
-          child: Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: darkGreen, width: 2),
-              color: darkGreen,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            height: 65.0,
-          ),
-        ),
-        Row(
-          children: [
-            _buildNavItem(
-              index: 0,
-              icon: 'assets/vectors/home.svg',
-              label: 'الرئيسية',
-              activeColor: limeGreen,
-              inactiveColor: limeGreen.withOpacity(0.5),
-            ),
-            _buildNavItem(
-              index: 1,
-              icon: 'assets/vectors/study.svg',
-              label: 'دراسة',
-              activeColor: limeGreen,
-              inactiveColor: limeGreen.withOpacity(0.5),
-              ontap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ActivityGrid()),
-                );
-              },
-            ),
-            _buildNavItem(
-              index: 2,
-              icon: 'assets/vectors/profile.svg',
-              label: 'الحساب',
-              activeColor: limeGreen,
-              inactiveColor: limeGreen.withOpacity(0.5),
-              ontap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SettingsPage()),
-                );
-              },
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget _buildNavItem({
-    required int index,
-    required String icon,
-    required String label,
-    required Color activeColor,
-    required Color inactiveColor,
-    Function()? ontap,
-  }) {
-    bool isSelected = _selectedNavIndex == index;
-    return Expanded(
-      child: GestureDetector(
-        onTap: ontap,
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 120),
-          curve: Curves.easeInOutQuad,
-          width: 150,
-          height: 65.0,
-          decoration: BoxDecoration(
-            color: isSelected ? limeGreen : Colors.transparent,
-            border: Border.all(
-              width: 2,
-              color: isSelected ? darkGreen : Colors.transparent,
-            ),
-            // color: isSelected ? activeColor : const Color(0xFF01124C),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                icon,
-                height: 17,
-                colorFilter: ColorFilter.mode(
-                    isSelected ? darkGreen : limeGreen, BlendMode.srcATop),
-              ),
-              const SizedBox(width: 3.0),
-              Text(
-                label,
-                style: arabicTextStyle.copyWith(
-                  color: isSelected ? darkGreen : limeGreen,
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,7 +53,7 @@ class _HomeState extends State<HomePage> {
                   child: InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {},
-                    splashColor: darkGreen.withAlpha(30),
+                    highlightColor: darkGreen.withAlpha(20),
                     child: Container(
                       width: double.infinity,
                       height: double.infinity,
@@ -177,7 +71,7 @@ class _HomeState extends State<HomePage> {
                           Text(
                             'الرئيسية',
                             style: arabicTextStyle.copyWith(
-                                fontSize: 17,
+                                fontSize: 16,
                                 color: darkGreen,
                                 fontWeight: FontWeight.w500),
                           )
@@ -210,14 +104,15 @@ class _HomeState extends State<HomePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.home, color: darkGreen),
+                          const Icon(Icons.library_books_rounded,
+                              color: darkGreen),
                           const SizedBox(
                             width: 3,
                           ),
                           Text(
                             'دراسة',
                             style: arabicTextStyle.copyWith(
-                                fontSize: 17,
+                                fontSize: 16,
                                 color: darkGreen,
                                 fontWeight: FontWeight.w500),
                           )
@@ -252,14 +147,14 @@ class _HomeState extends State<HomePage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.home, color: darkGreen),
+                          const Icon(Icons.timeline_rounded, color: darkGreen),
                           const SizedBox(
                             width: 3,
                           ),
                           Text(
                             'إنتاجية',
                             style: arabicTextStyle.copyWith(
-                                fontSize: 17,
+                                fontSize: 16,
                                 color: darkGreen,
                                 fontWeight: FontWeight.w500),
                           )

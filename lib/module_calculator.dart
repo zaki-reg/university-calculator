@@ -46,7 +46,7 @@ class ModulePreset {
 
 // Preset data (ING-1 with modules and coefficients)
 final Map<String, List<ModulePreset>> presets = {
-  'ing-1': [
+  'Informatique ING S1': [
     ModulePreset('Analyse 1', 6, 0.6, 0.4, false),
     ModulePreset('Algèbre 1', 4, 0.6, 0.4, false),
     ModulePreset('ADO1', 4, 0.6, 0.4, false),
@@ -55,7 +55,7 @@ final Map<String, List<ModulePreset>> presets = {
     ModulePreset('ASD 1', 6, 0.6, 0.4, true),
     ModulePreset('Tech', 1, 1, 1, false),
   ],
-  'ing-2': [
+  'Informatique ING S2': [
     ModulePreset('Analyse 2', 6, 0.6, 0.4, false),
     ModulePreset('Algèbre 2', 4, 0.6, 0.4, false),
     ModulePreset('Logique', 4, 0.6, 0.4, false),
@@ -64,7 +64,7 @@ final Map<String, List<ModulePreset>> presets = {
     ModulePreset('SE 2', 6, 0.6, 0.4, true),
     ModulePreset('ASD 2', 6, 0.6, 0.4, false),
   ],
-  'ing-3': [
+  'Informatique ING S3': [
     ModulePreset('SFSD', 5, 0.6, 0.4, false),
     ModulePreset('POO 1', 5, 0.6, 0.4, false),
     ModulePreset('ADO 2', 5, 0.6, 0.4, false),
@@ -74,7 +74,7 @@ final Map<String, List<ModulePreset>> presets = {
     ModulePreset('PS 2', 2, 0.6, 0.4, false),
     ModulePreset('Entreprenariat', 1, 1, 1, false),
   ],
-  'ing-4': [
+  'Informatique ING S4': [
     ModulePreset('POO 2', 6, 0.6, 0.4, false),
     ModulePreset('SI', 3, 0.6, 0.4, false),
     ModulePreset('RI', 4, 0.6, 0.4, false),
@@ -84,7 +84,7 @@ final Map<String, List<ModulePreset>> presets = {
     ModulePreset('Projet', 6, 0.6, 0.4, false),
     ModulePreset('Anglais 2', 1, 1, 1, false),
   ],
-  'INF-SEM1': [
+  'Informatique LMD S1': [
     ModulePreset('Analyse 1', 4, 0.6, 0.4, false),
     ModulePreset('Algèbre 1', 3, 0.6, 0.4, false),
     ModulePreset('ASD 1', 4, 0.6, 0.4, true),
@@ -93,7 +93,7 @@ final Map<String, List<ModulePreset>> presets = {
     ModulePreset('Langue étrangère 1', 1, 1, 1, false),
     ModulePreset('Physique 1', 2, 0.6, 0.4, false),
   ],
-  'INF-SEM2': [
+  'Informatique LMD S2': [
     ModulePreset('Analyse 2', 4, 0.6, 0.4, false),
     ModulePreset('Algèbre 2', 2, 0.6, 0.4, false),
     ModulePreset('ASD 2', 4, 0.6, 0.4, true),
@@ -103,7 +103,7 @@ final Map<String, List<ModulePreset>> presets = {
     ModulePreset('Outils de programmation', 1, 0.6, 0.4, false),
     ModulePreset('Physique 2', 2, 0.6, 0.4, false),
   ],
-  'INF-SEM3': [
+  'Informatique LMD S3': [
     ModulePreset('ADO 1', 3, 0.6, 0.4, true),
     ModulePreset('ASD 3', 3, 0.6, 0.4, true),
     ModulePreset('SI', 3, 0.6, 0.4, true),
@@ -112,7 +112,34 @@ final Map<String, List<ModulePreset>> presets = {
     ModulePreset('Logique', 2, 0.6, 0.4, false),
     ModulePreset('Langue étrangère 2', 1, 1, 1, false),
   ],
-  'INF-SEM4': [
+  'Informatique LMD S4': [
+    ModulePreset('Théories des langages', 2, 0.6, 0.4, true),
+    ModulePreset('SE 1', 3, 0.6, 0.4, true),
+    ModulePreset('BD', 3, 0.6, 0.4, true),
+    ModulePreset('Réseaux', 3, 0.6, 0.4, true),
+    ModulePreset('POO', 2, 0.6, 0.4, false),
+    ModulePreset('Web', 2, 0.6, 0.4, false),
+    ModulePreset('Langue étrangère 3', 1, 1, 1, false),
+  ],
+  'Informatique LMD S5': [
+    ModulePreset('Théories des langages', 2, 0.6, 0.4, true),
+    ModulePreset('SE 1', 3, 0.6, 0.4, true),
+    ModulePreset('BD', 3, 0.6, 0.4, true),
+    ModulePreset('Réseaux', 3, 0.6, 0.4, true),
+    ModulePreset('POO', 2, 0.6, 0.4, false),
+    ModulePreset('Web', 2, 0.6, 0.4, false),
+    ModulePreset('Langue étrangère 3', 1, 1, 1, false),
+  ],
+  'Informatique LMD S6': [
+    ModulePreset('Théories des langages', 2, 0.6, 0.4, true),
+    ModulePreset('SE 1', 3, 0.6, 0.4, true),
+    ModulePreset('BD', 3, 0.6, 0.4, true),
+    ModulePreset('Réseaux', 3, 0.6, 0.4, true),
+    ModulePreset('POO', 2, 0.6, 0.4, false),
+    ModulePreset('Web', 2, 0.6, 0.4, false),
+    ModulePreset('Langue étrangère 3', 1, 1, 1, false),
+  ],
+  'Informatique LMD S7': [
     ModulePreset('Théories des langages', 2, 0.6, 0.4, true),
     ModulePreset('SE 1', 3, 0.6, 0.4, true),
     ModulePreset('BD', 3, 0.6, 0.4, true),

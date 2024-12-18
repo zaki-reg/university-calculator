@@ -39,21 +39,25 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
             children: [
               Row(
                 children: [
-                  GestureDetector(
-                    onTap: () => Navigator.pop(context),
-                    child: Container(
-                      width: 100.0,
-                      height: 50.0,
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: limeGreen,
-                        border: Border.all(color: darkGreen, width: 2),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: const Icon(
-                        Icons.arrow_back,
-                        size: 24,
-                        color: darkGreen,
+                  Material(
+                    borderRadius: BorderRadius.circular(30),
+                    color: limeGreen,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(30),
+                      onTap: () => Navigator.pop(context),
+                      child: Container(
+                        width: 100.0,
+                        height: 50.0,
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: darkGreen, width: 2),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: const Icon(
+                          Icons.arrow_back,
+                          size: 24,
+                          color: darkGreen,
+                        ),
                       ),
                     ),
                   ),
@@ -106,36 +110,40 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                     width: 10.0,
                   ),
                   Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        _showPresetDropdown(context);
-                      },
-                      child: Container(
-                        height: 105.0,
-                        padding: const EdgeInsets.all(15),
-                        decoration: BoxDecoration(
-                          color: limeGreen,
-                          border: Border.all(color: darkGreen, width: 2),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Select a preset',
-                              style: textStyle.copyWith(
-                                  fontSize: 14, color: darkGreen),
-                            ),
-                            const SizedBox(
-                              height: 3.0,
-                            ),
-                            const SizedBox(height: 4),
-                            const Icon(
-                              Icons.tune_rounded,
-                              size: 40.0,
-                              color: darkGreen,
-                            ),
-                          ],
+                    child: Material(
+                      borderRadius: BorderRadius.circular(20),
+                      color: limeGreen,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(20),
+                        onTap: () {
+                          _showPresetDropdown(context);
+                        },
+                        child: Container(
+                          height: 105.0,
+                          padding: const EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: darkGreen, width: 2),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Select a preset',
+                                style: textStyle.copyWith(
+                                    fontSize: 14, color: darkGreen),
+                              ),
+                              const SizedBox(
+                                height: 3.0,
+                              ),
+                              const SizedBox(height: 4),
+                              const Icon(
+                                Icons.tune_rounded,
+                                size: 40.0,
+                                color: darkGreen,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -161,35 +169,37 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
               ),
 
               // Add Module Button
-              InkWell(
-                highlightColor: darkGreen,
+              Material(
+                color: limeGreen,
                 borderRadius: BorderRadius.circular(50),
-                onTap: _showAddModuleDialog,
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  decoration: BoxDecoration(
-                    color: limeGreen,
-                    border: Border.all(color: darkGreen, width: 2),
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.add,
-                        color: darkGreen,
-                        size: 25,
-                      ),
-                      const SizedBox(width: 2),
-                      Text(
-                        'Add Module',
-                        style: textStyle.copyWith(
-                            fontSize: 17,
-                            color: darkGreen,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(50),
+                  onTap: _showAddModuleDialog,
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: darkGreen, width: 2),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.add,
+                          color: darkGreen,
+                          size: 25,
+                        ),
+                        const SizedBox(width: 2),
+                        Text(
+                          'Add Module',
+                          style: textStyle.copyWith(
+                              fontSize: 17,
+                              color: darkGreen,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

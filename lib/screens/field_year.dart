@@ -44,149 +44,176 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: darkGreen,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25.0),
-        child: Column(
-          textDirection: TextDirection.rtl,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 40.0),
-              child: SvgPicture.asset(
-                'assets/vectors/logo.svg',
-                width: 180,
-                colorFilter:
-                    const ColorFilter.mode(limeGreen, BlendMode.srcATop),
+      backgroundColor: backgroundColor,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            flex: 2,
+            child: Card(
+              margin: EdgeInsets.zero,
+              elevation: 0,
+              shape: const BeveledRectangleBorder(
+                side: BorderSide(width: 1, color: Colors.black),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(30),
+                ),
+              ),
+              color: limeGreen,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 30.0, horizontal: 20.0),
+                child: Center(
+                  child: SvgPicture.asset(
+                    'assets/vectors/logo.svg',
+                    width: 180,
+                    colorFilter:
+                        const ColorFilter.mode(darkGreen, BlendMode.srcATop),
+                  ),
+                ),
               ),
             ),
-            Directionality(
+          ),
+          const Expanded(child: SizedBox()),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Column(
               textDirection: TextDirection.rtl,
-              child: RichText(
-                textAlign: TextAlign.right,
-                text: TextSpan(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(vertical: 40.0),
+                //   child: SvgPicture.asset(
+                //     'assets/vectors/logo.svg',
+                //     width: 180,
+                //     colorFilter:
+                //         const ColorFilter.mode(limeGreen, BlendMode.srcATop),
+                //   ),
+                // ),
+                Directionality(
+                  textDirection: TextDirection.rtl,
+                  child: RichText(
+                    textAlign: TextAlign.right,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'أهلا ',
+                          style: arabicTextStyle.copyWith(
+                              color: darkGreen,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 45.0,
+                              height: 1.2),
+                        ),
+                        TextSpan(
+                          text: widget.enteredText,
+                          style: arabicTextStyle.copyWith(
+                              color: richPurple,
+                              fontWeight: FontWeight.normal,
+                              fontSize: 45.0,
+                              height: 1.2),
+                        ),
+                        TextSpan(
+                          text: ', أي تخصص؟',
+                          style: arabicTextStyle.copyWith(
+                            color: darkGreen,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 45.0,
+                            height: 1.2,
+                          ),
+                        ),
+                        TextSpan(
+                          text: ' وأي عام؟',
+                          style: arabicTextStyle.copyWith(
+                            color: darkGreen,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 45.0,
+                            height: 1.2,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10.0),
+                Row(
                   children: [
-                    TextSpan(
-                      text: 'أهلا ',
-                      style: arabicTextStyle.copyWith(
-                          color: limeGreen,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 45.0,
-                          height: 1.2),
-                    ),
-                    TextSpan(
-                      text: widget.enteredText + ', ',
-                      style: arabicTextStyle.copyWith(
-                          color: brightYellow,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 45.0,
-                          height: 1.2),
-                    ),
-                    TextSpan(
-                      text: 'اختر',
-                      style: arabicTextStyle.copyWith(
-                        color: limeGreen,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 45.0,
-                        height: 1.2,
+                    Expanded(
+                      child: InkWell(
+                        highlightColor: limeGreen,
+                        borderRadius: BorderRadius.circular(20.0),
+                        onTap: () async {
+                          final selected = await _showMenu(context);
+                          if (selected != null) {
+                            setState(() {
+                              if (selectedField != selected) {
+                                selectedField = selected;
+                                isFieldSelected = true;
+                                additionalRows.clear(); // Clear previous rows
+                                hasAddedRow =
+                                    false; // Allow adding rows for the new field
+                              }
+                            });
+                          }
+                        },
+                        child: Material(
+                          color: Colors.transparent,
+                          child: Container(
+                            height: 80,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 8),
+                            decoration: BoxDecoration(
+                              color: limeGreen.withAlpha(40),
+                              borderRadius: BorderRadius.circular(20.0),
+                              border: Border.all(color: darkGreen, width: 2),
+                            ),
+                            child: Row(
+                              children: [
+                                const Icon(
+                                    Icons.arrow_drop_down_circle_outlined,
+                                    color: darkGreen),
+                                const SizedBox(width: 15),
+                                Text(
+                                  selectedField,
+                                  style: textStyle.copyWith(
+                                    fontSize: 18,
+                                    color: darkGreen,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    TextSpan(
-                      text: ' تخصصك, ',
-                      style: arabicTextStyle.copyWith(
-                        color: brightYellow,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 45.0,
-                        height: 1.2,
-                      ),
-                    ),
-                    TextSpan(
-                      text: 'والسنة الجارية.',
-                      style: arabicTextStyle.copyWith(
-                        color: brightYellow,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 45.0,
-                        height: 1.2,
+                    const SizedBox(width: 10),
+                    Material(
+                      borderRadius: BorderRadius.circular(20.0),
+                      color: isFieldSelected ? limeGreen : Colors.transparent,
+                      child: InkWell(
+                        highlightColor: darkGreen,
+                        borderRadius: BorderRadius.circular(15.0),
+                        onTap: isFieldSelected ? addNewRow : null,
+                        child: Container(
+                          height: 80,
+                          width: 110,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15.0),
+                              border: Border.all(color: darkGreen, width: 2)),
+                          child: const Center(
+                            child: Icon(Icons.arrow_back, color: darkGreen),
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
-              ),
-            ),
-            const SizedBox(height: 10.0),
-            Row(
-              children: [
-                Expanded(
-                  child: InkWell(
-                    highlightColor: limeGreen,
-                    borderRadius: BorderRadius.circular(15.0),
-                    onTap: () async {
-                      final selected = await _showMenu(context);
-                      if (selected != null) {
-                        setState(() {
-                          if (selectedField != selected) {
-                            selectedField = selected;
-                            isFieldSelected = true;
-                            additionalRows.clear(); // Clear previous rows
-                            hasAddedRow =
-                                false; // Allow adding rows for the new field
-                          }
-                        });
-                      }
-                    },
-                    child: Material(
-                      color: Colors.transparent,
-                      child: Container(
-                        height: 80,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 8),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15.0),
-                          border: Border.all(color: limeGreen, width: 2),
-                        ),
-                        child: Row(
-                          children: [
-                            const Icon(Icons.arrow_drop_down_circle_outlined,
-                                color: limeGreen),
-                            const SizedBox(width: 15),
-                            Text(
-                              selectedField,
-                              style: textStyle.copyWith(
-                                fontSize: 18,
-                                color: limeGreen,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Material(
-                  borderRadius: BorderRadius.circular(15.0),
-                  color: isFieldSelected ? limeGreen : Colors.transparent,
-                  child: InkWell(
-                    highlightColor: darkGreen,
-                    borderRadius: BorderRadius.circular(15.0),
-                    onTap: isFieldSelected ? addNewRow : null,
-                    child: Container(
-                      height: 80,
-                      width: 110,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15.0),
-                          border: Border.all(color: limeGreen, width: 2)),
-                      child: const Center(
-                        child: Icon(Icons.arrow_back, color: limeGreen),
-                      ),
-                    ),
-                  ),
-                ),
+                ...additionalRows,
               ],
             ),
-            ...additionalRows,
-          ],
-        ),
+          ),
+          Expanded(child: SizedBox()),
+        ],
       ),
     );
   }
@@ -245,7 +272,7 @@ class _YearRowState extends State<YearRow> {
           Expanded(
             child: InkWell(
               highlightColor: limeGreen,
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(20.0),
               onTap: () async {
                 final selected = await _showYearMenu(context);
                 if (selected != null) {
@@ -258,9 +285,9 @@ class _YearRowState extends State<YearRow> {
                 color: Colors.transparent,
                 child: Container(
                   padding: const EdgeInsets.all(15.0),
-                  height: 60,
+                  height: 80,
                   decoration: BoxDecoration(
-                    color: Colors.transparent,
+                    color: limeGreen.withAlpha(40),
                     borderRadius: BorderRadius.circular(15.0),
                     border: Border.all(color: darkGreen, width: 2),
                   ),
@@ -288,7 +315,7 @@ class _YearRowState extends State<YearRow> {
           ),
           const SizedBox(width: 10),
           Material(
-            borderRadius: BorderRadius.circular(15.0),
+            borderRadius: BorderRadius.circular(20.0),
             color: limeGreen,
             child: InkWell(
               highlightColor: darkGreen,
@@ -305,8 +332,8 @@ class _YearRowState extends State<YearRow> {
                 );
               },
               child: Container(
-                height: 60,
-                width: 70,
+                height: 80,
+                width: 110,
                 decoration: BoxDecoration(
                     // color: isYearSelected ? primaryBlue : Colors.transparent,
                     borderRadius: BorderRadius.circular(15.0),
@@ -347,29 +374,3 @@ class _YearRowState extends State<YearRow> {
     );
   }
 }
-// Expanded(
-// child: Card(
-// margin: EdgeInsets.zero,
-// elevation: 0,
-// shape: const BeveledRectangleBorder(
-// side: BorderSide(width: 1, color: darkGreen),
-// borderRadius: BorderRadius.only(
-// bottomLeft: Radius.circular(30),
-// bottomRight: Radius.circular(30),
-// ),
-// ),
-// color: limeGreen,
-// child: Padding(
-// padding: const EdgeInsets.symmetric(
-// vertical: 30.0, horizontal: 20.0),
-// child: Center(
-// child: SvgPicture.asset(
-// 'assets/vectors/logo.svg',
-// width: 180,
-// colorFilter: const ColorFilter.mode(
-// darkGreen, BlendMode.srcATop),
-// ),
-// ),
-// ),
-// ),
-// ),

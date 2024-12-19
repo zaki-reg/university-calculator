@@ -108,8 +108,8 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
                         TextSpan(
                           text: widget.enteredText,
                           style: arabicTextStyle.copyWith(
-                              color: richPurple,
-                              fontWeight: FontWeight.normal,
+                              color: darkGreen,
+                              fontWeight: FontWeight.w500,
                               fontSize: 45.0,
                               height: 1.2),
                         ),

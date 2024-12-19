@@ -1,6 +1,8 @@
 // ignore_for_file: unused_element
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uni_calculator_test/providers/providers.dart';
 import 'package:uni_calculator_test/screens/annual_calculator.dart';
 import 'package:uni_calculator_test/screens/semester1.dart';
 import 'package:uni_calculator_test/screens/semester2.dart';
@@ -9,7 +11,7 @@ import 'package:uni_calculator_test/screens/study_page.dart';
 import '../constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends ConsumerStatefulWidget {
   // final String enteredText;
   final String selectedYear;
 
@@ -20,10 +22,10 @@ class HomePage extends StatefulWidget {
   });
 
   @override
-  State<HomePage> createState() => _HomeState();
+  ConsumerState<HomePage> createState() => _HomeState();
 }
 
-class _HomeState extends State<HomePage> {
+class _HomeState extends ConsumerState<HomePage> {
   // ignore: unused_field
   int _selectedNavIndex = 0;
   void _onNavItemTapped(int index) {
@@ -34,15 +36,17 @@ class _HomeState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final username = ref.watch(usernameProvider);
+
     return Scaffold(
       backgroundColor: backgroundColor,
       bottomNavigationBar: Container(
         height: 74,
         margin: const EdgeInsets.only(bottom: 30, right: 25, left: 25),
         decoration: BoxDecoration(
-          color: limeGreen,
+          color: darkGreen,
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: darkGreen, width: 2),
+          border: Border.all(color: darkGreen, width: 0),
         ),
         child: Directionality(
           textDirection: TextDirection.rtl,
@@ -60,9 +64,9 @@ class _HomeState extends State<HomePage> {
                       width: double.infinity,
                       height: double.infinity,
                       decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: darkGreen, width: 2)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -86,7 +90,7 @@ class _HomeState extends State<HomePage> {
               Expanded(
                 child: Material(
                   borderRadius: BorderRadius.circular(20),
-                  color: limeGreen,
+                  color: darkGreen,
                   child: InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -95,11 +99,11 @@ class _HomeState extends State<HomePage> {
                         MaterialPageRoute(builder: (context) => ActivityGrid()),
                       );
                     },
-                    splashColor: darkGreen.withAlpha(30),
+                    splashColor: limeGreen.withAlpha(30),
                     child: Container(
-                      width: double.infinity,
                       height: double.infinity,
                       decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: Colors.transparent),
                         color: Colors.transparent,
                         borderRadius: BorderRadius.circular(20),
                       ),
@@ -107,7 +111,7 @@ class _HomeState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Icon(Icons.library_books_rounded,
-                              color: darkGreen),
+                              color: limeGreen),
                           const SizedBox(
                             width: 3,
                           ),
@@ -115,7 +119,7 @@ class _HomeState extends State<HomePage> {
                             'دراسة',
                             style: arabicTextStyle.copyWith(
                                 fontSize: 16,
-                                color: darkGreen,
+                                color: limeGreen,
                                 fontWeight: FontWeight.w500),
                           )
                         ],
@@ -127,7 +131,7 @@ class _HomeState extends State<HomePage> {
               Expanded(
                 child: Material(
                   borderRadius: BorderRadius.circular(20),
-                  color: limeGreen,
+                  color: darkGreen,
                   child: InkWell(
                     borderRadius: BorderRadius.circular(20),
                     onTap: () {
@@ -143,13 +147,14 @@ class _HomeState extends State<HomePage> {
                       width: double.infinity,
                       height: double.infinity,
                       decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
+                          color: Colors.transparent,
+                          borderRadius: BorderRadius.circular(20),
+                          border:
+                              Border.all(width: 2, color: Colors.transparent)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.timeline_rounded, color: darkGreen),
+                          const Icon(Icons.timeline_rounded, color: limeGreen),
                           const SizedBox(
                             width: 3,
                           ),
@@ -157,7 +162,7 @@ class _HomeState extends State<HomePage> {
                             'إنتاجية',
                             style: arabicTextStyle.copyWith(
                                 fontSize: 16,
-                                color: darkGreen,
+                                color: limeGreen,
                                 fontWeight: FontWeight.w500),
                           )
                         ],
@@ -258,14 +263,14 @@ class _HomeState extends State<HomePage> {
                                 ),
                                 children: [
                                   TextSpan(
-                                    text: 'أهلا ',
+                                    text: 'أهلا, ',
                                     style: arabicTextStyle.copyWith(
                                         color: darkGreen,
                                         fontWeight: FontWeight
                                             .normal), // Replace with your WhiteBlue color
                                   ),
                                   TextSpan(
-                                    text: widget.selectedYear,
+                                    text: username,
                                     style: arabicTextStyle.copyWith(
                                         color: darkGreen,
                                         fontWeight: FontWeight

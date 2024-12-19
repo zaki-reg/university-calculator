@@ -1,18 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart' show SvgPicture;
 import 'package:uni_calculator_test/custom_shape.dart';
+import 'package:uni_calculator_test/providers/providers.dart';
 import '../constants.dart';
 import 'field_year.dart';
 
-class Welcome extends StatefulWidget {
+class Welcome extends ConsumerStatefulWidget {
   const Welcome({super.key});
 
   @override
-  State<Welcome> createState() => _WelcomeState();
+  ConsumerState<Welcome> createState() => _WelcomeState();
 }
 
-class _WelcomeState extends State<Welcome> {
+class _WelcomeState extends ConsumerState<Welcome> {
   TextEditingController controller = TextEditingController();
 
   @override
@@ -161,6 +163,8 @@ class _WelcomeState extends State<Welcome> {
                           InkWell(
                             borderRadius: BorderRadius.circular(15.0),
                             onTap: () {
+                              ref.read(usernameProvider.notifier).state =
+                                  controller.text;
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(

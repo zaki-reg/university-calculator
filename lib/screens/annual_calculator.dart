@@ -10,8 +10,8 @@ class AnnualAveragePage extends StatefulWidget {
 
 class _AnnualAveragePageState extends State<AnnualAveragePage> {
   final List<Semester> semesters = [
-    Semester("Semester 1", 0),
-    Semester("Semester 2", 0),
+    Semester("الفصل الأول", 0),
+    Semester("الفصل الثاني", 0),
   ];
   double annualAverage = 0.0;
 
@@ -227,66 +227,75 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
   Widget _buildSemesterCard(
       Semester semester, TextEditingController controller, int index) {
     return Container(
+      height: 180,
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: limeGreen,
         border: Border.all(color: darkGreen, width: 2),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              const Icon(
-                Icons.arrow_forward_ios_rounded,
-                size: 20,
-                color: darkGreen,
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  size: 20,
+                  color: darkGreen,
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  semester.name,
+                  textAlign: TextAlign.right,
+                  style: arabicTextStyle.copyWith(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w600,
+                      color: darkGreen),
+                ),
+              ],
+            ),
+            const SizedBox(height: 20),
+            Container(
+              height: 70,
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              decoration: BoxDecoration(
+                color: backgroundColor,
+                border: Border.all(color: darkGreen, width: 2),
+                borderRadius: BorderRadius.circular(20),
               ),
-              const SizedBox(
-                width: 5,
-              ),
-              Text(
-                semester.name,
+              child: TextField(
+                textAlignVertical: const TextAlignVertical(y: .7),
+                cursorColor: limeGreen,
+                controller: controller,
+                keyboardType: TextInputType.number,
+                textAlign: TextAlign.right,
+                onChanged: (value) {
+                  setState(() {
+                    semester.average = double.tryParse(value) ?? 0;
+                  });
+                },
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'معدل الفصل',
+                  hintStyle: arabicTextStyle.copyWith(
+                      color: darkGreen.withAlpha(80), fontSize: 17),
+                  contentPadding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
+                ),
                 style: textStyle.copyWith(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w600,
-                    color: darkGreen),
+                    fontSize: 17,
+                    color: darkGreen,
+                    fontWeight: FontWeight.w500),
               ),
-            ],
-          ),
-          const SizedBox(height: 20),
-          Container(
-            height: 70,
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              border: Border.all(color: darkGreen, width: 2),
-              borderRadius: BorderRadius.circular(20),
             ),
-            child: TextField(
-              textAlignVertical: const TextAlignVertical(y: 1),
-              cursorColor: limeGreen,
-              controller: controller,
-              keyboardType: TextInputType.number,
-              onChanged: (value) {
-                setState(() {
-                  semester.average = double.tryParse(value) ?? 0;
-                });
-              },
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Enter average',
-                hintStyle: textStyle.copyWith(
-                    color: darkGreen.withAlpha(80), fontSize: 17),
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
-              ),
-              style: textStyle.copyWith(
-                  fontSize: 17, color: darkGreen, fontWeight: FontWeight.w500),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

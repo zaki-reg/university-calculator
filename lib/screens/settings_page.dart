@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uni_calculator_test/constants.dart';
+import 'package:uni_calculator_test/providers/providers.dart';
 
-class SettingsPage extends StatefulWidget {
+class SettingsPage extends ConsumerStatefulWidget {
   const SettingsPage({super.key});
 
   @override
-  State<SettingsPage> createState() => _SettingsPageState();
+  ConsumerState<SettingsPage> createState() => _SettingsPageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
+class _SettingsPageState extends ConsumerState<SettingsPage> {
   bool isDarkMode = false;
   String selectedLanguage = 'English';
   bool notificationsEnabled = true;
-  String userName = 'Zakaria Reguig';
   String userEmail = 'zakig701@gmail.com';
 
   @override
   Widget build(BuildContext context) {
+    final username = ref.watch(usernameProvider);
+
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SafeArea(
@@ -81,7 +84,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                     const SizedBox(height: 15),
                     Text(
-                      userName,
+                      username!,
                       style: textStyle.copyWith(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,

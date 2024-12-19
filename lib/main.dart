@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uni_calculator_test/constants.dart';
 import 'package:uni_calculator_test/screens/welcome.dart';
 
 void main() {
-  runApp(const UniCal());
+  runApp(const ProviderScope(child: UniCal()));
 }
 
-class UniCal extends StatelessWidget {
+class UniCal extends ConsumerWidget {
   const UniCal({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       theme: ThemeData(
         popupMenuTheme: PopupMenuThemeData(

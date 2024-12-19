@@ -44,7 +44,6 @@ class ModulePreset {
       this.name, this.coef, this.examRatio, this.tdTpRatio, this.isTdTp);
 }
 
-// Preset data (ING-1 with modules and coefficients)
 final Map<String, List<ModulePreset>> presets = {
   'Informatique ING S1': [
     ModulePreset('Analyse 1', 6, 0.6, 0.4, false),

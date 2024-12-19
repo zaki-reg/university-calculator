@@ -616,7 +616,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
             style: textStyle.copyWith(color: darkGreen),
           ),
           content: ConstrainedBox(
-            constraints: BoxConstraints(maxHeight: 350),
+            constraints: const BoxConstraints(maxHeight: 350),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.min,

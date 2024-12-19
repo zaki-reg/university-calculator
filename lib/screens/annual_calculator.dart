@@ -307,6 +307,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
     });
   }
 
+  // ignore: unused_element
   String _getStatusMessage(double average) {
     if (average >= 10) {
       return 'Passed Successfully! 🎉';
@@ -315,6 +316,7 @@ class _AnnualAveragePageState extends State<AnnualAveragePage> {
     }
   }
 
+  // ignore: unused_element
   Color _getStatusColor(double average) {
     if (average >= 10) {
       return richPurple;

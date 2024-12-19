@@ -1,5 +1,6 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:uni_calculator_test/screens/annual_calculator.dart';
 import 'package:uni_calculator_test/screens/semester1.dart';
 import 'package:uni_calculator_test/screens/semester2.dart';
@@ -23,6 +24,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomeState extends State<HomePage> {
+  // ignore: unused_field
   int _selectedNavIndex = 0;
   void _onNavItemTapped(int index) {
     setState(() {

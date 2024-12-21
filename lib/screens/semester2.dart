@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uni_calculator_test/module_calculator.dart';
+import 'package:uni_calculator_test/providers/providers.dart';
 import '../module_calculator.dart';
 import 'package:uni_calculator_test/constants.dart';
 
-class Semester2CalculatorPage extends StatefulWidget {
+class Semester2CalculatorPage extends ConsumerStatefulWidget {
   const Semester2CalculatorPage({super.key});
 
   @override
-  State<Semester2CalculatorPage> createState() =>
-      _Semester1CalculatorPageState();
+  ConsumerState<Semester2CalculatorPage> createState() =>
+      _Semester2CalculatorPageState();
 }
 
-class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
-  final List<Module> modules = [];
+class _Semester2CalculatorPageState
+    extends ConsumerState<Semester2CalculatorPage> {
   double semesterAverage = 0.0;
+  List<Module> modules = [];
 
   @override
   void initState() {
@@ -21,14 +25,26 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
 
   @override
   void dispose() {
-    for (var module in modules) {
-      module.dispose();
-    }
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final selectedYear = ref.watch(userFieldAndYear);
+    final selectedSemester = 's2';
+
+    modules =
+        presets[selectedYear.toString()]?[selectedSemester]?.map((preset) {
+              return Module(
+                preset.name,
+                preset.coef,
+                preset.examRatio,
+                preset.tdTpRatio,
+                preset.isTdTp,
+              );
+            }).toList() ??
+            [];
+
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SafeArea(
@@ -63,7 +79,7 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                   ),
                   const SizedBox(width: 15),
                   Text(
-                    'Semester 2',
+                    "Semester 2",
                     style: textStyle.copyWith(
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
@@ -442,7 +458,7 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                     ),
                     TextField(
                       cursorColor: limeGreen,
-                      style: textStyle.copyWith(color: highlightWhite),
+                      style: textStyle.copyWith(color: darkGreen),
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         examRatio = double.tryParse(value) ?? 0.6;
@@ -474,7 +490,7 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                     ),
                     TextField(
                       cursorColor: limeGreen,
-                      style: textStyle.copyWith(color: highlightWhite),
+                      style: textStyle.copyWith(color: darkGreen),
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         tdTpRatio = double.tryParse(value) ?? 0.4;
@@ -505,7 +521,7 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
                       height: 8.0,
                     ),
                     Container(
-                      height: 56,
+                      height: 57,
                       padding: const EdgeInsets.symmetric(horizontal: 14.5),
                       width: double.infinity,
                       decoration: BoxDecoration(
@@ -615,46 +631,49 @@ class _Semester1CalculatorPageState extends State<Semester2CalculatorPage> {
             'Select a Preset',
             style: textStyle.copyWith(color: darkGreen),
           ),
-          content: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: presets.keys.map((key) {
-                return Container(
-                  margin: const EdgeInsets.symmetric(vertical: 4.0),
-                  decoration: BoxDecoration(
-                    color: limeGreen,
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(
-                      color: darkGreen,
-                      width: 2,
-                    ),
-                  ),
-                  child: ListTile(
-                    splashColor: darkGreen,
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 12.0),
-                    shape: RoundedRectangleBorder(
+          content: ConstrainedBox(
+            constraints: const BoxConstraints(maxHeight: 350),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: presets.keys.map((key) {
+                  return Container(
+                    margin: const EdgeInsets.symmetric(vertical: 4.0),
+                    decoration: BoxDecoration(
+                      color: limeGreen,
                       borderRadius: BorderRadius.circular(15),
+                      border: Border.all(
+                        color: darkGreen,
+                        width: 2,
+                      ),
                     ),
-                    title: Text(
-                      key,
-                      style: textStyle.copyWith(color: darkGreen),
+                    child: ListTile(
+                      splashColor: darkGreen,
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 12.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      title: Text(
+                        key,
+                        style: textStyle.copyWith(color: darkGreen),
+                      ),
+                      onTap: () {
+                        setState(() {
+                          // Dispose of existing module controllers
+                          for (var module in modules) {
+                            module.dispose();
+                          }
+                          modules.clear();
+                          modules.addAll(applyPreset(key));
+                          _calculateAverage();
+                        });
+                        Navigator.pop(context);
+                      },
                     ),
-                    onTap: () {
-                      setState(() {
-                        // Dispose of existing module controllers
-                        for (var module in modules) {
-                          module.dispose();
-                        }
-                        modules.clear();
-                        modules.addAll(applyPreset(key));
-                        _calculateAverage();
-                      });
-                      Navigator.pop(context);
-                    },
-                  ),
-                );
-              }).toList(),
+                  );
+                }).toList(),
+              ),
             ),
           ),
           actions: [

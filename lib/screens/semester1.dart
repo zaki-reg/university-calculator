@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:uni_calculator_test/module_calculator.dart';
+import 'package:uni_calculator_test/providers/providers.dart';
 import '../module_calculator.dart';
 import 'package:uni_calculator_test/constants.dart';
 
-class Semester1CalculatorPage extends StatefulWidget {
+class Semester1CalculatorPage extends ConsumerStatefulWidget {
   const Semester1CalculatorPage({super.key});
 
   @override
-  State<Semester1CalculatorPage> createState() =>
+  ConsumerState<Semester1CalculatorPage> createState() =>
       _Semester1CalculatorPageState();
 }
 
-class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
-  final List<Module> modules = [];
+class _Semester1CalculatorPageState
+    extends ConsumerState<Semester1CalculatorPage> {
   double semesterAverage = 0.0;
+  List<Module> modules = [];
 
   @override
   void initState() {
@@ -21,14 +25,26 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
 
   @override
   void dispose() {
-    for (var module in modules) {
-      module.dispose();
-    }
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final selectedYear = ref.watch(userFieldAndYear);
+    final selectedSemester = 's1';
+
+    modules =
+        presets[selectedYear.toString()]?[selectedSemester]?.map((preset) {
+              return Module(
+                preset.name,
+                preset.coef,
+                preset.examRatio,
+                preset.tdTpRatio,
+                preset.isTdTp,
+              );
+            }).toList() ??
+            [];
+
     return Scaffold(
       backgroundColor: backgroundColor,
       body: SafeArea(
@@ -63,7 +79,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                   ),
                   const SizedBox(width: 15),
                   Text(
-                    'Semester 1',
+                    "Semester 1",
                     style: textStyle.copyWith(
                         fontSize: 25,
                         fontWeight: FontWeight.w600,

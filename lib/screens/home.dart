@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uni_calculator_test/providers/providers.dart';
 import 'package:uni_calculator_test/screens/annual_calculator.dart';
+import 'package:uni_calculator_test/screens/productivity.dart';
 import 'package:uni_calculator_test/screens/semester1.dart';
 import 'package:uni_calculator_test/screens/semester2.dart';
 import 'package:uni_calculator_test/screens/settings_page.dart';
@@ -137,9 +138,7 @@ class _HomeState extends ConsumerState<HomePage> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                const Semester2CalculatorPage()),
+                        MaterialPageRoute(builder: (context) => Productivity()),
                       );
                     },
                     splashColor: darkGreen.withAlpha(30),

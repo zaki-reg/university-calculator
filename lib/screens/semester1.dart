@@ -442,7 +442,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                     ),
                     TextField(
                       cursorColor: limeGreen,
-                      style: textStyle.copyWith(color: highlightWhite),
+                      style: textStyle.copyWith(color: darkGreen),
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         examRatio = double.tryParse(value) ?? 0.6;
@@ -474,7 +474,7 @@ class _Semester1CalculatorPageState extends State<Semester1CalculatorPage> {
                     ),
                     TextField(
                       cursorColor: limeGreen,
-                      style: textStyle.copyWith(color: highlightWhite),
+                      style: textStyle.copyWith(color: darkGreen),
                       keyboardType: TextInputType.number,
                       onChanged: (value) {
                         tdTpRatio = double.tryParse(value) ?? 0.4;

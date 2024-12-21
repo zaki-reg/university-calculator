@@ -29,7 +29,7 @@ class Productivity extends StatelessWidget {
     if (activityCount > 2) return const Color.fromARGB(90, 48, 166, 60);
     if (activityCount > 1) return const Color.fromARGB(70, 48, 166, 60);
     if (activityCount > 0) return const Color.fromARGB(40, 48, 166, 60);
-    return Colors.white54!;
+    return Colors.white54;
   }
 
   @override

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:uni_calculator_test/providers/providers.dart';
 import 'package:uni_calculator_test/screens/home.dart';
 
 import '../constants.dart';
@@ -251,7 +253,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
   }
 }
 
-class YearRow extends StatefulWidget {
+class YearRow extends ConsumerStatefulWidget {
   final List<String> years;
 
   const YearRow({super.key, required this.years});
@@ -260,7 +262,7 @@ class YearRow extends StatefulWidget {
   _YearRowState createState() => _YearRowState();
 }
 
-class _YearRowState extends State<YearRow> {
+class _YearRowState extends ConsumerState<YearRow> {
   String selectedYear = "Select Year";
 
   @override
@@ -321,13 +323,11 @@ class _YearRowState extends State<YearRow> {
               highlightColor: darkGreen,
               borderRadius: BorderRadius.circular(15.0),
               onTap: () {
+                ref.read(userFieldAndYear.notifier).state = selectedYear;
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => HomePage(
-                      selectedYear: selectedYear,
-                      // enteredText: enteredText,
-                    ),
+                    builder: (context) => HomePage(),
                   ),
                 );
               },

@@ -13,13 +13,8 @@ import '../constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage extends ConsumerStatefulWidget {
-  // final String enteredText;
-  final String selectedYear;
-
   const HomePage({
     super.key,
-    // required this.enteredText,
-    required this.selectedYear,
   });
 
   @override
